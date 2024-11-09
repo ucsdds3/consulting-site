@@ -1,12 +1,12 @@
-import Navbar from './Components/Navbar'
-
+import Navbar from "./Components/Navbar";
+import LandingPage from "./Components/LandingPage";
 function App() {
-  
   return (
     <>
       <Navbar />
+      <LandingPage />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,4 +1,4 @@
-import { FaHome } from "react-icons/fa";
+// import { FaHome } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
@@ -8,7 +8,10 @@ const Navbar = () => {
 
   return (
     <div className="flex fixed w-full z-10 items-center">
-      <button className="text-[2rem] font-bold ml-6" onClick={() => navigate("/")}>
+      <button
+        className="text-[2rem] font-bold ml-6"
+        onClick={() => navigate("/")}
+      >
         DS3
       </button>
       <div className="flex flex-1 justify-end">
