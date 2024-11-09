@@ -1,10 +1,10 @@
-import Navbar from './Components/Navbar'
+import Page from "./Components/Page/Page"
 
 function App() {
   
   return (
     <>
-      <Navbar />
+      <Page></Page>
     </>
   )
 }
