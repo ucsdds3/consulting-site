@@ -1,5 +1,6 @@
 import { FaDiscord, FaGithub, FaLinkedinIn } from "react-icons/fa6";
 import { SiGmail } from "react-icons/si";
+import { baseURL } from "../../Utils/info";
 
 const Footer = () => {
   const btnClass =
@@ -8,7 +9,7 @@ const Footer = () => {
   return (
     <div className="border-t border-[--border-color] flex py-8 bg-[#181818]">
       <div className="flex flex-col flex-1 gap-3 items-center">
-        <img src="src\Assets\Images\big-logo-light.png" alt="DS3 Logo" className="w-40" />
+        <img src={`${baseURL}/src/Assets/Images/big-logo-light.png`} alt="DS3 Logo" className="w-40" />
         <div className="flex flex-col gap-2 items-center text-sm font-medium">
           <span>© 2024 Data Science Student Society, All Rights Reserved</span>
         </div>
