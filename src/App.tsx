@@ -1,11 +1,12 @@
-import Page from "./Components/Page/Page"
+import { Route, Routes } from "react-router-dom"
+import Home from "./Pages/Home/Home"
 
 function App() {
   
   return (
-    <>
-      <Page></Page>
-    </>
+    <Routes>
+      <Route path="/new-site" element={<Home />} />
+    </Routes>
   )
 }
 

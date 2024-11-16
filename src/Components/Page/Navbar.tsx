@@ -8,8 +8,8 @@ const Navbar = () => {
 
   return (
     <div className="flex fixed w-full z-10 items-center">
-      <button className="text-[2rem] font-bold ml-6 p-4" onClick={() => navigate("/")}>
-        <img src={`${baseURL}/src/Assets/Images/big-logo-light.png`} alt="Logo" className="w-24" />
+      <button className="text-[2rem] font-bold ml-2 p-4 hover:rotate-[-180deg] duration-500" onClick={() => navigate("/")}>
+        <img src={`${baseURL}/src/Assets/Images/ds3_logo.png`} alt="Logo" className="w-12" />
       </button>
       <div className="flex flex-1 justify-end mr-2">
         <button className={btnClass} onClick={() => navigate(`/about-me`)}>
