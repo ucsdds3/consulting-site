@@ -8,22 +8,23 @@ const buttonVariants = {
     y: "0.5rem"
   }
 };
+
 const Text = () => {
   return (
-    <div className="absolute top-1/3 left-[8%]">
-      <div className="relative">
+    <div className="flex flex-col justify-center mt-[20vh]">
+      <div className="">
         <div className="text-[4vh] text-white">DS3</div>
-        <div className="flex text-white text-[8vh]">
+        <div className="flex text-white text-[5vw] leading-[4vw] ml-[-0.1rem]">
           <div className="text-[#F58134]">Learn</div>,
-          <div className="text-[#19B5CA] ml-[0.5ch]">Build</div>,
-          <div className="text-[#A9A9A9] ml-[0.5ch]">Innovate</div>, With Data
+          <div className="text-[#19B5CA] ml-[0.5rem]">Build</div>,
+          <div className="text-[#A9A9A9] ml-[0.5rem]">Innovate</div>, With Data
         </div>
-        <div>
-          we are here to expand the horizons of data science as a community
-          together
+        <div className="mt-4">
+          We are here to expand the horizons of data science as a community
+          together.
         </div>
         <motion.button
-          className="absolute top-full mt-5 w-28 h-10 border-2 rounded-full bg-black"
+          className="mt-10 w-40 h-14 border-2 rounded-full bg-black text-white text-lg"
           variants={buttonVariants}
           initial="initial"
           animate="initial"
@@ -31,7 +32,7 @@ const Text = () => {
         >
           Join Us
         </motion.button>
-        <div className="absolute top-full mt-5 w-28 h-10 border-2 rounded-full translate-y-2 bg-white z-[-1]"></div>
+        <div className="mt-[-3rem] w-40 h-14 border-2 rounded-full bg-white z-[-1]"></div>
       </div>
     </div>
   );

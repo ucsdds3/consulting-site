@@ -5,11 +5,11 @@ import Stars from "../../Components/Landing/Stars";
 
 const Landing = () => {
   return (
-    <div className="w-full min-h-screen">
+    <div className="flex flex-col w-[80vw] min-h-[90vh] mx-auto">
       <Stars />
       <TextArea />
 
-      <div className="absolute top-[50vh] right-0 w-[30%] h-1/2">
+      <div className="absolute bottom-[10vh] right-[10vw] w-[30%] h-1/2">
         <motion.img
           src={dino}
           alt=""

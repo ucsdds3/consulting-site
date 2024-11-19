@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import star from "/src/Assets/Images/Star.svg";
+
 const starVariants = {
   initial: {
     rotate: 0
@@ -21,16 +22,18 @@ const AppearingVariants = {
     }
   }
 };
+
 const Stars = () => {
   return (
     <motion.div
       variants={AppearingVariants}
       initial="initial"
       animate="animate"
+      className="z-[-10]"
     >
       {Array.from({ length: 10 }, (_, index) => {
         const randomX = 10 + Math.floor(Math.random() * 80);
-        const randomY = 10 + Math.floor(Math.random() * 80);
+        const randomY = 5 + Math.floor(Math.random() * 80);
         return (
           <motion.div
             variants={AppearingVariants}
