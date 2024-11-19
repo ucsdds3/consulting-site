@@ -24,7 +24,7 @@ const Stats = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center gap-10 h-screen justify-start text-white py-24">
+    <div className="flex flex-col items-center gap-10 justify-start text-white py-24">
       
       <motion.h1
         initial={{ y: -50, opacity: 0 }}

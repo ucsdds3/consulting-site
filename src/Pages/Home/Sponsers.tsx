@@ -2,7 +2,7 @@ import { baseURL } from "../../Utils/info";
 
 const Sponsers = () => {
   return (
-    <div className="flex flex-col gap-10 w-[60vw]">
+    <div className="flex flex-col gap-10 w-[80vw]">
       <div className="flex flex-col gap-8 w-[40vw]">
         <h2 className="text-5xl text-white">Our Sponsers</h2>
         <p className="text-gray-300 w-2/3">
@@ -20,9 +20,9 @@ const Sponsers = () => {
           className="w-60 h-auto object-contain"
         />
         <img
-          src={`${baseURL}/src/Assets/Images/HDSI_logo.png`}
+          src={`${baseURL}/src/Assets/Images/HDSI_logo_light.png`}
           alt="HDSI @ UCSD"
-          className="w-60 h-auto object-contain"
+          className="w-96 h-auto object-contain"
         />
         <img
           src={`${baseURL}/src/Assets/Images/palantir-vector-logo.svg`}
