@@ -24,27 +24,27 @@ const Stats = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center h-screen justify-start text-white">
+    <div className="flex flex-col items-center gap-10 h-screen justify-start text-white py-24">
       
       <motion.h1
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="title font-bold mb-10 text-3xl"
+        className="title font-bold mb-10 text-5xl"
       >
         Get Involved
       </motion.h1>
 
 
-      <div className="stats-list">
+      <div className="flex flex-col gap-10">
         {statsData.map((stat, index) => (
-          <div key={index} className="stat-item flex items-center mb-4">
+          <div key={index} className="stat-item flex items-center">
 
             <motion.span
               initial={{ x: -100, opacity: 0 }}
               animate={{ x: -40, opacity: 1 }}
               transition={{ duration: 1, delay: index * 0.125, ease: "easeOut" }}
-              className="number text-5xl font-bold w-20 text-right text-white"
+              className="number text-7xl font-bold w-20 text-right text-white hero-text-shadow"
             >
               {Math.round(stat) + (Math.round(stat) == maxNumbers[index] ? '+' : '')}
             </motion.span>
@@ -54,7 +54,7 @@ const Stats = () => {
               initial={{ x: 100, opacity: 0 }}
               animate={{ x: 40, opacity: 1 }}
               transition={{ duration: 1, delay: index * 0.125, ease: "easeOut" }}
-              className="ml-24 text-white"
+              className="text-white text-2xl ml-24"
             >
               {descriptions[index]}
             </motion.span>
