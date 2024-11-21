@@ -1,9 +1,14 @@
 import { motion } from "framer-motion";
 import { buttonVariants } from "./LandingVariants";
+import { forwardRef, LegacyRef } from "react";
 
-const Text = () => {
+const Text = forwardRef((props, ref: LegacyRef<HTMLDivElement>) => {
   return (
-    <div className="flex flex-col justify-center mt-[20vh]" id="textarea">
+    <div
+      className="flex flex-col justify-center mt-[20vh]"
+      id="textarea"
+      ref={ref}
+    >
       <div className="">
         <div className="text-[4vh] text-white">DS3</div>
         <div className="flex text-white text-[5vw] leading-[4vw] ml-[-0.1rem]">
@@ -28,5 +33,5 @@ const Text = () => {
       </div>
     </div>
   );
-};
+});
 export default Text;
