@@ -1,29 +1,9 @@
 import { motion } from "framer-motion";
-import star from "/src/Assets/Images/Star.svg";
+import { AppearingVariants } from "./LandingVariants";
+import Star from "./Star";
+import { RefObject } from "react";
 
-const starVariants = {
-  initial: {
-    rotate: 0
-  },
-  animate: {
-    rotate: Array.from({ length: 360 }, (_, i) => i + 10)
-  }
-};
-
-const AppearingVariants = {
-  initial: {
-    opacity: 0
-  },
-  animate: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.5
-    }
-  }
-};
-
-const Stars = () => {
+const Stars = ({ rect }: { rect: RefObject<HTMLDivElement> }) => {
   return (
     <motion.div
       variants={AppearingVariants}
@@ -31,35 +11,8 @@ const Stars = () => {
       animate="animate"
       className="z-[-10]"
     >
-      {Array.from({ length: 10 }, (_, index) => {
-        const randomX = 10 + Math.floor(Math.random() * 80);
-        const randomY = 5 + Math.floor(Math.random() * 80);
-        return (
-          <motion.div
-            variants={AppearingVariants}
-            key={index}
-            style={{
-              top: `${randomY}%`,
-              left: `${randomX}%`,
-              position: "absolute",
-              opacity: 0.2
-            }}
-          >
-            <motion.img
-              src={star}
-              alt=""
-              className="w-[20%]"
-              variants={starVariants}
-              initial="initial"
-              animate="animate"
-              transition={{
-                delay: index * 0.1,
-                duration: 10,
-                repeat: Infinity
-              }}
-            />
-          </motion.div>
-        );
+      {Array.from({ length: 12 }, (_, index) => {
+        return <Star index={index} rect={rect} key={index} />;
       })}
     </motion.div>
   );
