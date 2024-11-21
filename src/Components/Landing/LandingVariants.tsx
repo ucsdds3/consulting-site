@@ -8,10 +8,12 @@ export const buttonVariants = {
 };
 export const starVariants = {
   initial: {
-    rotate: 0
+    rotate: 0,
+    scale: 1
   },
   animate: {
-    rotate: Array.from({ length: 360 }, (_, i) => i + 10)
+    rotate: Array.from({ length: 360 }, (_, i) => i + 10),
+    scale: [1, 1.1, 0.9, 1]
   }
 };
 

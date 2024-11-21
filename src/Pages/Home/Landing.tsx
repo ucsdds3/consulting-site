@@ -13,9 +13,7 @@ const Landing = () => {
   return (
     <div className="flex flex-col w-[80vw] min-h-[90vh] mx-auto">
       {rendered && <Stars rect={TextAreaRef} />}
-      <div ref={TextAreaRef}>
-        <TextArea />
-      </div>
+      <TextArea ref={TextAreaRef} />
 
       <div className="absolute bottom-[10vh] right-[10vw] w-[30%] h-1/2">
         <motion.img
