@@ -1,8 +1,6 @@
-import { motion } from "framer-motion";
-import { buttonVariants } from "./LandingVariants";
 import { forwardRef, LegacyRef } from "react";
-
-const Text = forwardRef((props, ref: LegacyRef<HTMLDivElement>) => {
+import Button from "../Button";
+const Text = forwardRef((_props, ref: LegacyRef<HTMLDivElement>) => {
   return (
     <div
       className="flex flex-col justify-center mt-[20vh]"
@@ -10,26 +8,17 @@ const Text = forwardRef((props, ref: LegacyRef<HTMLDivElement>) => {
       ref={ref}
     >
       <div className="">
-        <div className="text-[4vh] text-white">DS3</div>
-        <div className="flex text-white text-[5vw] leading-[4vw] ml-[-0.1rem]">
+        <div className=" lg:text-[4vw] text-white">DS3</div>
+        <div className="flex text-white lg:text-[5vw] leading-[4vw] ml-[-0.1rem] text-[6vw]">
           <div className="text-[#F58134]">Learn</div>,
           <div className="text-[#19B5CA] ml-[0.5rem]">Build</div>,
           <div className="text-[#A9A9A9] ml-[0.5rem]">Innovate</div>, With Data
         </div>
-        <div className="mt-4 text-[1vw]">
+        <div className="mt-4 md:text-[1.5vw] text-[4vw] sm:text-[3vw]">
           We are here to expand the horizons of data science as a community
           together.
         </div>
-        <motion.button
-          className="mt-10 w-40 h-14 border-2 rounded-full bg-black text-white text-lg"
-          variants={buttonVariants}
-          initial="initial"
-          animate="initial"
-          whileHover="hover"
-        >
-          Join Us
-        </motion.button>
-        <div className="mt-[-3rem] w-40 h-14 border-2 rounded-full bg-white z-[-1]"></div>
+        <Button contents="JOIN US" onclick={() => {}} />
       </div>
     </div>
   );

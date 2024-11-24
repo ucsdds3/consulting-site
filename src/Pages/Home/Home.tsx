@@ -1,8 +1,7 @@
 import Page from "../../Components/Page/Page";
 import AboutUs from "./AboutUs";
-import Events from "./WhereWeBeen";
+import WhereWeBeen from "./WhereWeBeen";
 import Landing from "./Landing";
-import Sponsers from "./Sponsers";
 import Stats from "./Stats";
 
 const Home = () => {
@@ -11,8 +10,7 @@ const Home = () => {
       <Landing />
       <AboutUs />
       <Stats />
-      <Events />
-      <Sponsers />
+      <WhereWeBeen />
     </Page>
   );
 };
