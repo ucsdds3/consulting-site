@@ -4,14 +4,14 @@ import { useEffect, useRef, useState } from "react";
 import star from "../../Assets/Images/Star.svg";
 const Star = ({
   index,
-  rect
+  rect,
 }: {
   index: number;
   rect: React.RefObject<HTMLDivElement>;
 }) => {
   const [x, setX] = useState(Math.floor(Math.random() * 100));
   const [y, setY] = useState(10 + Math.floor(Math.random() * 70));
-  const [w, setW] = useState(3 + Math.floor(Math.random() * 7));
+  const [w, setW] = useState(1 + Math.floor(Math.random() * 1.5));
   const [overlap, setOverlap] = useState(false);
   const starref = useRef<HTMLDivElement>(null);
   const check_overlap = (
@@ -48,7 +48,7 @@ const Star = ({
         style={{
           top: `${y}%`,
           left: `${x}%`,
-          position: "absolute"
+          position: "absolute",
           // boxShadow: "0px 0px 40px 20px #ffffff"
         }}
       >
@@ -62,12 +62,12 @@ const Star = ({
             transition={{
               delay: index * 0.1,
               duration: 8 + Math.floor(Math.random() * 4),
-              repeat: Infinity
+              repeat: Infinity,
             }}
             style={{
-              width: `${w}vh`,
+              width: `${w}vw`,
               opacity: 0.4,
-              filter: "drop-shadow(0px 0px 8px white)"
+              filter: "drop-shadow(0px 0px 8px white)",
             }}
           />
         </div>
