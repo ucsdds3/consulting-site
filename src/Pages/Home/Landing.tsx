@@ -11,7 +11,7 @@ const Landing = () => {
     setRendered(true);
   }, []);
   return (
-    <div className="flex flex-col w-[80vw] min-h-[90vh] mx-auto">
+    <div className="flex flex-col lg:w-[80vw] w-[95vw] min-h-[90vh] mx-auto">
       {rendered && <Stars rect={TextAreaRef} />}
       <TextArea ref={TextAreaRef} />
 

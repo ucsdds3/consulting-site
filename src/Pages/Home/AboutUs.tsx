@@ -1,6 +1,6 @@
 const AboutUs = () => {
   return (
-    <div className="grid grid-cols-2 gap-24 max-w-[72vw] h-screen py-24">
+    <div className="grid grid-cols-2 gap-24 max-w-[72vw] py-24">
       <div className="flex-1 flex flex-col justify-between py-4">
         <div className="flex flex-col gap-4">
           <h3 className="text-xl text-gray-200">WHO WE ARE</h3>

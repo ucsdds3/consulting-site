@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { AppearingVariants, starVariants } from "./LandingVariants";
 import { useEffect, useRef, useState } from "react";
 import star from "../../Assets/Images/Star.svg";
+
 const Star = ({
   index,
   rect,
@@ -11,7 +12,7 @@ const Star = ({
 }) => {
   const [x, setX] = useState(Math.floor(Math.random() * 100));
   const [y, setY] = useState(10 + Math.floor(Math.random() * 70));
-  const [w, setW] = useState(1 + Math.floor(Math.random() * 1.5));
+  const [w, setW] = useState((5 + Math.random() * 5) / 5);
   const [overlap, setOverlap] = useState(false);
   const starref = useRef<HTMLDivElement>(null);
   const check_overlap = (
@@ -37,7 +38,7 @@ const Star = ({
     if (overlap) {
       setX(Math.floor(Math.random() * 100));
       setY(10 + Math.floor(Math.random() * 70));
-      setW(3 + Math.floor(Math.random() * 5));
+      setW((5 + Math.random() * 5) / 5);
     }
   });
   return (
