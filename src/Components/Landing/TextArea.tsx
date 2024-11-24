@@ -8,7 +8,7 @@ const Text = forwardRef((_props, ref: LegacyRef<HTMLDivElement>) => {
       ref={ref}
     >
       <div className="">
-        <div className=" lg:text-[4vw] text-white">DS3</div>
+        <div className=" lg:text-[4vw] text-[7vw] text-white">DS3</div>
         <div className="flex text-white lg:text-[5vw] leading-[4vw] ml-[-0.1rem] text-[6vw]">
           <div className="text-[#F58134]">Learn</div>,
           <div className="text-[#19B5CA] ml-[0.5rem]">Build</div>,

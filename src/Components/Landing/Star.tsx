@@ -46,6 +46,7 @@ const Star = ({
       <motion.div
         variants={AppearingVariants}
         key={index}
+        className="m-4"
         style={{
           top: `${y}%`,
           left: `${x}%`,
