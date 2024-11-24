@@ -1,7 +1,5 @@
-import { motion } from "framer-motion";
-import { buttonVariants } from "./LandingVariants";
 import { forwardRef, LegacyRef } from "react";
-
+import Button from "../Button";
 const Text = forwardRef((props, ref: LegacyRef<HTMLDivElement>) => {
   return (
     <div
@@ -20,16 +18,7 @@ const Text = forwardRef((props, ref: LegacyRef<HTMLDivElement>) => {
           We are here to expand the horizons of data science as a community
           together.
         </div>
-        <motion.button
-          className="mt-10 w-40 h-14 border-2 rounded-full bg-black text-white text-lg"
-          variants={buttonVariants}
-          initial="initial"
-          animate="initial"
-          whileHover="hover"
-        >
-          Join Us
-        </motion.button>
-        <div className="mt-[-3rem] w-40 h-14 border-2 rounded-full bg-white z-[-1]"></div>
+        <Button contents="join us" onclick={() => {}} />
       </div>
     </div>
   );
