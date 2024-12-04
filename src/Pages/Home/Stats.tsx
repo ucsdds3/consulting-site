@@ -20,8 +20,8 @@ const Stats = () => {
   ]);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  const startCounting = (index: number): void => {
-    const interval = setInterval(() => {
+  const startCounting = (index: number) => {
+    return setInterval(() => {
       setStatsData((prev) => {
         const newStats = [...prev];
         newStats[index] = Math.min(
@@ -31,42 +31,40 @@ const Stats = () => {
         return newStats;
       });
     }, 50);
-
-    return () => clearInterval(interval);
   };
 
   useEffect(() => {
-    const observers = itemRefs.current.map(
-      (ref, index): IntersectionObserver | null => {
-        if (!ref) return null;
-
-        const observer = new IntersectionObserver(
-          ([entry]) => {
-            if (entry.isIntersecting && !animated[index]) {
-              setAnimated((prev) => {
-                const updated = [...prev];
-                updated[index] = true;
-                return updated;
-              });
-              startCounting(index);
-            }
-          },
-          { threshold: 0.4 }
-        );
-
-        observer.observe(ref);
-        return observer;
-      }
-    );
-
+    const data = itemRefs.current.map((ref, index) => {
+      if (!ref) return { observer: null, interval: null };
+  
+      let interval;
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting && !animated[index]) {
+            setAnimated((prev) => {
+              const updated = [...prev];
+              updated[index] = true;
+              return updated;
+            });
+            interval = startCounting(index);
+          }
+        },
+        { threshold: 0.4 }
+      );
+  
+      observer.observe(ref);
+      return { observer, interval };
+    });
+  
     return () => {
-      observers.forEach((observer, index) => {
+      data.forEach(({ observer, interval }, index) => {
         if (observer && itemRefs.current[index]) {
-          observer.unobserve(itemRefs.current[index]!);
+          observer.unobserve(itemRefs.current[index]);
         }
+        if (interval) clearInterval(interval);
       });
     };
-  }, [animated]);
+  }, [animated, itemRefs, startCounting, setAnimated]);
 
   return (
     <div className="flex flex-col items-center justify-center gap-8 text-white py-24 h-screen w-screen mb-[4vw]">
