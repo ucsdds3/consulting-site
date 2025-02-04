@@ -9,11 +9,11 @@ const Stats = () => {
   const descriptions = [
     "Hackathon Attendees",
     "Workshops Hosted",
-    "Articles Written",
+    "Active Members",
     "Projects Completed",
   ];
 
-  const maxNumbers = [500, 78, 35, 28];
+  const maxNumbers = [500, 100, 500, 50];
 
   const [statsData, setStatsData] = useState<number[]>([0, 0, 0, 0]);
   const [animated, setAnimated] = useState<boolean[]>([
