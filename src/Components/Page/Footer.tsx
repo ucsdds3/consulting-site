@@ -6,16 +6,16 @@ const Footer = () => {
   return (
     <div className="border-t border-[--border-color] flex py-8 bg-[#181818]">
       <div className="flex flex-col flex-1 gap-3 items-center">
+      <div className="flex items-center justify-center">
         <img
-          src={`${baseURL}/src/Assets/Images/big-logo-light.png`}
+          src={`${baseURL}/src/Assets/Images/ds3_logo.png`}
           alt="DS3 Logo"
-          className="w-40"
+          className="w-12"
         />
-        <div className="flex flex-col gap-2 items-center text-sm font-medium">
-          <span>© 2024 Data Science Student Society, All Rights Reserved</span>
-        </div>
+        <span className="ml-2 text-white text-2xl font-semibold">DS3 @ UC SAN DIEGO</span>
       </div>
-      <Sponsers />
+        
+      </div>
       <SocialMedia />
     </div>
   );

@@ -151,21 +151,25 @@ const Stats = () => {
           title="Data Hacks"
           imageSrc="src/Assets/Images/homepage/images/datahacks_2.png"
           description="Do projects and make your resume look better. I love projects so much omg!"
+          link="www.ds3ucsd.com/our-team/datahacks"
         />
         <Card
           title="Projects"
           imageSrc="src/Assets/Images/homepage/images/projects-img.png"
           description="Do projects and make your resume look better. I love projects so much omg!"
+          link="www.ds3ucsd.com/our-team/projects"
         />
         <Card
           title="Workshops"
           imageSrc="src/Assets/Images/homepage/images/workshop-img.png"
           description="Do projects and make your resume look better. I love projects so much omg!"
+          link="www.ds3ucsd.com/our-team/workshops"
         />
         <Card
           title="Professional Events"
           imageSrc="src/Assets/Images/homepage/images/pf-events-img.png"
           description="Do projects and make your resume look better. I love projects so much omg!"
+          link="www.ds3ucsd.com/our-team/professional-events"
         />
       </div>
     </div>

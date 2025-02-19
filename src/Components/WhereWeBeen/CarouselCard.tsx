@@ -1,12 +1,11 @@
-const CarouselCard = ({ index }: { index: number }) => {
+interface CarouselCardProps {
+  src: string;
+}
+
+export default function CarouselCard({ src }: CarouselCardProps) {
   return (
-    <div
-      className="opacity-50 embla__slide w-[12vw] h-[10vw] border-2 border-white flex justify-center items-center text-[3vw] ml-[3vw] rounded-lg bg-white"
-      key={index}
-    >
-      {index}
+    <div className="embla__slide w-[12vw] h-[10vw] flex-shrink-0 mx-[3vw] border-2 border-white rounded-lg bg-white flex justify-center items-center">
+      <img src={src} alt="logo" className="object-contain w-full h-full" />
     </div>
   );
-};
-
-export default CarouselCard;
+}

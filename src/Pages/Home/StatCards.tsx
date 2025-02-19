@@ -1,13 +1,16 @@
 // src/Components/Card.tsx
+import { useNavigate } from "react-router-dom";
 import React from "react";
 
 interface CardProps {
   title: string;
   imageSrc: string;
   description: string;
+  link: string;
 }
 
-const Card: React.FC<CardProps> = ({ title, imageSrc, description }) => {
+const Card: React.FC<CardProps> = ({ title, imageSrc, description, link}) => {
+  const navigate = useNavigate();
   return (
     <div className="bg-black text-white p-4 rounded-lg shadow-lg border border-white relative">
       <div className="absolute top-4 right-4 flex space-x-2">
@@ -18,11 +21,18 @@ const Card: React.FC<CardProps> = ({ title, imageSrc, description }) => {
       <div
         className="w-80 h-4 mb-2"
         style={{
-          backgroundColor: "#A7A7A7",
-          opacity: 0.3,
+          backgroundColor: "#303030",
           borderRadius: "370px",
+          flex: 1,
+          alignItems: "center"
         }}
-      ></div>
+
+      >
+        <p className="text-white opacity-100 absolute text-xs ml-2 font-albert-sans hover:cursor-pointer hover:text-gray-400"
+        onClick={() => navigate("/our-team")}
+        >{link}</p>
+      </div>
+
       <div className="flex items-center justify-between mb-2">
         <span
           className="text-xl font-normal"

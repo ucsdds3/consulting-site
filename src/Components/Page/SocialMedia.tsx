@@ -10,7 +10,6 @@ const SocialMedia = () => {
       id="social-media-links"
       className="flex flex-col flex-1 items-center justify-center gap-y-8"
     >
-      <h4 className="text-lg font-bold text-white">Social Links</h4>
       <div className="flex items-center w-[20vw] justify-evenly">
         <button
           onClick={() => window.open("https://discord.gg/fbnAP848V9", "_blank")}

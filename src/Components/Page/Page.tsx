@@ -10,7 +10,7 @@ interface PageProps {
 
 const Page = ({ children }: PageProps) => {
   return (
-    <SimpleBar className={`absolute left-0 top-0 w-screen h-screen overflow-x-hidden bg-[#101010]`}>
+    <SimpleBar className={`absolute left-0 top-0 w-screen h-screen overflow-x-hidden bg-[#1E1E1E]`}>
       <Navbar />
       <div className="flex flex-col items-center py-[10vh]">
         {children || (
