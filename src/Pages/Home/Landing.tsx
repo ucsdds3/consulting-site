@@ -31,12 +31,12 @@ const Landing = () => {
   }, []);
 
   return (
-    <div className="relative flex flex-col lg:w-[80vw] w-[95vw] min-h-[90vh] mx-auto">
+    <div className=" flex flex-col lg:w-[80vw] w-[95vw] min-h-[90vh] mx-auto">
       {rendered && <Stars rect={TextAreaRef} />}
       <TextArea ref={TextAreaRef} />
 
       {/* Dino Image */}
-      <div className="absolute bottom-[1vh] right-[0vw] w-[45%] h-1/2">
+      <div className="absolute bottom-[0vh] right-[0.5vw] w-[300px] md:w-[500px] lg:w-[800px] 2xl:w-[1050px] h-1/2">
         <motion.img
           src={dino}
           alt=""
