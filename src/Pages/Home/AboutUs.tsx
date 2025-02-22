@@ -1,6 +1,6 @@
 const AboutUs = () => {
   return (
-    <div className="flex flex-col items-center py-24 min-h-screen w-full font-albert-sans pb-56">
+    <div className="flex flex-col items-center py-24 min-h-screen lg:w-[80vw] w-[95vw] font-albert-sans pb-56">
       <div className="grid gap-12 md:grid-cols-2 max-w-[90vw] w-full px-4">
         {/* WHO WE ARE Section */}
         <div className="flex flex-col justify-between gap-8 md:order-1">
@@ -20,18 +20,18 @@ const AboutUs = () => {
         </div>
         {/* First Image */}
         <div className="bg-gray-300 w-full aspect-video rounded-lg md:order-2">
-          <img 
-            src="src/Assets/Images/homepage/images/who-we-are-img.png" 
+          <img
+            src="src/Assets/Images/homepage/images/who-we-are-img.png"
             alt="Who we are"
-            className="w-full h-full object-cover rounded-lg" 
+            className="w-full h-full object-cover rounded-lg"
           />
         </div>
         {/* Second Image */}
         <div className="bg-gray-300 w-full aspect-video rounded-xl md:order-3 order-4">
-          <img 
-            src="src/Assets/Images/homepage/images/what-we-do-img.png" 
+          <img
+            src="src/Assets/Images/homepage/images/what-we-do-img.png"
             alt="Who we are"
-            className="w-full h-full object-cover rounded-lg" 
+            className="w-full h-full object-cover rounded-lg"
           />
         </div>
         {/* WHAT WE DO Section */}

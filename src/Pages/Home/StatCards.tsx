@@ -9,10 +9,13 @@ interface CardProps {
   link: string;
 }
 
-const Card: React.FC<CardProps> = ({ title, imageSrc, description, link}) => {
+const Card: React.FC<CardProps> = ({ title, imageSrc, description, link }) => {
   const navigate = useNavigate();
   return (
-    <div className="bg-black text-white p-4 rounded-lg shadow-lg border border-white relative">
+    <div
+      className="bg-black text-white p-4 rounded-lg shadow-lg border border-white relative cursor-pointer hover:[box-shadow:0px_0px_20px_8px_#F58134] duration-100"
+      onClick={() => navigate("/our-team")}
+    >
       <div className="absolute top-4 right-4 flex space-x-2">
         <span className="w-3 h-3 bg-[#F58134] rounded-full"></span>
         <span className="w-3 h-3 bg-[#11B3C9] rounded-full"></span>
@@ -26,11 +29,10 @@ const Card: React.FC<CardProps> = ({ title, imageSrc, description, link}) => {
           flex: 1,
           alignItems: "center"
         }}
-
       >
-        <p className="text-white opacity-100 absolute text-xs ml-2 font-albert-sans hover:cursor-pointer hover:text-gray-400"
-        onClick={() => navigate("/our-team")}
-        >{link}</p>
+        <p className="text-white opacity-100 absolute text-xs ml-2 font-albert-sans  hover:text-gray-400">
+          {link}
+        </p>
       </div>
 
       <div className="flex items-center justify-between mb-2">
@@ -39,7 +41,7 @@ const Card: React.FC<CardProps> = ({ title, imageSrc, description, link}) => {
           style={{
             fontFamily: "'Albert Sans', sans-serif",
             color: "white",
-            lineHeight: "70px",
+            lineHeight: "70px"
           }}
         >
           {title}
@@ -56,7 +58,7 @@ const Card: React.FC<CardProps> = ({ title, imageSrc, description, link}) => {
         style={{
           fontFamily: "'Albert Sans', sans-serif",
           color: "white",
-          lineHeight: "25px",
+          lineHeight: "25px"
         }}
       >
         {description}
