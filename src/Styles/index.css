@@ -1,12 +1,64 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 .hero-text-shadow {
-  text-shadow: 0 5px 20px #0057ff33, 0 -5px 15px #ff5a0026, 0 0 30px #ffffff4d;
+  text-shadow:
+    0 5px 20px #19b5ca66,
+    0 -5px 15px #19b5ca33,
+    0 0 30px #19b5ca55;
 }
 
-p, span, a {
+/* Global theme styles with separate navbar and content colors */
+html.dark-theme {
+  --content-bg: #1e1e1e;
+  --text-color: #ffffff;
+}
+
+html.light-theme {
+  --content-bg: #ffffff;
+  --text-color: #0e1111;
+}
+
+/* Navbar is always black */
+nav {
+  background-color: #0e1111 !important;
+}
+
+/* Navbar text always white */
+nav button:not(.bg-white),
+nav a,
+nav span,
+nav .text-white {
+  color: white !important;
+}
+
+body {
+  background-color: var(--content-bg);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease;
+}
+
+/* Content background */
+main,
+.App,
+[role="main"],
+.home-container,
+#root > div:not(nav) {
+  background-color: var(--content-bg);
+  min-height: 100vh;
+}
+
+p,
+span,
+a {
   @apply text-gray-400;
+}
+
+/* Override for Button component - ensure text is black */
+button.bg-white {
+  @apply text-black;
 }

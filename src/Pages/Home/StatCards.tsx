@@ -1,6 +1,7 @@
 // src/Components/Card.tsx
 import { useNavigate } from "react-router-dom";
 import React from "react";
+import { useTheme } from "./useTheme";
 
 interface CardProps {
   title: string;
@@ -9,28 +10,41 @@ interface CardProps {
   link: string;
 }
 
-const Card: React.FC<CardProps> = ({ title, imageSrc, description, link}) => {
+const Card: React.FC<CardProps> = ({ title, imageSrc, description, link }) => {
   const navigate = useNavigate();
+  const { isDark } = useTheme();
+
   return (
-    <div className="bg-black text-white p-4 rounded-lg shadow-lg border border-white relative">
+    <div
+      className={`p-4 rounded-lg shadow-lg border relative ${
+        isDark
+          ? "bg-black text-white border-white"
+          : "bg-white text-black border-gray-300"
+      }`}
+    >
       <div className="absolute top-4 right-4 flex space-x-2">
         <span className="w-3 h-3 bg-[#F58134] rounded-full"></span>
         <span className="w-3 h-3 bg-[#11B3C9] rounded-full"></span>
         <span className="w-3 h-3 bg-[#434343] rounded-full"></span>
       </div>
       <div
-        className="w-80 h-4 mb-2"
+        className={`w-80 h-4 mb-2 flex items-center rounded-full ${
+          isDark ? "bg-[#303030]" : "bg-gray-200"
+        }`}
         style={{
-          backgroundColor: "#303030",
           borderRadius: "370px",
-          flex: 1,
-          alignItems: "center"
         }}
-
       >
-        <p className="text-white opacity-100 absolute text-xs ml-2 font-albert-sans hover:cursor-pointer hover:text-gray-400"
-        onClick={() => navigate("/our-team")}
-        >{link}</p>
+        <p
+          className={`absolute text-xs ml-2 font-albert-sans hover:cursor-pointer ${
+            isDark
+              ? "text-white hover:text-gray-400"
+              : "text-black hover:text-gray-600"
+          }`}
+          onClick={() => navigate("/our-team")}
+        >
+          {link}
+        </p>
       </div>
 
       <div className="flex items-center justify-between mb-2">
@@ -38,7 +52,7 @@ const Card: React.FC<CardProps> = ({ title, imageSrc, description, link}) => {
           className="text-xl font-normal"
           style={{
             fontFamily: "'Albert Sans', sans-serif",
-            color: "white",
+            color: isDark ? "white" : "black",
             lineHeight: "70px",
           }}
         >
@@ -55,7 +69,7 @@ const Card: React.FC<CardProps> = ({ title, imageSrc, description, link}) => {
         className="text-sm"
         style={{
           fontFamily: "'Albert Sans', sans-serif",
-          color: "white",
+          color: isDark ? "white" : "black",
           lineHeight: "25px",
         }}
       >

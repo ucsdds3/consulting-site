@@ -3,10 +3,12 @@ import dino from "/src/Assets/Images/betterdino.png";
 import TextArea from "../../Components/Landing/TextArea";
 import Stars from "../../Components/Landing/Stars";
 import { useEffect, useRef, useState } from "react";
+import { useTheme } from "./useTheme";
 
 const Landing = () => {
   const [rendered, setRendered] = useState(false);
   const [showArrow, setShowArrow] = useState(true);
+  const { isDark } = useTheme();
 
   const TextAreaRef = useRef<HTMLDivElement>(null);
 
@@ -54,10 +56,9 @@ const Landing = () => {
             exit={{ opacity: 0, y: 10 }}
             transition={{ duration: 0.5 }}
           >
-            {/* You can replace this with any icon or SVG arrow */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-8 w-8 text-white animate-bounce"
+              className={`h-8 w-8 ${isDark ? "text-white" : "text-black"} animate-bounce`}
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"

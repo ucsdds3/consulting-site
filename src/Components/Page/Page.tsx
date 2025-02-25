@@ -10,12 +10,14 @@ interface PageProps {
 
 const Page = ({ children }: PageProps) => {
   return (
-    <SimpleBar className={`absolute left-0 top-0 w-screen h-screen overflow-x-hidden bg-[#1E1E1E]`}>
+    <SimpleBar className="absolute left-0 top-0 w-screen h-screen overflow-x-hidden">
       <Navbar />
       <div className="flex flex-col items-center py-[10vh]">
         {children || (
           <>
-            <h2 className="text-white text-center hero-text-shadow mt-10 mb-10 text-[3.75vw]">Coming Soon</h2>
+            <h2 className="text-center hero-text-shadow mt-10 mb-10 text-[3.75vw]">
+              Coming Soon
+            </h2>
             <img
               src={`${baseURL}/src/Assets/Images/Sleepy_Bear.png`}
               alt="Under Construction"

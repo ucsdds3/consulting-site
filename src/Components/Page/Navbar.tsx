@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { baseURL } from "../../Utils/info";
+import { useTheme } from "../../Pages/Home/useTheme";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const [isDark, setIsDark] = useState(false);
+  const { isDark, toggleTheme } = useTheme();
 
   const typographyClasses = "font-quicksand font-normal tracking-[0px]";
 
@@ -126,7 +127,7 @@ const Navbar = () => {
             {/* Light/Dark Mode Slider Toggle */}
             <div
               className="relative inline-block w-12 select-none cursor-pointer"
-              onClick={() => setIsDark(!isDark)}
+              onClick={toggleTheme}
             >
               <div
                 className={`block w-12 h-6 rounded-full ${
