@@ -1,4 +1,4 @@
-import Page from "../../Components/Page/Page";
+import Page from "../../../Components/Page/Page";
 import AlumniHeader from "./AlumniHeader";
 import AlumniTable from "./AlumniTable";
 

@@ -1,13 +1,25 @@
-import alumni from "./AlumniTable.json";
-import search from "../../Assets/Images/Alumni/AlumniAssets/Search.svg";
+import alumni from "../../../Assets/Data/AlumniTable.json";
+import search from "../../../Assets/Images/Alumni/AlumniAssets/Search.svg";
 import { useState } from "react";
-export default function AlumniTable() {
-  const [searchParameter, setsearchParameter] = useState(null);
 
-  const handleSubmit = (event: React.FormEvent) => {
-    const searchParameter = event.target[0].value;
+// Define an interface for alumni data
+interface AlumniData {
+  name: string;
+  imagesrc: string;
+  link: string;
+  link_label: string;
+}
+
+export default function AlumniTable() {
+  const [searchParameter, setsearchParameter] = useState<string | null>(null);
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const target = event.target as HTMLFormElement;
+    const input = target[0] as HTMLInputElement;
+    const searchParameter = input.value;
     setsearchParameter(searchParameter);
   };
+
   return (
     <div className=" py-24 min-h-screen lg:w-[80vw] w-[95vw] font-albert-sans pb-56 relative">
       <form
@@ -27,12 +39,12 @@ export default function AlumniTable() {
       <div className="grid grid-cols-4 gap-x-10 gap-y-40 w-full m-0">
         {alumni
           .filter(
-            (data) =>
+            (data: AlumniData) =>
               searchParameter === null || data.name.includes(searchParameter)
           )
-          .map((data) => {
+          .map((data: AlumniData) => {
             return (
-              <span className="flex flex-col items-center  rounded-lg text-white">
+              <span className="flex flex-col items-center rounded-lg text-white">
                 <div className="bg-gray-200 aspect-square w-full rounded-3xl">
                   <img src={data.imagesrc} alt="" className="" />
                 </div>

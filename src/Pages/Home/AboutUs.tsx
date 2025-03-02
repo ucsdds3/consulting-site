@@ -43,8 +43,8 @@ const AboutUs = () => {
         {/* Second Image */}
         <div className="bg-gray-300 w-full aspect-video rounded-xl md:order-3 order-4">
           <img
-            src="src/Assets/Images/homepage/images/what-we-do-img.png"
-            alt="Who we are"
+            src="src/Assets/Images/homepage/images/green_chair.png"
+            alt="Green chair"
             className="w-full h-full object-cover rounded-lg"
           />
         </div>

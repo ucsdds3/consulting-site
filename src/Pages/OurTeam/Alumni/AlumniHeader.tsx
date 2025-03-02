@@ -1,17 +1,17 @@
 import { motion } from "framer-motion";
-import star from "../../Assets/Images/Star.svg";
+import star from "../../../Assets/Images/Star.svg";
 export default function AlumniHeader() {
   const starVariants = {
     initial: {
-      rotate: 0
+      rotate: 0,
     },
     animate: {
       rotate: Array.from({ length: 360 }, (_, i) => i + 10),
       transition: {
         repeat: Infinity,
-        duration: 20
-      }
-    }
+        duration: 20,
+      },
+    },
   };
   return (
     <div className="flex flex-col justify-center lg:w-[80vw] w-[95vw] min-h-[90vh] mx-auto items-center ">

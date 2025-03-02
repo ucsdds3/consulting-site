@@ -36,13 +36,37 @@ const Partners: React.FC = () => {
           .
         </p>
         <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-6 sm:space-y-0 sm:space-x-8 mt-12">
-          <img src="src/Assets/Images/CSE_logo.png" alt="" />
-          <img
-            src="src/Assets/Images/palantir-vector-logo.svg"
-            className="w-1/4"
-            alt=""
-          />
-          <img src="src/Assets/Images/HDSI_logo.png" className="w-1/4" alt="" />
+          <img src="src/Assets/Images/CSE_logo.png" alt="CSE Logo" />
+
+          {/* Palantir logo - different versions for light/dark mode */}
+          {isDark ? (
+            <img
+              src="src/Assets/Images/palantir-vector-logo.svg"
+              className="w-1/4"
+              alt="Palantir Logo"
+            />
+          ) : (
+            <img
+              src="src/Assets/Images/homepage/partners logos/palantir_dark.png"
+              className="w-1/4"
+              alt="Palantir Logo"
+            />
+          )}
+
+          {/* HDSI logo - different versions for light/dark mode */}
+          {isDark ? (
+            <img
+              src="src/Assets/Images/HDSI_logo_light.png"
+              className="w-1/4"
+              alt="HDSI Logo"
+            />
+          ) : (
+            <img
+              src="src/Assets/Images/HDSI_logo.png"
+              className="w-1/4"
+              alt="HDSI Logo"
+            />
+          )}
         </div>
       </section>
     </div>

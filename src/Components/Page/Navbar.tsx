@@ -27,7 +27,10 @@ const EventsDropdown = [
   },
 ];
 
-const OurTeamDropdown = [{ label: "Alumni", src: "/our-team/alumni" }];
+const OurTeamDropdown = [
+  { label: "Meet the Board", src: "/new-site/our-team/board" },
+  { label: "Alumni", src: "/our-team/alumni" },
+];
 const Navbar = () => {
   const navigate = useNavigate();
   const { isDark, toggleTheme } = useTheme();
