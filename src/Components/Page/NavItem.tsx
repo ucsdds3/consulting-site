@@ -16,7 +16,7 @@ export default function NavItem({ dropdown, title, to }: NavItemprops) {
       <div className="relative group inline-block">
         {/* Dropdown example: "Our Team" */}
         <button className="inline-flex items-center text-white group-hover:text-gray-300">
-          Events
+          {title}
           <svg
             className="ml-1 w-4 h-4 text-gray-400 group-hover:text-gray-300 transform rotate-180"
             fill="currentColor"

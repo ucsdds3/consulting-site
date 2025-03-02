@@ -24,6 +24,8 @@ const EventsDropdown = [
     src: "/events/upcoming"
   }
 ];
+
+const OurTeamDropdown = [{ label: "Alumni", src: "/our-team/alumni" }];
 const Navbar = () => {
   const navigate = useNavigate();
   const [isDark, setIsDark] = useState(false);
@@ -97,12 +99,11 @@ const Navbar = () => {
 
         {/* Right side: Nav links */}
         <div className={`flex items-center space-x-6 ${typographyClasses}`}>
-
           {/* dropdown */}
           <NavItem title="Events" to="/our-team" dropdown={EventsDropdown} />
-          
+
           {/* Simple buttons: */}
-          <NavItem title="Our team" to="" />
+          <NavItem title="Our team" to="" dropdown={OurTeamDropdown} />
           <NavItem title="Contact" to="/contact" />
           <NavItem title="Consulting" to="/consulting" />
           <NavItem title="Partners" to="/partners" />
