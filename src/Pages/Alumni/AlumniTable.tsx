@@ -1,10 +1,10 @@
-import AlumniData from "./AlumniTable.json";
+import alumni from "./AlumniTable.json";
 import search from "../../Assets/Images/Alumni/AlumniAssets/Search.svg";
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 export default function AlumniTable() {
-  const [alumni, setAlumni] = useState(AlumniData);
   const [searchParameter, setsearchParameter] = useState(null);
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+
+  const handleSubmit = (event: React.FormEvent) => {
     const searchParameter = event.target[0].value;
     setsearchParameter(searchParameter);
   };
