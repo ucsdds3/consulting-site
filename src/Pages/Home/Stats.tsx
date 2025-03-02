@@ -17,6 +17,14 @@ const Stats = () => {
 
   const maxNumbers = [700, 100, 500, 50];
 
+  // Define colors for each stat
+  const statColors = [
+    "#F58134", // Orange
+    "#11B3C9", // Blue
+    "#6C6C6C", // Gray
+    isDark ? "#FFFFFF" : "#333333", // White/Dark based on theme
+  ];
+
   const [statsData, setStatsData] = useState<number[]>([0, 0, 0, 0]);
   const [animated, setAnimated] = useState<boolean[]>([
     false,
@@ -37,6 +45,25 @@ const Stats = () => {
         return newStats;
       });
     }, 50);
+  };
+
+  // Function to generate custom text shadow based on color
+  const getTextShadowStyle = (color: string) => {
+    // Convert hex to rgba with opacity
+    const toRGBA = (hex: string, opacity: number) => {
+      const r = parseInt(hex.slice(1, 3), 16);
+      const g = parseInt(hex.slice(3, 5), 16);
+      const b = parseInt(hex.slice(5, 7), 16);
+      return `rgba(${r}, ${g}, ${b}, ${opacity})`;
+    };
+
+    return {
+      textShadow: `
+        0 5px 20px ${toRGBA(color, 0.4)},
+        0 -5px 15px ${toRGBA(color, 0.2)},
+        0 0 30px ${toRGBA(color, 0.33)}
+      `,
+    };
   };
 
   useEffect(() => {
@@ -106,18 +133,10 @@ const Stats = () => {
                 viewport={{ once: true }}
                 style={{
                   fontFamily: "'Albert Sans', sans-serif",
-                  color:
-                    index === 0
-                      ? "#F58134"
-                      : index === 1
-                        ? "#11B3C9"
-                        : index === 2
-                          ? "#6C6C6C"
-                          : isDark
-                            ? "#FFFFFF"
-                            : "#333333",
+                  color: statColors[index],
+                  ...getTextShadowStyle(statColors[index]),
                 }}
-                className="number text-[4.5vw] font-normal hero-text-shadow"
+                className="number text-[4.5vw] font-normal"
               >
                 {Math.round(stat) +
                   (Math.round(stat) === maxNumbers[index] ? "+" : "")}

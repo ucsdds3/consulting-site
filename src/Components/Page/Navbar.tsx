@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { baseURL } from "../../Utils/info";
 import { useTheme } from "../../Pages/Home/useTheme";
 import NavItem from "./NavItem";
@@ -28,28 +28,35 @@ const EventsDropdown = [
 ];
 
 const OurTeamDropdown = [
-  { label: "Meet the Board", src: "/new-site/our-team/board" },
+  { label: "Meet the Board", src: "/our-team/board" },
   { label: "Alumni", src: "/our-team/alumni" },
 ];
+
 const Navbar = () => {
   const navigate = useNavigate();
   const { isDark, toggleTheme } = useTheme();
 
   const typographyClasses = "font-quicksand font-normal tracking-[0px]";
 
+  // Function to handle home navigation with trailing slash
+  const navigateHome = (e) => {
+    e.preventDefault();
+    window.location.href = `${window.location.origin}/new-site/`;
+  };
+
   return (
     <nav className="bg-[#0E1111] fixed w-full z-10">
       <div className="flex items-center justify-between px-6 py-4">
         {/* Left side: Logo + Light/Dark mode toggle */}
         <div className="flex items-center gap-5">
-          {/* logo */}
-          <button className="  space-x-2" onClick={() => navigate("/")}>
+          {/* logo - using anchor tag with explicit URL to ensure trailing slash */}
+          <a href="/new-site/" className="space-x-2" onClick={navigateHome}>
             <img
               src={`${baseURL}/src/Assets/Images/ds3_logo.png`}
               alt="Logo"
               className="w-10 h-auto"
             />
-          </button>
+          </a>
           {/* Light/Dark Mode Slider Toggle */}
           <div
             className="relative inline-block w-12 select-none cursor-pointer"

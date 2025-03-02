@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useTheme } from "../../../Pages/Home/useTheme";
 import Page from "../../../Components/Page/Page";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import boardData from "./board.json";
+import star from "../../../Assets/Images/Star.svg"; // Import star image directly
 
 // Define button animation variants
 const buttonVariants = {
@@ -12,6 +13,18 @@ const buttonVariants = {
   },
   hover: {
     y: "0.5vw",
+  },
+};
+
+// Define star animation variants
+const starVariants = {
+  initial: {
+    rotate: 0,
+    scale: 1,
+  },
+  animate: {
+    rotate: 360,
+    scale: [1, 1.1, 0.9, 1],
   },
 };
 
@@ -156,9 +169,51 @@ const Board: React.FC = () => {
   return (
     <Page>
       <div
-        className="min-h-screen pt-24 pb-12 px-6 md:px-12"
+        className="min-h-screen pt-24 pb-12 px-6 md:px-12 relative"
         style={{ backgroundColor }}
       >
+        {/* Top right stars - moved higher up */}
+        <div className="absolute top-12 right-12 flex space-x-2 z-10">
+          <motion.img
+            src={star}
+            alt=""
+            className="w-6 h-6"
+            initial="initial"
+            animate="animate"
+            variants={starVariants}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+            style={{
+              opacity: isDark ? 0.4 : 0.6,
+              filter: isDark
+                ? "drop-shadow(0px 0px 8px white)"
+                : "drop-shadow(0px 0px 8px #19B5CA) brightness(0.3)",
+            }}
+          />
+          <motion.img
+            src={star}
+            alt=""
+            className="w-6 h-6"
+            initial="initial"
+            animate="animate"
+            variants={starVariants}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+            style={{
+              opacity: isDark ? 0.4 : 0.6,
+              filter: isDark
+                ? "drop-shadow(0px 0px 8px white)"
+                : "drop-shadow(0px 0px 8px #19B5CA) brightness(0.3)",
+            }}
+          />
+        </div>
+
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row gap-6">
             {/* Left side: Title and committees */}
@@ -213,7 +268,7 @@ const Board: React.FC = () => {
               </ul>
 
               {/* Join us button with refined positioning and color */}
-              <div className="mt-16 mb-8">
+              <div className="mt-16 mb-8 relative">
                 <div className="relative w-[180px] h-[65px]">
                   {/* Background element - positioned for better reveal */}
                   <div
@@ -236,6 +291,48 @@ const Board: React.FC = () => {
                   >
                     JOIN US
                   </motion.button>
+                </div>
+
+                {/* Bottom left stars - correctly positioned next to the JOIN US button */}
+                <div className="absolute top-[30px] left-[190px] flex space-x-2 z-10">
+                  <motion.img
+                    src={star}
+                    alt=""
+                    className="w-6 h-6"
+                    initial="initial"
+                    animate="animate"
+                    variants={starVariants}
+                    transition={{
+                      duration: 9,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                    style={{
+                      opacity: isDark ? 0.4 : 0.6,
+                      filter: isDark
+                        ? "drop-shadow(0px 0px 8px white)"
+                        : "drop-shadow(0px 0px 8px #19B5CA) brightness(0.3)",
+                    }}
+                  />
+                  <motion.img
+                    src={star}
+                    alt=""
+                    className="w-6 h-6"
+                    initial="initial"
+                    animate="animate"
+                    variants={starVariants}
+                    transition={{
+                      duration: 7,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                    style={{
+                      opacity: isDark ? 0.4 : 0.6,
+                      filter: isDark
+                        ? "drop-shadow(0px 0px 8px white)"
+                        : "drop-shadow(0px 0px 8px #19B5CA) brightness(0.3)",
+                    }}
+                  />
                 </div>
               </div>
             </div>
