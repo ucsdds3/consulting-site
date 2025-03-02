@@ -5,7 +5,7 @@ const Partners: React.FC = () => {
   const { isDark } = useTheme();
 
   return (
-    <div style={{ width: "100%" }}>
+    <div className="lg:w-[80vw] w-[95vw]">
       <section
         className={`px-6 py-12 md:px-12 font-albert-sans mx-auto justify-center ${isDark ? "text-white" : "text-black"}`}
       >

@@ -16,11 +16,12 @@ const Card: React.FC<CardProps> = ({ title, imageSrc, description, link }) => {
 
   return (
     <div
-      className={`p-4 rounded-lg shadow-lg border relative ${
+      className={`p-4 rounded-lg shadow-lg border relative cursor-pointer duration-100 ${
         isDark
-          ? "bg-black text-white border-white"
-          : "bg-white text-black border-gray-300"
+          ? "bg-black text-white border-white hover:[box-shadow:0px_0px_20px_8px_#F58134]"
+          : "bg-white text-black border-gray-300 hover:[box-shadow:0px_0px_20px_8px_#11B3C9]"
       }`}
+      onClick={() => navigate("/our-team")}
     >
       <div className="absolute top-4 right-4 flex space-x-2">
         <span className="w-3 h-3 bg-[#F58134] rounded-full"></span>
@@ -41,7 +42,6 @@ const Card: React.FC<CardProps> = ({ title, imageSrc, description, link }) => {
               ? "text-white hover:text-gray-400"
               : "text-black hover:text-gray-600"
           }`}
-          onClick={() => navigate("/our-team")}
         >
           {link}
         </p>
