@@ -15,7 +15,7 @@ const Stats = () => {
     "Projects Completed",
   ];
 
-  const maxNumbers = [500, 100, 500, 50];
+  const maxNumbers = [700, 100, 500, 50];
 
   const [statsData, setStatsData] = useState<number[]>([0, 0, 0, 0]);
   const [animated, setAnimated] = useState<boolean[]>([
