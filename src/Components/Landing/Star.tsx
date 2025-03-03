@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { AppearingVariants, starVariants } from "./LandingVariants";
 import { useEffect, useRef, useState } from "react";
 import star from "../../Assets/Images/Star.svg";
+import { useTheme } from "../../Pages/Home/useTheme";
 
 const Star = ({
   index,
@@ -10,6 +11,7 @@ const Star = ({
   index: number;
   rect: React.RefObject<HTMLDivElement>;
 }) => {
+  const { isDark } = useTheme();
   const [x, setX] = useState(Math.floor(Math.random() * 100));
   const [y, setY] = useState(10 + Math.floor(Math.random() * 70));
   const [w, setW] = useState((5 + Math.random() * 5) / 5);
@@ -68,8 +70,10 @@ const Star = ({
             }}
             style={{
               width: `${w}vw`,
-              opacity: 0.4,
-              filter: "drop-shadow(0px 0px 8px white)",
+              opacity: isDark ? 0.4 : 0.6,
+              filter: isDark
+                ? "drop-shadow(0px 0px 8px white)"
+                : "drop-shadow(0px 0px 8px #19B5CA) brightness(0.3)",
             }}
           />
         </div>

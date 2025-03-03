@@ -1,0 +1,26 @@
+[
+  {
+    "name": "John Doe",
+    "imagesrc": "/src/Assets/Images/placeholder.png",
+    "link": "https://example.com",
+    "link_label": "Personal Website"
+  },
+  {
+    "name": "Jane Smith",
+    "imagesrc": "/src/Assets/Images/placeholder.png",
+    "link": "https://example.com",
+    "link_label": "Personal Website"
+  },
+  {
+    "name": "Alex Johnson",
+    "imagesrc": "/src/Assets/Images/placeholder.png",
+    "link": "https://example.com",
+    "link_label": "Personal Website"
+  },
+  {
+    "name": "Sam Wilson",
+    "imagesrc": "/src/Assets/Images/placeholder.png",
+    "link": "https://example.com",
+    "link_label": "Personal Website"
+  }
+]

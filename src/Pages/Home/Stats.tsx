@@ -4,8 +4,10 @@ import "@fontsource/albert-sans/700.css"; // Import Albert Sans bold weight
 import { motion } from "framer-motion";
 import { useEffect, useState, useRef, Fragment } from "react";
 import Card from "./StatCards"; // Adjust the path as necessary
+import { useTheme } from "./useTheme";
 
 const Stats = () => {
+  const { isDark } = useTheme();
   const descriptions = [
     "Hackathon Attendees",
     "Workshops Hosted",
@@ -13,7 +15,15 @@ const Stats = () => {
     "Projects Completed",
   ];
 
-  const maxNumbers = [500, 100, 500, 50];
+  const maxNumbers = [700, 100, 500, 50];
+
+  // Define colors for each stat
+  const statColors = [
+    "#F58134", // Orange
+    "#11B3C9", // Blue
+    "#6C6C6C", // Gray
+    isDark ? "#FFFFFF" : "#333333", // White/Dark based on theme
+  ];
 
   const [statsData, setStatsData] = useState<number[]>([0, 0, 0, 0]);
   const [animated, setAnimated] = useState<boolean[]>([
@@ -35,6 +45,25 @@ const Stats = () => {
         return newStats;
       });
     }, 50);
+  };
+
+  // Function to generate custom text shadow based on color
+  const getTextShadowStyle = (color: string) => {
+    // Convert hex to rgba with opacity
+    const toRGBA = (hex: string, opacity: number) => {
+      const r = parseInt(hex.slice(1, 3), 16);
+      const g = parseInt(hex.slice(3, 5), 16);
+      const b = parseInt(hex.slice(5, 7), 16);
+      return `rgba(${r}, ${g}, ${b}, ${opacity})`;
+    };
+
+    return {
+      textShadow: `
+        0 5px 20px ${toRGBA(color, 0.4)},
+        0 -5px 15px ${toRGBA(color, 0.2)},
+        0 0 30px ${toRGBA(color, 0.33)}
+      `,
+    };
   };
 
   useEffect(() => {
@@ -77,7 +106,7 @@ const Stats = () => {
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="title font-bold mb-10 text-[4.75vw] mt-10"
+        className={`title font-bold mb-10 text-[4.75vw] mt-10 ${isDark ? "text-white" : "text-black"}`}
         style={{ fontFamily: "'Albert Sans', sans-serif" }}
       >
         Get Involved
@@ -104,16 +133,10 @@ const Stats = () => {
                 viewport={{ once: true }}
                 style={{
                   fontFamily: "'Albert Sans', sans-serif",
-                  color:
-                    index === 0
-                      ? "#F58134"
-                      : index === 1
-                        ? "#11B3C9"
-                        : index === 2
-                          ? "#6C6C6C"
-                          : "#FFFFFF",
+                  color: statColors[index],
+                  ...getTextShadowStyle(statColors[index]),
                 }}
-                className="number text-[4.5vw] font-normal hero-text-shadow"
+                className="number text-[4.5vw] font-normal"
               >
                 {Math.round(stat) +
                   (Math.round(stat) === maxNumbers[index] ? "+" : "")}
@@ -128,16 +151,16 @@ const Stats = () => {
                   ease: "easeOut",
                 }}
                 viewport={{ once: true }}
-                className="text-white text-[1.3vw] mt-2"
+                className={`text-[1.3vw] mt-2 ${isDark ? "text-white" : "text-black"}`}
               >
                 {descriptions[index]}
               </motion.span>
             </div>
 
-            {/* Vertical white bar divider (except after the last stat) */}
+            {/* Vertical divider (except after the last stat) */}
             {index < statsData.length - 1 && (
               <div
-                className="bg-white"
+                className={`${isDark ? "bg-white" : "bg-gray-800"}`}
                 style={{ width: "2px", height: "4.5vw" }}
               />
             )}

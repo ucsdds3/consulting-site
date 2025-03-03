@@ -1,5 +1,5 @@
-import { FaDiscord, FaGithub, FaLinkedinIn } from "react-icons/fa6";
-import { SiGmail } from "react-icons/si";
+import { FaDiscord, FaSpotify, FaInstagram } from "react-icons/fa6";
+import { FaMedium } from "react-icons/fa";
 
 const SocialMedia = () => {
   const btnClass =
@@ -8,36 +8,40 @@ const SocialMedia = () => {
   return (
     <div
       id="social-media-links"
-      className="flex flex-col flex-1 items-center justify-center gap-y-8"
+      className="flex flex-col flex-1 items-end justify-center gap-y-8"
     >
-      <div className="flex items-center w-[20vw] justify-evenly">
+      <div className="flex justify-end items-center w-[20vw] px-6 gap-2">
         <button
           onClick={() => window.open("https://discord.gg/fbnAP848V9", "_blank")}
           className={btnClass}
           title={"Discord"}
         >
-          <FaDiscord />
+          <FaInstagram />
         </button>
         <button
           onClick={() => window.open("mailto:ds3@ucsd.edu", "_blank")}
           className={btnClass}
           title={"Mail"}
         >
-          <SiGmail />
+          <FaDiscord />
         </button>
         <button
-          onClick={() => window.open("https://github.com/TheBoyRoy05/", "_blank")}
+          onClick={() =>
+            window.open("https://github.com/TheBoyRoy05/", "_blank")
+          }
           className={btnClass}
           title={"Github"}
         >
-          <FaGithub />
+          <FaMedium />
         </button>
         <button
-          onClick={() => window.open("https://www.linkedin.com/in/issacroy/", "_blank")}
+          onClick={() =>
+            window.open("https://www.linkedin.com/in/issacroy/", "_blank")
+          }
           className={btnClass}
           title={"LinkedIn"}
         >
-          <FaLinkedinIn />
+          <FaSpotify />
         </button>
       </div>
     </div>
