@@ -121,7 +121,6 @@ const Navbar = () => {
 
           {/* Simple buttons: */}
           <NavItem title="Our team" to="" dropdown={OurTeamDropdown} />
-          <NavItem title="Contact" to="/contact" />
           <NavItem title="Consulting" to="/consulting" />
           <NavItem title="Partners" to="/partners" />
 
