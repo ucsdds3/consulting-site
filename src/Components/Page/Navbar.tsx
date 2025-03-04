@@ -7,29 +7,29 @@ import NavItem from "./NavItem";
 const EventsDropdown = [
   {
     label: "Upcoming",
-    src: "/events/upcoming",
+    src: "/events/upcoming"
   },
   {
     label: "Datahacks",
-    src: "/events/upcoming",
+    src: "/events/datahacks"
   },
   {
     label: "Workshop",
-    src: "/events/upcoming",
+    src: "/events/upcoming"
   },
   {
     label: "Social",
-    src: "/events/upcoming",
+    src: "/events/upcoming"
   },
   {
     label: "Professional",
-    src: "/events/upcoming",
-  },
+    src: "/events/upcoming"
+  }
 ];
 
 const OurTeamDropdown = [
   { label: "Meet the Board", src: "/our-team/board" },
-  { label: "Alumni", src: "/our-team/alumni" },
+  { label: "Alumni", src: "/our-team/alumni" }
 ];
 
 const Navbar = () => {
@@ -41,7 +41,8 @@ const Navbar = () => {
   // Function to handle home navigation with trailing slash
   const navigateHome = (e) => {
     e.preventDefault();
-    window.location.href = `${window.location.origin}/new-site/`;
+    // window.location.href = `${window.location.origin}/new-site/`;
+    navigate("/");
   };
 
   return (

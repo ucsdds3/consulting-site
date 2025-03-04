@@ -7,7 +7,7 @@ import Board from "./Pages/OurTeam/Board/Board";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="" element={<Home />} />
       <Route path="/our-team/datahacks" element={<Datahacks />} />
       <Route path="our-team">
         <Route path="alumni" element={<Alumni />} />

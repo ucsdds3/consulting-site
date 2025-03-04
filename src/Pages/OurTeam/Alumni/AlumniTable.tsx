@@ -1,6 +1,7 @@
 import alumni from "../../../Assets/Data/AlumniTable.json";
 import search from "../../../Assets/Images/Alumni/AlumniAssets/Search.svg";
 import { useState } from "react";
+import { useTheme } from "../../Home/useTheme";
 
 // Define an interface for alumni data
 interface AlumniData {
@@ -12,7 +13,7 @@ interface AlumniData {
 
 export default function AlumniTable() {
   const [searchParameter, setsearchParameter] = useState<string | null>(null);
-
+  const { isDark } = useTheme();
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     const target = event.target as HTMLFormElement;
     const input = target[0] as HTMLInputElement;
@@ -44,16 +45,20 @@ export default function AlumniTable() {
           )
           .map((data: AlumniData) => {
             return (
-              <span className="flex flex-col items-center rounded-lg text-white">
+              <span className="flex flex-col items-center rounded-lg ">
                 <div className="bg-gray-200 aspect-square w-full rounded-3xl">
                   <img src={data.imagesrc} alt="" className="" />
                 </div>
-                <p className="m-0 w-full flex flex-col">
-                  <div className="text-[2vw] text-white">{data.name}</div>
-                  <a href={data.link} className="text-white text-[1.3vw]">
+                <p
+                  className={`m-0 w-full flex flex-col ${
+                    isDark ? "text-white" : "text-black"
+                  }`}
+                >
+                  <div className="text-[2vw] text-inherit">{data.name}</div>
+                  <a href={data.link} className="text-inherit text-[1.3vw]">
                     {data.link_label}
                   </a>
-                  <a href="" className="text-white text-[1.3vw]">
+                  <a href="" className="text-inherit text-[1.3vw]">
                     Linkedin link
                   </a>
                 </p>
