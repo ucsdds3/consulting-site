@@ -3,6 +3,7 @@ import Home from "./Pages/Home/Home";
 import Datahacks from "./Pages/Datahacks/Datahacks";
 import Alumni from "./Pages/OurTeam/Alumni/Alumni";
 import Board from "./Pages/OurTeam/Board/Board";
+import Projects from "./Pages/Projects/Projects";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="alumni" element={<Alumni />} />
         <Route path="board" element={<Board />} />
       </Route>
+      <Route path="projects" element={<Projects />}/>
     </Routes>
   );
 }
