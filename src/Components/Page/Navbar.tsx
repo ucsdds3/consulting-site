@@ -24,12 +24,16 @@ const EventsDropdown = [
   {
     label: "Professional",
     src: "/events/upcoming"
+  },
+  {
+    label: "Projects",
+    src: "/projects"
   }
 ];
 
 const OurTeamDropdown = [
   { label: "Meet the Board", src: "/our-team/board" },
-  { label: "Alumni", src: "/our-team/alumni" }
+  { label: "Alumni", src: "/our-team/alumni" },
 ];
 
 const Navbar = () => {
@@ -41,8 +45,7 @@ const Navbar = () => {
   // Function to handle home navigation with trailing slash
   const navigateHome = (e) => {
     e.preventDefault();
-    // window.location.href = `${window.location.origin}/new-site/`;
-    navigate("/");
+    window.location.href = `${window.location.origin}/new-site/`;
   };
 
   return (
