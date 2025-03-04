@@ -1,0 +1,35 @@
+{
+    "questions": [
+      {
+        "id": 1,
+        "question": "Partners Lorem ipsum dolor sit amet, consectetur adipi?",
+        "answer": "Lorem ipsum dolor sit amet, consectetur adipi!"
+      },
+      {
+        "id": 2,
+        "question": "Lorem ipsum dolor sit, consectetur adipi?",
+        "answer": "!Lorem ipsum dolor sit amet, consectetur adipi"
+      },
+      {
+        "id": 3,
+        "question": "Lorem ipsum dolor sit amet?",
+        "answer": "Answer"
+      },
+      {
+        "id": 4,
+        "question": "Lorem ipsum dolor sit amet?",
+        "answer": "Haha"
+      },
+      {
+        "id": 5,
+        "question": "Lorem ipsum dolor sit amet?",
+        "answer": "Yeah"
+      },
+      {
+        "id": 6,
+        "question": "Lorem ipsum dolor sit amet?",
+        "answer": "Yeah"
+      }
+    ]
+  }
+  

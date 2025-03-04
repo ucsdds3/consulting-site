@@ -1,0 +1,35 @@
+{
+    "questions": [
+      {
+        "id": 1,
+        "question": "Lorem ipsum dolor sit amet, consectetur adipi?",
+        "answer": "Lorem ipsum dolor sit amet, consectetur adipi!"
+      },
+      {
+        "id": 2,
+        "question": "Join us FAQ question 2?",
+        "answer": "Join us FAQ answer 2!"
+      },
+      {
+        "id": 3,
+        "question": "Join us FAQ question 3?",
+        "answer": "Join us FAQ answer 3!"
+      },
+      {
+        "id": 4,
+        "question": "Join us FAQ question 4?",
+        "answer": "Join us FAQ answer 4!"
+      },
+      {
+        "id": 5,
+        "question": "Join us FAQ question 5?",
+        "answer": "Join us FAQ answer 5!"
+      },
+      {
+        "id": 6,
+        "question": "Join us FAQ question 6?",
+        "answer": "Join us FAQ answer 6!"
+      }
+    ]
+  }
+  
