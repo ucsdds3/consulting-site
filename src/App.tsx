@@ -5,6 +5,7 @@ import Alumni from "./Pages/OurTeam/Alumni/Alumni";
 import Board from "./Pages/OurTeam/Board/Board";
 import Partners from "./Pages/Partners/PartnersPage";
 import JoinUs from "./Pages/JoinUs/JoinUsPage";
+import Projects from "./Pages/Projects/Projects";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="alumni" element={<Alumni />} />
         <Route path="board" element={<Board />} />
       </Route>
+      <Route path="projects" element={<Projects />}/>
     </Routes>
   );
 }

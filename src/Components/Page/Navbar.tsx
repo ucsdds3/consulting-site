@@ -24,6 +24,10 @@ const EventsDropdown = [
   {
     label: "Professional",
     src: "/events/upcoming"
+  },
+  {
+    label: "Projects",
+    src: "projects"
   }
 ];
 
