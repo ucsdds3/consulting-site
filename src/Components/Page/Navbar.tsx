@@ -15,7 +15,7 @@ const EventsDropdown = [
   },
   {
     label: "Workshop",
-    src: "/events/upcoming"
+    src: "/events/workshop"
   },
   {
     label: "Social",

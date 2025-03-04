@@ -6,6 +6,7 @@ import Board from "./Pages/OurTeam/Board/Board";
 import Partners from "./Pages/Partners/PartnersPage";
 import JoinUs from "./Pages/JoinUs/JoinUsPage";
 import Projects from "./Pages/Projects/Projects";
+import Workshop from "./Pages/Workshop/Workshop";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/events">
         <Route path="datahacks" element={<Datahacks />} />
+        <Route path="workshop" element={<Workshop />} />
       </Route>
 
       <Route path="/our-team">
