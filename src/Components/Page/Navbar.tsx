@@ -27,7 +27,7 @@ const EventsDropdown = [
   },
   {
     label: "Projects",
-    src: "projects"
+    src: "/projects"
   }
 ];
 
