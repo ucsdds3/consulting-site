@@ -3,6 +3,7 @@ import Home from "./Pages/Home/Home";
 import Datahacks from "./Pages/Datahacks/Datahacks";
 import Alumni from "./Pages/OurTeam/Alumni/Alumni";
 import Board from "./Pages/OurTeam/Board/Board";
+import Workshop from "./Pages/Workshop/Workshop";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/events">
         <Route path="datahacks" element={<Datahacks />} />
+        <Route path="workshop" element={<Workshop />} />
       </Route>
 
       <Route path="/our-team">
