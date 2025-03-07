@@ -7,24 +7,28 @@ import NavItem from "./NavItem";
 const EventsDropdown = [
   {
     label: "Upcoming",
-    src: "/events/upcoming",
+    src: "/events/upcoming"
   },
   {
     label: "Datahacks",
-    src: "/events/upcoming",
+    src: "/events/datahacks"
   },
   {
     label: "Workshop",
-    src: "/events/upcoming",
+    src: "/events/workshop"
   },
   {
     label: "Social",
-    src: "/events/upcoming",
+    src: "/events/upcoming"
   },
   {
     label: "Professional",
-    src: "/events/upcoming",
+    src: "/events/upcoming"
   },
+  {
+    label: "Projects",
+    src: "/projects"
+  }
 ];
 
 const OurTeamDropdown = [
