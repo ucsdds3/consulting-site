@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { baseURL } from "../../Utils/info";
 import { useTheme } from "../../Pages/Home/useTheme";
 import NavItem from "./NavItem";
@@ -33,7 +32,7 @@ const EventsDropdown = [
 
 const OurTeamDropdown = [
   { label: "Meet the Board", src: "/our-team/board" },
-  { label: "Alumni", src: "/our-team/alumni" },
+  { label: "Alumni", src: "/our-team/alumni" }
 ];
 
 const Navbar = () => {
@@ -43,18 +42,17 @@ const Navbar = () => {
   const typographyClasses = "font-quicksand font-normal tracking-[0px]";
 
   // Function to handle home navigation with trailing slash
-  const navigateHome = (e) => {
-    e.preventDefault();
-    window.location.href = `${window.location.origin}/new-site/`;
+  const navigateHome = () => {
+    navigate("/");
   };
 
   return (
-    <nav className="bg-[#0E1111] fixed w-full z-10">
+    <nav className="bg-[#0E1111] fixed w-full z-50">
       <div className="flex items-center justify-between px-6 py-4">
         {/* Left side: Logo + Light/Dark mode toggle */}
         <div className="flex items-center gap-5">
           {/* logo - using anchor tag with explicit URL to ensure trailing slash */}
-          <a href="/new-site/" className="space-x-2" onClick={navigateHome}>
+          <a className="space-x-2 cursor-pointer" onClick={navigateHome}>
             <img
               src={`${baseURL}/src/Assets/Images/ds3_logo.png`}
               alt="Logo"
