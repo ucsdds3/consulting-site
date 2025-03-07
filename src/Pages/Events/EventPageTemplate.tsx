@@ -1,9 +1,11 @@
 // src/Pages/Events/EventPageTemplate.tsx
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Page from "../../Components/Page/Page";
 import { useTheme } from "../../Pages/Home/useTheme";
 import ds3Logo from "../../Assets/Images/ds3_logo.png";
+import { motion } from "framer-motion";
+import star from "../../Assets/Images/Star.svg"; // Import the star SVG directly
 
 // Types for props
 interface EventPageTemplateProps {
@@ -120,6 +122,48 @@ export const About: React.FC<{
   const borderColor = "border-black";
   const backgroundColor = isDark ? "#0E1111" : "transparent";
 
+  // Star animation variants
+  const starVariants = {
+    initial: {
+      rotate: 0,
+      scale: 1,
+    },
+    animate: {
+      rotate: 360,
+      scale: [1, 1.1, 0.9, 1],
+    },
+  };
+
+  // Bullet Star component
+  const BulletStar = ({ index }: { index: number }) => {
+    const { isDark } = useTheme();
+
+    return (
+      <div className="w-[31px] h-[32px] flex items-center justify-center self-start mt-[3px]">
+        <motion.img
+          src={star}
+          alt=""
+          variants={starVariants}
+          initial="initial"
+          animate="animate"
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          style={{
+            width: "31px",
+            height: "32px",
+            opacity: 1,
+            filter: isDark
+              ? "drop-shadow(0px 0px 8px rgba(245, 129, 52, 0.6))"
+              : "drop-shadow(0px 0px 8px rgba(25, 181, 202, 0.8)) brightness(0.7)",
+          }}
+        />
+      </div>
+    );
+  };
+
   return (
     <div
       className={`w-[1204px] h-[688px] relative mx-auto border ${borderColor} rounded-[15px] flex flex-col px-8 py-6`}
@@ -146,13 +190,10 @@ export const About: React.FC<{
         {/* Text Section */}
         <div className="ml-12 flex flex-col justify-center space-y-8 max-w-[500px]">
           {points.map((point, index) => (
-            <div key={index} className="flex items-start gap-4">
-              <span
-                className={`text-[40px] font-bold ${isDark ? "text-gray-400" : "text-gray-500"}`}
-              >
-                +
-              </span>
-              <div>
+            <div key={index} className="flex items-start gap-6">
+              {/* Star bullet point */}
+              <BulletStar index={index} />
+              <div className="flex-1">
                 <p
                   className={`text-[25px] font-semibold font-['Albert Sans'] uppercase leading-[30px] ${textColor}`}
                 >
