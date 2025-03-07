@@ -14,8 +14,8 @@ const EventsDropdown = [
     src: "/events/datahacks"
   },
   {
-    label: "Workshop",
-    src: "/events/workshop"
+    label: "Workshops",
+    src: "/events/workshops"
   },
   {
     label: "Social",

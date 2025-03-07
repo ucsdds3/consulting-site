@@ -244,7 +244,7 @@ const Board: React.FC = () => {
                 </h2>
                 {/* Glowing underline */}
                 <div
-                  className="h-[2px] w-[153px] rounded-full"
+                  className="h-[1.5px] w-[153px] rounded-full"
                   style={{
                     backgroundColor: isDark ? "#F58134" : "#19B5CA",
                     boxShadow: isDark
