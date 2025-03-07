@@ -14,8 +14,8 @@ const EventsDropdown = [
     src: "/events/datahacks"
   },
   {
-    label: "Workshop",
-    src: "/events/upcoming"
+    label: "Workshops",
+    src: "/events/workshops"
   },
   {
     label: "Social",
@@ -33,7 +33,7 @@ const EventsDropdown = [
 
 const OurTeamDropdown = [
   { label: "Meet the Board", src: "/our-team/board" },
-  { label: "Alumni", src: "/our-team/alumni" }
+  { label: "Alumni", src: "/our-team/alumni" },
 ];
 
 const Navbar = () => {
@@ -45,8 +45,7 @@ const Navbar = () => {
   // Function to handle home navigation with trailing slash
   const navigateHome = (e) => {
     e.preventDefault();
-    // window.location.href = `${window.location.origin}/new-site/`;
-    navigate("/");
+    window.location.href = `${window.location.origin}/new-site/`;
   };
 
   return (
