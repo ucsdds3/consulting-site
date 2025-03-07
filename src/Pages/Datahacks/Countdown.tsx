@@ -1,13 +1,40 @@
 import { useState, useEffect } from 'react';
 import Button from "../../Components/Button";
+import { useTheme } from "../Home/useTheme";
 
 const Countdown = () => {
+  const { isDark } = useTheme();
+
+  // Function to generate custom text shadow based on color
+  const getTextShadowStyle = (color: string) => {
+    // Convert hex to rgba with opacity
+      const toRGBA = (hex: string, opacity: number) => {
+        const r = parseInt(hex.slice(1, 3), 16);
+        const g = parseInt(hex.slice(3, 5), 16);
+        const b = parseInt(hex.slice(5, 7), 16);
+        return `rgba(${r}, ${g}, ${b}, ${opacity})`;
+      };
+  
+      return {
+        textShadow: `
+          0 5px 20px ${toRGBA(color, 0.4)},
+          0 -5px 15px ${toRGBA(color, 0.2)},
+          0 0 30px ${toRGBA(color, 0.33)}
+        `,
+      };
+    };
+
   const [timeLeft, setTimeLeft] = useState({
     days: 30,
     hours: 20,
     minutes: 30,
     seconds: 30
   });
+
+  // Add a helper function to format numbers with leading zeros
+  const formatNumber = (num) => {
+    return num < 10 ? `0${num}` : num;
+  };
 
   useEffect(() => {
     // Set the initial countdown based on the target date
@@ -40,7 +67,7 @@ const Countdown = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center w-full py-24 min-h-screen font-albert-sans relative">
+    <div className="flex flex-col justify-center items-center w-full py-24 min-h-screen font-albert-sans relative">
       {/* Decorative elements - plus signs */}
       <div className="absolute left-24 top-1/2 text-gray-700 text-8xl opacity-20">+</div>
       <div className="absolute right-24 bottom-1/4 text-gray-700 text-8xl opacity-20">+</div>
@@ -49,46 +76,82 @@ const Countdown = () => {
         {/* Content container with the same width as the timer */}
         <div className="w-full">
           {/* Intro text - aligned left */}
-          <p className="text-white text-2xl mb-4 font-albert-sans">What will you create?</p>
+          <p className={`text-2xl mb-4 font-albert-sans ${
+            isDark ? "text-white" : "text-black"
+          }`}>What will you create?</p>
           
           {/* Main heading - aligned left */}
-          <h1 className="text-white text-7xl font-medium mb-4 font-albert-sans">DATAHACKS 2025</h1>
+          <h1 className={`text-7xl font-medium mb-4 font-albert-sans ${
+            isDark ? "text-white" : "text-black"
+          }`}
+          style={{
+            ...getTextShadowStyle(isDark ? "#F58134" : "#19B5CA")
+          }}
+          >DATAHACKS 2025</h1>
           
           {/* Description - aligned left */}
-          <p className="text-white text-xl mb-12 font-albert-sans">
+          <p className={`text-xl mb-12 font-albert-sans ${
+            isDark? "text-white" : "text-black"
+          }`}>
             Analyze real-world data, build powerful insights, and create impactful solutions
           </p>
           
-          {/* Countdown timer - centered */}
-          <div className="border border-white-600 rounded-lg py-3 px-4 mb-12 w-full">
+          {/* Countdown timer */}
+          <div className={`border rounded-lg py-3 px-4 mb-12 w-full ${
+            isDark ? "border-white-600" : "border-black"
+          }`}>
             <div className="flex justify-around items-center text-center">
               <div className="flex flex-col items-center">
-                <span className="text-white text-6xl font-albert-sans">{timeLeft.days}</span>
+                <div className="flex items-center">
+                  <span className={`text-6xl font-albert-sans w-24 text-center tabular-nums ${
+                    isDark ? "text-white" : "text-black"
+                  }`}>{formatNumber(timeLeft.days)}</span>
+                  <span className={`text-6xl font-albert-sans ${
+                    isDark ? "text-white" : "text-black"
+                  }`}> : </span>
+                </div>
                 <span className="text-gray-400 text-xs">days</span>
               </div>
-              <span className="text-white text-6xl font-albert-sans">:</span>
               <div className="flex flex-col items-center">
-                <span className="text-white text-6xl font-albert-sans">{timeLeft.hours}</span>
+                <div className="flex items-center">
+                <span className={`text-6xl font-albert-sans w-24 text-center tabular-nums ${
+                    isDark ? "text-white" : "text-black"
+                  }`}>{formatNumber(timeLeft.hours)}</span>
+                  <span className={`text-6xl font-albert-sans ${
+                    isDark ? "text-white" : "text-black"
+                  }`}> : </span>
+                </div>
                 <span className="text-gray-400 text-xs">hrs</span>
               </div>
-              <span className="text-white text-6xl font-albert-sans">:</span>
               <div className="flex flex-col items-center">
-                <span className="text-white text-6xl font-albert-sans">{timeLeft.minutes}</span>
+                <div className="flex items-center">
+                <span className={`text-6xl font-albert-sans w-24 text-center tabular-nums ${
+                    isDark ? "text-white" : "text-black"
+                  }`}>{formatNumber(timeLeft.minutes)}</span>
+                  <span className={`text-6xl font-albert-sans ${
+                    isDark ? "text-white" : "text-black"
+                  }`}> : </span>
+                </div>
                 <span className="text-gray-400 text-xs">min</span>
               </div>
-              <span className="text-white text-6xl font-albert-sans">:</span>
               <div className="flex flex-col items-center">
-                <span className="text-white text-6xl font-albert-sans">{timeLeft.seconds}</span>
+              <span className={`text-6xl font-albert-sans w-24 text-center tabular-nums ${
+                    isDark ? "text-white" : "text-black"
+                  }`}>{formatNumber(timeLeft.seconds)}</span>
                 <span className="text-gray-400 text-xs">sec</span>
               </div>
               <div className="pl-6 border-l border-gray-600">
-                <span className="text-white text-4xl mr-2">LEFT TO</span>
-                <span className="text-orange-500 text-4xl font-albert-sans">APPLY</span>
+              <span className={`text-3xl mr-2 ${
+                    isDark ? "text-white" : "text-black"
+                  }`}>LEFT TO</span>
+                <span className={`text-3xl font-albert-sans ${
+                  isDark ? "text-[#F58134]" : "text-[#19B5CA]"
+                }`}>APPLY</span>
               </div>
             </div>
           </div>
           
-          {/* Apply now button - centered */}
+          {/* Apply now button */}
           <div className="flex justify-center w-full">
             <Button contents="APPLY NOW" onclick={() => {}} />
           </div>

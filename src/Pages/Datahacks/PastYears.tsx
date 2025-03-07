@@ -1,4 +1,5 @@
-import Button from '../../Components/Button'; // Assuming this is the path to your Button component
+import Button from '../../Components/Button';
+import { useTheme } from "../Home/useTheme";
 
 interface ProjectInfo {
   rank: number;
@@ -8,6 +9,7 @@ interface ProjectInfo {
 }
 
 const PastYears = () => {
+  const { isDark } = useTheme();
   // Project data in order of rank (1st, 2nd, 3rd)
   const projects: ProjectInfo[] = [
     {
@@ -42,11 +44,15 @@ const PastYears = () => {
       <div className="absolute left-1/4 top-24 text-gray-700 text-6xl opacity-20">+</div>
       <div className="absolute left-1/3 top-40 text-gray-700 text-4xl opacity-20">+</div>
       
-      <h2 className="text-white text-4xl font-medium font-albert-sans mb-20">PAST YEARS SHOWCASE</h2>
+      <h2 className={` text-4xl font-medium font-albert-sans mb-20 ${
+        isDark ? "text-white" : "text-black"
+      }`}>PAST YEARS SHOWCASE</h2>
       
       {/* Top project - displayed separately at the top */}
       <div className="text-center mb-6">
-        <h3 className="text-white font-light">{projects[0].name}</h3>
+        <h3 className={`font-light ${
+          isDark ? "text-white" : "text-black"
+        }`}>{projects[0].name}</h3>
         <a href={`https://${projects[0].link}`} 
            className="text-gray-500 hover:text-gray-400" 
            target="_blank" 
@@ -62,7 +68,9 @@ const PastYears = () => {
             {/* Project info above podium */}
             {index !== 1 && ( // Don't show info for middle podium (it's shown at the top)
               <div className="text-center mb-4">
-                <h3 className="text-white font-light">{project.name}</h3>
+                <h3 className={`font-light ${
+                  isDark ? "text-white" : "text-black"
+                }`}>{project.name}</h3>
                 <a href={`https://${project.link}`} 
                    className="text-gray-500 hover:text-gray-400" 
                    target="_blank" 
@@ -73,8 +81,12 @@ const PastYears = () => {
             )}
             
             {/* Podium with rank number */}
-            <div className={`${project.height} w-32 border border-white rounded-md flex items-end justify-center bg-black relative`}>
-              <span className="text-white text-7xl font-light absolute bottom-6 font-albert-sans">{project.rank}</span>
+            <div className={`${project.height} w-32 border rounded-md flex items-end justify-center relative ${
+              isDark ? "border-white bg-black" : "border-black bg-white"
+            }`}>
+              <span className={`text-7xl font-light absolute bottom-6 font-albert-sans ${
+                isDark ? "text-white" : "text-black"
+              }`}>{project.rank}</span>
             </div>
           </div>
         ))}
@@ -82,7 +94,7 @@ const PastYears = () => {
       
       {/* View Gallery button */}
       <div className="mt-8">
-      <Button contents="View 2024 Gallery" onclick={() => {}} />
+        <Button contents="View 2024 Gallery" onclick={() => {}} />
       </div>
     </div>
   );

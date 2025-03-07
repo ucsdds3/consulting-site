@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTheme } from "../Home/useTheme";
 
 interface Photo {
   id: string;
@@ -7,6 +8,7 @@ interface Photo {
 }
 
 const PhotoGallery = () => {
+  const { isDark } = useTheme();
   const [selectedPhoto, setSelectedPhoto] = useState<string | null>(null);
   
   // placeholder images
@@ -17,6 +19,7 @@ const PhotoGallery = () => {
     { id: 'photo4', src: '/path/to/photo4.jpg', alt: 'Gallery image 4' },
     { id: 'photo5', src: '/path/to/photo5.jpg', alt: 'Gallery image 5' },
     { id: 'photo6', src: '/path/to/photo6.jpg', alt: 'Gallery image 6' },
+    { id: 'photo7', src: '/path/to/photo7.jpg', alt: 'Gallery image 7' },
   ];
 
   const handlePhotoClick = (photoId: string) => {
@@ -25,7 +28,9 @@ const PhotoGallery = () => {
 
   return (
     <div className="w-full max-w-5xl mx-auto p-4">
-      <div className="border border-white-700 rounded-lg overflow-hidden bg-black">
+      <div className={`border rounded-lg overflow-hidden ${
+        isDark ? "border-white-700 bg-black" : "border-black bg-white"
+      }`}>
         <div className="grid grid-cols-3 gap-2 p-2">
           {/* Large photo - left top */}
           <div className="col-span-1 row-span-1 aspect-square">
@@ -118,8 +123,8 @@ const PhotoGallery = () => {
               onClick={() => handlePhotoClick('photo6')}
             >
               <img
-                src={photos[5].src}
-                alt={photos[5].alt}
+                src={photos[6].src}
+                alt={photos[6].alt}
                 className="w-full h-full object-cover"
               />
             </div>
