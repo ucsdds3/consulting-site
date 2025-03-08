@@ -1,9 +1,12 @@
 import { motion } from "framer-motion";
 import { AppearingVariants } from "./LandingVariants";
 import Star from "./Star";
-import { RefObject } from "react";
 
-const Stars = ({ rect }: { rect: RefObject<HTMLDivElement> }) => {
+const Stars = ({
+  StarsArray
+}: {
+  StarsArray: { x: number; y: number; w: number }[];
+}) => {
   return (
     <motion.div
       variants={AppearingVariants}
@@ -11,8 +14,12 @@ const Stars = ({ rect }: { rect: RefObject<HTMLDivElement> }) => {
       animate="animate"
       className="z-[-10]"
     >
-      {Array.from({ length: 12 }, (_, index) => {
-        return <Star index={index} rect={rect} key={index} />;
+      {StarsArray.map((star, i) => {
+        return (
+          <>
+            <Star x={star.x} y={star.y} w={star.w} index={i}></Star>
+          </>
+        );
       })}
     </motion.div>
   );

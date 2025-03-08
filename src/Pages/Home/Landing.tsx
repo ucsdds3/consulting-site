@@ -2,15 +2,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import dino from "/src/Assets/Images/betterdino.png";
 import TextArea from "../../Components/Landing/TextArea";
 import Stars from "../../Components/Landing/Stars";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useTheme } from "./useTheme";
+import StarsData from "./StarsData.json";
 
 const Landing = () => {
-  const [rendered, setRendered] = useState(false);
   const [showArrow, setShowArrow] = useState(true);
   const { isDark } = useTheme();
-
-  const TextAreaRef = useRef<HTMLDivElement>(null);
 
   // Show/hide arrow based on scroll position
   useEffect(() => {
@@ -28,14 +26,10 @@ const Landing = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    setRendered(true);
-  }, []);
-
   return (
     <div className=" flex flex-col lg:w-[80vw] w-[95vw] min-h-[90vh] mx-auto">
-      {rendered && <Stars rect={TextAreaRef} />}
-      <TextArea ref={TextAreaRef} />
+      <Stars StarsArray={StarsData[Math.round(Math.random() * 4)]} />
+      <TextArea />
 
       {/* Dino Image */}
       <div className="absolute bottom-[0vh] right-[0.5vw] w-[300px] md:w-[500px] lg:w-[800px] 2xl:w-[1050px] h-1/2">
@@ -58,7 +52,9 @@ const Landing = () => {
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className={`h-8 w-8 ${isDark ? "text-white" : "text-black"} animate-bounce`}
+              className={`h-8 w-8 ${
+                isDark ? "text-white" : "text-black"
+              } animate-bounce`}
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"

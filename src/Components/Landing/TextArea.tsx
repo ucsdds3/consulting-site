@@ -1,20 +1,17 @@
-import { forwardRef, LegacyRef } from "react";
 import Button from "../Button";
 import { baseURL } from "../../Utils/info";
 import { useTheme } from "../../Pages/Home/useTheme";
 
-const Text = forwardRef((_props, ref: LegacyRef<HTMLDivElement>) => {
+export default function Text() {
   const { isDark } = useTheme();
 
   return (
-    <div
-      className="flex flex-col justify-center mt-[20vh]"
-      id="textarea"
-      ref={ref}
-    >
+    <div className="flex flex-col justify-center mt-[20vh]" id="textarea">
       <div className="">
         <div
-          className={`flex ${isDark ? "text-white" : "text-black"} lg:text-[2vw] leading-[2vw] ml-[-0.1rem] font-albert-sans`}
+          className={`flex ${
+            isDark ? "text-white" : "text-black"
+          } lg:text-[2vw] leading-[2vw] ml-[-0.1rem] font-albert-sans`}
         >
           <div className="text-[#F58134]">LEARN</div>,
           <div className="text-[#19B5CA] ml-[0.5rem]">BUILD</div>,
@@ -25,7 +22,9 @@ const Text = forwardRef((_props, ref: LegacyRef<HTMLDivElement>) => {
         </div>
         <div className="flex">
           <p
-            className={`lg:text-[4vw] text-[7vw] ${isDark ? "text-white" : "text-black"} font-medium font-albert-sans`}
+            className={`lg:text-[4vw] text-[7vw] ${
+              isDark ? "text-white" : "text-black"
+            } font-medium font-albert-sans`}
           >
             Data Science Student Society
           </p>
@@ -37,7 +36,9 @@ const Text = forwardRef((_props, ref: LegacyRef<HTMLDivElement>) => {
         </div>
 
         <div
-          className={`mt-1 md:text-[1.5vw] text-[4vw] sm:text-[3vw] pb-10 font-albert-sans ${isDark ? "text-white" : "text-black"}`}
+          className={`mt-1 md:text-[1.5vw] text-[4vw] sm:text-[3vw] pb-10 font-albert-sans ${
+            isDark ? "text-white" : "text-black"
+          }`}
         >
           We are here to expand the horizons of data science as a community
           together.
@@ -46,6 +47,4 @@ const Text = forwardRef((_props, ref: LegacyRef<HTMLDivElement>) => {
       </div>
     </div>
   );
-});
-
-export default Text;
+}
