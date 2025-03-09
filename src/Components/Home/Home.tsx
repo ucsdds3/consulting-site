@@ -1,16 +1,18 @@
-import Page from "../../Components/Page/Page";
+import Page from "../Page/Page";
 import AboutUs from "./AboutUs";
 import WhereWeBeen from "./WhereWeBeen";
 import Landing from "./Landing";
-import Stats from "./Stats";
+import OurWork from "./OurWork";
+import Contact from "./Contact";
 
 const Home = () => {
   return (
     <Page>
       <Landing />
       <AboutUs />
-      <Stats />
       <WhereWeBeen />
+      <OurWork />
+      <Contact />
     </Page>
   );
 };

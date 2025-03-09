@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { baseURL } from "../../Utils/info";
+import logo from "/src/Assets/Images/ds3_logo.png";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -9,7 +9,7 @@ const Navbar = () => {
   return (
     <div className="flex fixed w-full z-10 items-center">
       <button className="text-[2rem] font-bold ml-2 p-4 hover:rotate-[-180deg] duration-500" onClick={() => navigate("/")}>
-        <img src={`${baseURL}/src/Assets/Images/ds3_logo.png`} alt="Logo" className="w-12" />
+        <img src={logo} alt="Logo" className="w-12" />
       </button>
       <div className="flex flex-1 justify-end mr-2">
         <button className={btnClass} onClick={() => navigate(`/about-me`)}>
