@@ -1,5 +1,4 @@
 import SocialMedia from "./SocialMedia";
-import Sponsers from "./Sponsers";
 import logo from "/src/Assets/Images/big-logo-light.png"
 
 const Footer = () => {
@@ -15,7 +14,6 @@ const Footer = () => {
           <span>© 2024 Data Science Student Society | All Rights Reserved</span>
         </div>
       </div>
-      <Sponsers />
       <SocialMedia />
     </div>
   );

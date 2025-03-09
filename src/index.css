@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+.hero-text-shadow {
+  text-shadow: 0 5px 20px #0057ff33, 0 -5px 15px #ff5a0026, 0 0 30px #ffffff4d;
+}
