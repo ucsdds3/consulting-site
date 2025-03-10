@@ -69,11 +69,11 @@ const Card: React.FC = () => {
       className={`size-fit ${backgroundColor} p-10 w-[80vw] rounded-xl ${borderColor} border m-20`}
     >
       <p className={`${textColor} text-3xl mb-2`}>{title}</p>
-      <div className="grid grid-flow-row grid-cols-10 gap-3">
-        <div className="h-[100%] bg-[#D9D9D9] col-span-5 rounded-md">
+      <div className="grid grid-flow-row grid-cols-10 gap-8">
+        <div className="h-[100%] bg-[#D9D9D9] col-span-6 rounded-md">
           {imageSrc}
         </div>
-        <div className="col-span-5">
+        <div className="col-span-4">
           <div className="grid grid-flow-row grid-cols-8 gap-2">
             <div className="col-span-1">
             <BulletStar />
