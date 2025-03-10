@@ -22,11 +22,11 @@ const EventsDropdown = [
   },
   {
     label: "Professional",
-    src: "/events/upcoming"
+    src: "/events/professional"
   },
   {
     label: "Projects",
-    src: "/projects"
+    src: "/events/projects"
   }
 ];
 

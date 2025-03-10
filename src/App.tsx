@@ -7,6 +7,7 @@ import Partners from "./Pages/Partners/PartnersPage";
 import JoinUs from "./Pages/JoinUs/JoinUsPage";
 import Projects from "./Pages/Projects/Projects";
 import Workshop from "./Pages/Events/Workshop/Workshop";
+import ProfessionalEvents from "./Pages/Events/ProfessionalEvents/ProfessionalEvents";
 
 function App() {
   return (
@@ -19,13 +20,14 @@ function App() {
       <Route path="/events">
         <Route path="datahacks" element={<Datahacks />} />
         <Route path="workshops" element={<Workshop />} />
+        <Route path="professional" element={<ProfessionalEvents />} />
+        <Route path="projects" element={<Projects />} />
       </Route>
 
       <Route path="/our-team">
         <Route path="alumni" element={<Alumni />} />
         <Route path="board" element={<Board />} />
       </Route>
-      <Route path="/projects" element={<Projects />} />
     </Routes>
   );
 }
