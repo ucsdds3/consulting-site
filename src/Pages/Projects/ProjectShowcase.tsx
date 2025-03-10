@@ -1,19 +1,26 @@
+import { useTheme } from "../../Pages/Home/useTheme";
 const projects = Array(6).fill({ name: "Project Name" });
 
 const ProjectShowcase = () => {
+  const { isDark } = useTheme();
+
+  const textColor = isDark ? "text-white" : "text-black";
+  const borderColor = isDark ? "border-white" : "border-black";
+  const hoverColor = isDark ? "hover:bg-gray-800" : "hover:bg-gray-200";
+  
   return (
-    <section className="pt-24 text-white">
+    <section className={`pt-24 ${textColor}`}>
       {/* Title and Filters */}
       <div className="flex justify-between items-center mb-6 w-[80vw]">
         <div>
           <h2 className="text-2xl font-semibold">PROJECT SHOWCASE</h2>
-          <p className="text-white">Take a look at some projects from previous years.</p>
+          <p className={`${textColor}`}>Take a look at some projects from previous years.</p>
         </div>
         <div className="space-x-3">
-          <button className="border border-white px-4 py-2 rounded-full hover:bg-gray-800 duration-200">
+          <button className={`border ${borderColor} px-4 py-2 rounded-full ${hoverColor} duration-200`}>
             Year
           </button>
-          <button className="border border-white px-4 py-2 rounded-full hover:bg-gray-800 duration-200">
+          <button className={`border ${borderColor} px-4 py-2 rounded-full ${hoverColor} duration-200`}>
             Categories
           </button>
         </div>
@@ -25,7 +32,7 @@ const ProjectShowcase = () => {
           {projects.map((project, index) => (
             <div key={index} className="col-span-1">
               <div className="bg-white rounded-md h-[45vh]"></div>
-              <p className="mt-2 text-white">{project.name}</p>
+              <p className={`mt-2 ${textColor}`}>{project.name}</p>
             </div>
           ))}
         </div>
