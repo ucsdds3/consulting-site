@@ -40,29 +40,32 @@ export const Banner: React.FC<{ eventInfo: string }> = ({ eventInfo }) => {
 
   if (!isVisible) return null;
 
-  // Keep the border color dynamic but text color always black
   const borderColor = isDark ? "border-white" : "border-black";
 
   return (
     <div
-      className={`w-[1143px] h-[114px] relative mx-auto my-8 rounded-[10px] shadow-[4px_7px_10px_0px_rgba(0,0,0,0.25)] flex items-center justify-between px-6 border ${borderColor}`}
+      className={`w-[90%] max-w-[1204px] h-[114px] relative mx-auto my-8 rounded-[10px] shadow-[4px_7px_10px_0px_rgba(0,0,0,0.25)] flex items-center justify-between px-8 md:px-16 border ${borderColor}`}
       style={{ backgroundColor: "rgba(217, 217, 217, 0.5)" }}
     >
-      <div>
-        <p className="text-[28px] font-bold font-['Albert Sans'] text-black leading-7">
+      <div className="flex-1 pr-4">
+        <p className="text-[24px] md:text-[28px] font-bold font-['Albert Sans'] text-black leading-7">
           There is an upcoming event!
         </p>
-        <p className="text-2xl font-normal font-['Albert Sans'] text-black leading-7">
+        <p className="text-xl md:text-2xl font-normal font-['Albert Sans'] text-black leading-7">
           {eventInfo ||
             "(INSERT BASIC EVENT INFORMATION HERE + link to event page)"}
         </p>
       </div>
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-4 shrink-0">
         {/* DS3 Logo - with full opacity */}
-        <img src={ds3Logo} alt="DS3 Logo" className="w-10 h-10 z-10" />
+        <img
+          src={ds3Logo}
+          alt="DS3 Logo"
+          className="w-8 md:w-10 h-8 md:h-10 z-10"
+        />
         {/* Close button */}
         <div
-          className="text-2xl font-normal text-black cursor-pointer"
+          className="text-xl md:text-2xl font-normal text-black cursor-pointer"
           onClick={() => setIsVisible(false)}
         >
           ×
@@ -79,32 +82,32 @@ export const Header: React.FC<{
   imagePath: string;
 }> = ({ title, subtitle, imagePath }) => {
   const { isDark } = useTheme();
-
-  // Text color based on theme
   const textColor = isDark ? "text-white" : "text-black";
 
   return (
-    <div className="flex items-center justify-center py-6 gap-10">
-      {/* Workshop Text */}
-      <div className="flex flex-col items-start ml-20 -mt-16">
-        <div
-          className={`w-[516px] ${textColor} text-3xl font-normal font-['Albert Sans'] leading-[45px] -mt-26 mb-2`}
-        >
-          {subtitle}
+    <div className="w-[90%] max-w-[1204px] mx-auto">
+      <div className="flex flex-col lg:flex-row items-center justify-center py-6 gap-10">
+        {/* Workshop Text */}
+        <div className="flex flex-col items-start lg:ml-20 lg:-mt-16">
+          <div
+            className={`w-full lg:w-[516px] ${textColor} text-3xl lg:text-3xl font-normal font-['Albert Sans'] leading-[45px] lg:-mt-26 mb-2 px-4 lg:px-0`}
+          >
+            {subtitle}
+          </div>
+          <div
+            className={`w-full lg:w-[604px] ${textColor} text-[65px] lg:text-[80px] font-medium font-['Albert Sans'] leading-[70px] lg:leading-[70px] px-4 lg:px-0`}
+          >
+            {title}
+          </div>
         </div>
-        <div
-          className={`w-[604px] ${textColor} text-[80px] font-medium font-['Albert Sans'] leading-[70px]`}
-        >
-          {title}
-        </div>
-      </div>
 
-      {/* Workshop Image */}
-      <img
-        className="w-[604px] h-[604px]"
-        src={imagePath}
-        alt={`${title} Decor Image`}
-      />
+        {/* Workshop Image */}
+        <img
+          className="w-[80%] h-auto lg:w-[604px] lg:h-[604px] mt-8 lg:mt-0"
+          src={imagePath}
+          alt={`${title} Decor Image`}
+        />
+      </div>
     </div>
   );
 };
@@ -117,9 +120,8 @@ export const About: React.FC<{
 }> = ({ title, imagePath, points }) => {
   const { isDark } = useTheme();
 
-  // Text color based on theme
   const textColor = isDark ? "text-white" : "text-black";
-  const borderColor = "border-black";
+  const borderColor = isDark ? "border-white" : "border-black";
   const backgroundColor = isDark ? "#0E1111" : "transparent";
 
   // Star animation variants
@@ -157,7 +159,7 @@ export const About: React.FC<{
             opacity: 1,
             filter: isDark
               ? "drop-shadow(0px 0px 8px rgba(245, 129, 52, 0.6))"
-              : "drop-shadow(0px 0px 8px rgba(25, 181, 202, 0.8)) brightness(0.7)",
+              : "drop-shadow(0px 0px 8px rgba(25, 181, 202, 0.6))",
           }}
         />
       </div>
@@ -166,18 +168,18 @@ export const About: React.FC<{
 
   return (
     <div
-      className={`w-[1204px] h-[688px] relative mx-auto border ${borderColor} rounded-[15px] flex flex-col px-8 py-6`}
+      className={`w-[90%] max-w-[1204px] min-h-[688px] relative mx-auto border ${borderColor} rounded-[15px] flex flex-col px-4 md:px-16 py-6`}
       style={{ backgroundColor }}
     >
       <h2
-        className={`w-full ${textColor} text-[45px] font-medium font-['Albert Sans'] uppercase leading-[65px]`}
+        className={`w-full ${textColor} text-[35px] md:text-[45px] font-medium font-['Albert Sans'] uppercase leading-[45px] md:leading-[65px]`}
       >
         {title}
       </h2>
 
-      <div className="flex items-center mt-6">
+      <div className="flex flex-col lg:flex-row items-start lg:items-center mt-6 gap-8 lg:gap-0">
         {/* Placeholder for Image */}
-        <div className="w-[574px] h-[479px] bg-[#D9D9D9] rounded-[10px]">
+        <div className="w-full lg:w-[574px] h-[300px] md:h-[479px] bg-[#D9D9D9] rounded-[10px] pl-4">
           {imagePath && (
             <img
               src={imagePath}
@@ -188,19 +190,19 @@ export const About: React.FC<{
         </div>
 
         {/* Text Section */}
-        <div className="ml-12 flex flex-col justify-center space-y-8 max-w-[500px]">
+        <div className="w-full lg:ml-7 flex flex-col justify-center space-y-8 lg:max-w-[500px]">
           {points.map((point, index) => (
             <div key={index} className="flex items-start gap-6">
               {/* Star bullet point */}
               <BulletStar index={index} />
               <div className="flex-1">
                 <p
-                  className={`text-[25px] font-semibold font-['Albert Sans'] uppercase leading-[30px] ${textColor}`}
+                  className={`text-[20px] md:text-[25px] font-semibold font-['Albert Sans'] uppercase leading-[25px] md:leading-[30px] ${textColor}`}
                 >
                   {point.title}
                 </p>
                 <p
-                  className={`text-[25px] font-light font-['Albert Sans'] leading-[25px] mt-2 ${textColor}`}
+                  className={`text-[18px] md:text-[25px] font-light font-['Albert Sans'] leading-[22px] md:leading-[25px] mt-2 ${textColor}`}
                 >
                   {point.description}
                 </p>
@@ -266,12 +268,12 @@ export const Events: React.FC<{
   };
 
   return (
-    <div className="w-[1150px] mx-auto flex flex-col mt-20">
+    <div className="w-[90%] max-w-[1204px] mx-auto flex flex-col mt-20">
       {/* Search & Buttons */}
-      <div className="w-full flex justify-between items-center mb-6">
-        <div className="flex gap-4">
+      <div className="w-full flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0 mb-6">
+        <div className="flex gap-4 w-full sm:w-auto">
           <button
-            className="w-[199px] h-[54px] rounded-[80px] text-[22px] font-normal font-['Albert Sans'] text-black transition-all duration-300 border border-black"
+            className="flex-1 sm:flex-none sm:w-[205px] h-[54px] rounded-[80px] text-[22px] font-normal font-['Albert Sans'] text-black transition-all duration-300 border border-black"
             style={
               activeTab === "upcoming"
                 ? getGlowStyle()
@@ -282,7 +284,7 @@ export const Events: React.FC<{
             Upcoming Events
           </button>
           <button
-            className="w-[100px] h-[54px] rounded-[80px] text-[22px] font-normal font-['Albert Sans'] text-black transition-all duration-300 border border-black"
+            className="flex-1 sm:flex-none sm:w-[100px] h-[54px] rounded-[80px] text-[22px] font-normal font-['Albert Sans'] text-black transition-all duration-300 border border-black"
             style={
               activeTab === "all"
                 ? getGlowStyle()
@@ -294,7 +296,7 @@ export const Events: React.FC<{
           </button>
         </div>
         <div
-          className="w-[222px] h-[54px] rounded-[80px] flex justify-center items-center px-4 border border-black"
+          className="w-full sm:w-[222px] h-[54px] rounded-[80px] flex justify-center items-center px-4 border border-black"
           style={{ backgroundColor: isDark ? "#FAF9F6" : "#D9D9D9" }}
         >
           <input
@@ -305,7 +307,7 @@ export const Events: React.FC<{
             onChange={(e) => setSearchQuery(e.target.value)}
           />
           <svg
-            className="ml-2 cursor-pointer"
+            className="ml-2 cursor-pointer shrink-0"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -331,12 +333,15 @@ export const Events: React.FC<{
       </div>
 
       {/* Event Cards */}
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredEvents.length > 0 ? (
           filteredEvents.map((event) => (
-            <div key={event.id} className="flex flex-col">
-              {/* Image Container - 350x350 */}
-              <div className="w-[350px] h-[350px] bg-[#D9D9D9] rounded-[10px] overflow-hidden">
+            <div
+              key={event.id}
+              className="flex flex-col mx-auto w-full max-w-[350px]"
+            >
+              {/* Image Container - responsive width */}
+              <div className="w-full aspect-square bg-[#D9D9D9] rounded-[10px] overflow-hidden">
                 {event.imagePath ? (
                   <img
                     src={event.imagePath}
@@ -374,7 +379,7 @@ export const Events: React.FC<{
           ))
         ) : (
           <div
-            className={`col-span-3 text-center text-[24px] font-normal font-['Albert Sans'] ${textColor}`}
+            className={`col-span-1 md:col-span-2 lg:col-span-3 text-center text-[24px] font-normal font-['Albert Sans'] ${textColor}`}
           >
             No events found. Try a different search term.
           </div>

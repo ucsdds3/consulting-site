@@ -56,8 +56,18 @@ const BoardMemberCard: React.FC<{
   textColor: string;
   isDark: boolean;
 }> = ({ member, textColor, isDark }) => {
-  // Instead of trying to load an image that might not exist,
-  // we'll just use a colored div as a placeholder
+  // Get the glow color based on theme
+  const glowColor = isDark ? "#F58134" : "#19B5CA";
+
+  // Hover style for links
+  const linkStyle = {
+    transition: "all 0.3s ease",
+    "&:hover": {
+      textShadow: `0 0 8px ${glowColor}, 0 0 12px ${glowColor}66`,
+      color: glowColor,
+    },
+  };
+
   return (
     <div className="flex flex-col items-center">
       {/* Member image placeholder - 250x250 with rounded corners */}
@@ -82,7 +92,7 @@ const BoardMemberCard: React.FC<{
         {member.name}
       </h3>
 
-      {/* Member links */}
+      {/* Member links with hover effect */}
       <div
         className="text-[20px] mt-1"
         style={{ color: isDark ? "#9CA3AF" : "#6B7280" }}
@@ -91,7 +101,21 @@ const BoardMemberCard: React.FC<{
           href={member.personalWebsite || "#"}
           target="_blank"
           rel="noopener noreferrer"
-          className="block hover:underline"
+          className="block hover:underline transition-all duration-300"
+          style={{
+            "&:hover": {
+              color: glowColor,
+              textShadow: `0 0 8px ${glowColor}, 0 0 12px ${glowColor}66`,
+            },
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.color = glowColor;
+            e.currentTarget.style.textShadow = `0 0 8px ${glowColor}, 0 0 12px ${glowColor}66`;
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.color = isDark ? "#9CA3AF" : "#6B7280";
+            e.currentTarget.style.textShadow = "none";
+          }}
         >
           personal website / resume
         </a>
@@ -99,7 +123,21 @@ const BoardMemberCard: React.FC<{
           href={member.linkedIn || "#"}
           target="_blank"
           rel="noopener noreferrer"
-          className="block hover:underline"
+          className="block hover:underline transition-all duration-300"
+          style={{
+            "&:hover": {
+              color: glowColor,
+              textShadow: `0 0 8px ${glowColor}, 0 0 12px ${glowColor}66`,
+            },
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.color = glowColor;
+            e.currentTarget.style.textShadow = `0 0 8px ${glowColor}, 0 0 12px ${glowColor}66`;
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.color = isDark ? "#9CA3AF" : "#6B7280";
+            e.currentTarget.style.textShadow = "none";
+          }}
         >
           LinkedIn link
         </a>
