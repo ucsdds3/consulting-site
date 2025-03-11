@@ -1,35 +1,39 @@
 {
-    "questions": [
-      {
-        "id": 1,
-        "question": "Lorem ipsum dolor sit amet, consectetur adipi?",
-        "answer": "Lorem ipsum dolor sit amet, consectetur adipi!"
-      },
-      {
-        "id": 2,
-        "question": "Join us FAQ question 2?",
-        "answer": "Join us FAQ answer 2!"
-      },
-      {
-        "id": 3,
-        "question": "Join us FAQ question 3?",
-        "answer": "Join us FAQ answer 3!"
-      },
-      {
-        "id": 4,
-        "question": "Join us FAQ question 4?",
-        "answer": "Join us FAQ answer 4!"
-      },
-      {
-        "id": 5,
-        "question": "Join us FAQ question 5?",
-        "answer": "Join us FAQ answer 5!"
-      },
-      {
-        "id": 6,
-        "question": "Join us FAQ question 6?",
-        "answer": "Join us FAQ answer 6!"
-      }
-    ]
-  }
-  
+  "questions": [
+    {
+      "id": 1,
+      "question": "How do I join DS3?",
+      "answer": "There is no application needed to join DS3! Attend any of our events and join our discord to become a member!"
+    },
+    {
+      "id": 2,
+      "question": "Do I have to be a data science major to join DS3?",
+      "answer": "You do not have to be a data science major in order to join DS3! DS3 is open to all that are interested in data science!"
+    },
+    {
+      "id": 3,
+      "question": "Is any experience required to join?",
+      "answer": "No experience is required to join DS3! Feel free to attend our workshop events to gain more experience within data science."
+    },
+    {
+      "id": 4,
+      "question": "How can I become more involved with DS3?",
+      "answer": "The best way to become more involved with DS3 is to become a board member. Board member applications usually open during the fall and spring quarters. Stay up to date on application announcements by joining our discord and following our social media platforms."
+    },
+    {
+      "id": 5,
+      "question": "Can graduate students join DS3?",
+      "answer": "Unfortunately, graduate students cannot become board members or come to certain events since we are an undergraduate organization. If you have a specific question, we recommend reaching out through email."
+    },
+    {
+      "id": 6,
+      "question": "How do I stay up to date with DS3?",
+      "answer": "Follow us on Instagram (@ds3.ucsd) as we will be posting events and reminders there often."
+    },
+    {
+      "id": 7,
+      "question": "Where do I go if I have more questions?",
+      "answer": "The best way to contact us is through email (ds3@ucsd.edu) or through Instagram DMs (@ds3.ucsd)."
+    }
+  ]
+}

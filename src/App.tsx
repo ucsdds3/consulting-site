@@ -8,6 +8,7 @@ import JoinUs from "./Pages/JoinUs/JoinUsPage";
 import Projects from "./Pages/Projects/Projects";
 import Workshop from "./Pages/Events/Workshop/Workshop";
 import ProfessionalEvents from "./Pages/Events/ProfessionalEvents/ProfessionalEvents";
+import Social from "./Pages/Events/Social/Social";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="workshops" element={<Workshop />} />
         <Route path="professional" element={<ProfessionalEvents />} />
         <Route path="projects" element={<Projects />} />
+        <Route path="social" element={<Social />} />
       </Route>
 
       <Route path="/our-team">

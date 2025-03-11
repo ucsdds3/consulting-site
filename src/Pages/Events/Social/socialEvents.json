@@ -1,0 +1,55 @@
+{
+    "upcomingEvents": [
+      {
+        "id": 1,
+        "title": "Introduction to Python for Data Science",
+        "description": "Learn the basics of Python programming for data analysis and visualization.",
+        "date": "2023-06-15T18:00:00",
+        "location": "CSE Building, Room 4140",
+        "imagePath": "/src/Assets/Images/homepage-img2-1.png"
+      },
+      {
+        "id": 2,
+        "title": "Machine Learning Fundamentals",
+        "description": "Explore core ML concepts and implement your first models with scikit-learn.",
+        "date": "2023-06-22T17:30:00",
+        "location": "Geisel Library, Room 2E",
+        "imagePath": "/src/Assets/Images/homepage-img2-1.png"
+      },
+      {
+        "id": 3,
+        "title": "Data Visualization with Matplotlib & Seaborn",
+        "description": "Create compelling visualizations to communicate your data insights effectively.",
+        "date": "2023-07-05T18:00:00",
+        "location": "Price Center, Bear Room",
+        "imagePath": "/src/Assets/Images/homepage-img2-1.png"
+      }
+    ],
+    "pastEvents": [
+      {
+        "id": 4,
+        "title": "Git & GitHub for Data Scientists",
+        "description": "Master version control for your data science projects and collaborate effectively.",
+        "date": "2023-05-18T18:00:00",
+        "location": "CSE Building, Room 4140",
+        "imagePath": "/src/Assets/Images/homepage-img2-1.png"
+      },
+      {
+        "id": 5,
+        "title": "SQL for Data Analysis",
+        "description": "Learn how to query databases and extract insights using SQL.",
+        "date": "2023-05-04T17:30:00",
+        "location": "Geisel Library, Room 2E",
+        "imagePath": "/src/Assets/Images/homepage-img2-1.png"
+      },
+      {
+        "id": 6,
+        "title": "Introduction to Neural Networks",
+        "description": "Understand the fundamentals of neural networks and deep learning.",
+        "date": "2023-04-20T18:00:00",
+        "location": "Price Center, Bear Room",
+        "imagePath": "/src/Assets/Images/homepage-img2-1.png"
+      }
+    ]
+  }
+  

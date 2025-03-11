@@ -224,7 +224,7 @@ export const Events: React.FC<{
 
   // Filter events based on active tab and search query
   const filteredEvents = (() => {
-    let events = [];
+    let events: EventItem[] = [];
     if (activeTab === "upcoming") {
       events = upcomingEvents;
     } else if (activeTab === "all") {
