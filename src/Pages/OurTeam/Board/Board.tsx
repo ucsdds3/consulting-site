@@ -259,14 +259,15 @@ const Board: React.FC = () => {
         </div>
 
         <div className="max-w-7xl mx-auto">
+          {/* Use flex-col on mobile and flex-row on medium and up */}
           <div className="flex flex-col md:flex-row">
-            {/* Left side: Fixed sidebar with committee list and join button */}
+            {/* Committee sidebar - non-fixed on mobile, fixed on desktop */}
             <div
-              className="md:w-1/4 fixed top-20 px-2 md:px-6 flex flex-col"
+              className="w-full md:w-1/4 relative md:sticky md:top-[80px] px-4 md:px-6 mb-8 md:mb-0"
               style={{
                 backgroundColor,
-                height: "calc(100vh - 80px - 120px)",
                 zIndex: 5,
+                height: "auto", // Remove fixed height to allow content to determine height
               }}
             >
               {/* Committee section header with glowing underline */}
@@ -292,8 +293,8 @@ const Board: React.FC = () => {
                 ></div>
               </div>
 
-              {/* Simple scrollable committee list with consistent spacing */}
-              <div className="overflow-y-auto flex-grow pl-2 pr-2">
+              {/* Committee list - allow full height */}
+              <div className="pl-2 pr-2 md:overflow-y-auto md:max-h-[calc(100vh-200px)]">
                 <ul className="space-y-[20px]">
                   {committees.map((committee) => (
                     <li key={committee} className="flex items-center">
@@ -314,9 +315,7 @@ const Board: React.FC = () => {
                                 ? buttonBgColor
                                 : "transparent",
                           }}
-                        >
-                          {/* No inner circle needed since the entire circle is filled when selected */}
-                        </span>
+                        ></span>
                         {committee}
                       </button>
                     </li>
@@ -324,20 +323,18 @@ const Board: React.FC = () => {
                 </ul>
               </div>
 
-              {/* Join us button */}
-              <div className="mt-4 mb-6 relative pl-2">
+              {/* Join us button - positioned consistently */}
+              <div className="mt-8 mb-8 relative pl-2">
                 <div className="relative w-[160px] h-[60px]">
-                  {/* Background element - positioned for better reveal */}
                   <div
                     className="absolute top-[8px] left-0 w-full h-[50px] rounded-full"
                     style={{ backgroundColor: buttonBgColor }}
                   ></div>
 
-                  {/* Button with border - moves down more on hover and uses navbar color in dark mode */}
                   <motion.button
                     className="absolute top-0 left-0 w-full h-[55px] rounded-full text-[18px] flex items-center justify-center border-2"
                     style={{
-                      backgroundColor: buttonColor, // Using navbar color in dark mode
+                      backgroundColor: buttonColor,
                       borderColor: buttonBgColor,
                       color: textColor,
                     }}
@@ -350,7 +347,7 @@ const Board: React.FC = () => {
                   </motion.button>
                 </div>
 
-                {/* Bottom left stars - correctly positioned next to the JOIN US button */}
+                {/* Stars next to JOIN US button */}
                 <div className="absolute top-[25px] left-[170px] flex space-x-2 z-10">
                   <motion.img
                     src={star}
@@ -394,13 +391,11 @@ const Board: React.FC = () => {
               </div>
             </div>
 
-            {/* Right side: Scrollable content with board members - adjusted margin to match new width */}
-            <div className="w-full md:w-3/4 md:ml-[25%] px-6 md:px-12 pb-24">
-              {" "}
-              {/* Increased width and adjusted margin */}
-              {/* Dynamic title based on selected committee */}
+            {/* Right side: Content with board members */}
+            <div className="w-full md:w-3/4 px-4 md:px-12 pb-24">
+              {/* Title */}
               <h1
-                className="font-albert-sans font-medium text-[60px] leading-[60px] tracking-[0px] mb-10"
+                className="font-albert-sans font-medium text-[40px] md:text-[60px] leading-[45px] md:leading-[60px] tracking-[0px] mb-10 mt-4 md:mt-0"
                 style={{
                   fontFamily: "'Albert Sans', sans-serif",
                 }}
@@ -412,7 +407,9 @@ const Board: React.FC = () => {
                 <span style={{ color: textColor }}> Team!</span>
               </h1>
               <CommitteeDescription />
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-12">
+
+              {/* Updated grid with better spacing for 1086px width screens */}
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 md:gap-12 pb-12">
                 {filteredMembers.map((member, index) => (
                   <BoardMemberCard
                     key={index}
