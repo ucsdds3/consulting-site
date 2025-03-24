@@ -29,15 +29,15 @@ const Card: React.FC<CardProps> = ({ title, imageSrc, description, link }) => {
         <span className="w-3 h-3 bg-[#434343] rounded-full"></span>
       </div>
       <div
-        className={`w-80 h-4 mb-2 flex items-center rounded-full ${
+        className={`w-[80%]  h-4 mb-2 flex items-center rounded-full ${
           isDark ? "bg-[#303030]" : "bg-gray-200"
         }`}
         style={{
-          borderRadius: "370px",
+          borderRadius: "370px"
         }}
       >
         <p
-          className={`absolute text-xs ml-2 font-albert-sans hover:cursor-pointer ${
+          className={`absolute text-sm w-[70%] text-nowrap ml-2 font-albert-sans hover:cursor-pointer overflow-hidden [text-overflow:ellipsis]  ${
             isDark
               ? "text-white hover:text-gray-400"
               : "text-black hover:text-gray-600"
@@ -49,11 +49,11 @@ const Card: React.FC<CardProps> = ({ title, imageSrc, description, link }) => {
 
       <div className="flex items-center justify-between mb-2">
         <span
-          className="text-xl font-normal"
+          className="text-2xl font-normal"
           style={{
             fontFamily: "'Albert Sans', sans-serif",
             color: isDark ? "white" : "black",
-            lineHeight: "70px",
+            lineHeight: "70px"
           }}
         >
           {title}
@@ -66,11 +66,11 @@ const Card: React.FC<CardProps> = ({ title, imageSrc, description, link }) => {
         style={{ borderRadius: "8px" }}
       />
       <p
-        className="text-sm"
+        className="text-lg"
         style={{
           fontFamily: "'Albert Sans', sans-serif",
           color: isDark ? "white" : "black",
-          lineHeight: "25px",
+          lineHeight: "25px"
         }}
       >
         {description}

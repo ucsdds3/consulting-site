@@ -1,6 +1,6 @@
 // src/Pages/Events/EventPageTemplate.tsx
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import Page from "../../Components/Page/Page";
 import { useTheme } from "../../Pages/Home/useTheme";
 import ds3Logo from "../../Assets/Images/ds3_logo.png";
@@ -128,16 +128,16 @@ export const About: React.FC<{
   const starVariants = {
     initial: {
       rotate: 0,
-      scale: 1,
+      scale: 1
     },
     animate: {
       rotate: 360,
-      scale: [1, 1.1, 0.9, 1],
-    },
+      scale: [1, 1.1, 0.9, 1]
+    }
   };
 
   // Bullet Star component
-  const BulletStar = ({ index }: { index: number }) => {
+  const BulletStar = () => {
     const { isDark } = useTheme();
 
     return (
@@ -151,7 +151,7 @@ export const About: React.FC<{
           transition={{
             duration: 8,
             repeat: Infinity,
-            ease: "linear",
+            ease: "linear"
           }}
           style={{
             width: "31px",
@@ -159,7 +159,7 @@ export const About: React.FC<{
             opacity: 1,
             filter: isDark
               ? "drop-shadow(0px 0px 8px rgba(245, 129, 52, 0.6))"
-              : "drop-shadow(0px 0px 8px rgba(25, 181, 202, 0.6))",
+              : "drop-shadow(0px 0px 8px rgba(25, 181, 202, 0.6))"
           }}
         />
       </div>
@@ -194,7 +194,7 @@ export const About: React.FC<{
           {points.map((point, index) => (
             <div key={index} className="flex items-start gap-6">
               {/* Star bullet point */}
-              <BulletStar index={index} />
+              <BulletStar key={index} />
               <div className="flex-1">
                 <p
                   className={`text-[20px] md:text-[25px] font-semibold font-['Albert Sans'] uppercase leading-[25px] md:leading-[30px] ${textColor}`}
@@ -250,7 +250,7 @@ export const Events: React.FC<{
         ? "0 0 15px 2px rgba(245, 129, 52, 0.6)"
         : "0 0 15px 2px rgba(25, 181, 202, 0.6)",
       backgroundColor: isDark ? "#F58134" : "#19B5CA",
-      borderColor: "black",
+      borderColor: "black"
     };
   };
 
@@ -263,7 +263,7 @@ export const Events: React.FC<{
       day: "numeric",
       year: "numeric",
       hour: "2-digit",
-      minute: "2-digit",
+      minute: "2-digit"
     });
   };
 
@@ -399,7 +399,7 @@ const EventPageTemplate: React.FC<EventPageTemplateProps> = ({
   aboutPoints,
   upcomingEvents,
   pastEvents,
-  eventInfo,
+  eventInfo
 }) => {
   return (
     <Page>
