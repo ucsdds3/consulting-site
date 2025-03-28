@@ -9,7 +9,7 @@ import Projects from "./Pages/Projects/Projects";
 import Workshop from "./Pages/Events/Workshop/Workshop";
 import ProfessionalEvents from "./Pages/Events/ProfessionalEvents/ProfessionalEvents";
 import Social from "./Pages/Events/Social/Social";
-
+import Upcoming from "./Pages/Upcoming/Upcoming";
 function App() {
   return (
     <Routes>
@@ -24,6 +24,7 @@ function App() {
         <Route path="professional" element={<ProfessionalEvents />} />
         <Route path="projects" element={<Projects />} />
         <Route path="social" element={<Social />} />
+        <Route path="upcoming" element={<Upcoming />} />
       </Route>
 
       <Route path="/our-team">
