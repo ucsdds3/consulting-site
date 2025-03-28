@@ -15,7 +15,11 @@ const WantToSupport = () => {
           <h2 className="text-5xl">OUR PARTNERS</h2>
         </div>
         <div className="flex flex-col pb-20 sm:flex-row items-start sm:items-center space-y-6 sm:space-y-0 sm:space-x-24 mt-12">
-          <img src="src/Assets/Images/CSE_logo.png" alt="" />
+          <img 
+            src="src/Assets/Images/CSE_logo.png" 
+            className = "w-1/4"
+            alt="" 
+          />
           <img
             src={`${baseURL}/${imgTypePalantir}`}
             className="w-1/4"
