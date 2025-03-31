@@ -1,26 +1,26 @@
 import { useNavigate } from "react-router-dom";
 import logo from "/src/Assets/Images/ds3_logo.png";
+import { Switch } from "../UI/switch";
+import { Button } from "../UI/button";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const btnClass =
-    "btn mx-2 my-2 overflow-hidden bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border-none shadow-lg text-gray-200 text-shadow hover:bg-gray-500 hover:bg-opacity-30";
 
   return (
-    <div className="flex fixed w-full z-10 items-center">
-      <button className="text-[2rem] font-bold ml-2 p-4 hover:rotate-[-180deg] duration-500" onClick={() => navigate("/")}>
-        <img src={logo} alt="Logo" className="w-12" />
-      </button>
-      <div className="flex flex-1 justify-end mr-2">
-        <button className={btnClass} onClick={() => navigate(`/about-me`)}>
-          {"About Us"}
+    <div className="flex fixed w-full z-10 items-center bg-[#0E1111]">
+      <div className="flex flex-1 items-center">
+        <button
+          className="text-[2rem] font-bold ml-2 p-4 hover:rotate-[-180deg] hover:cursor-pointer duration-500"
+          onClick={() => navigate("/")}
+        >
+          <img src={logo} alt="Logo" className="w-8" />
         </button>
-        <button className={btnClass} onClick={() => navigate(`/resume`)}>
-          {"Projects"}
-        </button>
-        <button className={btnClass} onClick={() => navigate(`/contact-me`)}>
-          {"Get Involved"}
-        </button>
+        <Switch className="hover:cursor-pointer" />
+      </div>
+      <div className="flex flex-1 justify-end mr-2 gap-4">
+        <Button variant={"ghost"} className="text-white hover:cursor-pointer">About Us</Button>
+        <Button variant={"ghost"} className="text-white hover:cursor-pointer">Our Work</Button>
+        <Button variant={"ghost"} className="text-white hover:cursor-pointer">Contact Us</Button>
       </div>
     </div>
   );
