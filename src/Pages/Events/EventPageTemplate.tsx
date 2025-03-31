@@ -44,8 +44,10 @@ export const Banner: React.FC<{ eventInfo: string }> = ({ eventInfo }) => {
 
   return (
     <div
-      className={`w-[90%] max-w-[1204px] h-[114px] relative mx-auto my-8 rounded-[10px] shadow-[4px_7px_10px_0px_rgba(0,0,0,0.25)] flex items-center justify-between px-8 md:px-16 border ${borderColor}`}
-      style={{ backgroundColor: "rgba(217, 217, 217, 0.5)" }}
+    className={`w-[75%] max-w-[1204px] h-[13%] absolute top-24 left-1/2 transform -translate-x-1/2 z-20 
+      rounded-[10px] shadow-[4px_7px_10px_0px_rgba(0,0,0,0.25)] flex items-center justify-between 
+      px-8 md:px-16 border ${borderColor}`}
+style={{ backgroundColor: "rgba(217, 217, 217, 0.5)" }}
     >
       <div className="flex-1 pr-4">
         <p className="text-[24px] md:text-[28px] font-bold font-['Albert Sans'] text-black leading-7">
@@ -85,7 +87,7 @@ export const Header: React.FC<{
   const textColor = isDark ? "text-white" : "text-black";
 
   return (
-    <div className="w-[90%] max-w-[1204px] mx-auto">
+    <div className="w-[90%] max-w-[1204px] relative mx-auto mb-2">
       <div className="flex flex-col lg:flex-row items-center justify-center py-6 gap-10">
         {/* Workshop Text */}
         <div className="flex flex-col items-start lg:ml-20 lg:-mt-16">
