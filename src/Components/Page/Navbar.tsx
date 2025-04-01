@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import logo from "/src/Assets/Images/ds3_logo.png";
+import logo from "/src/Assets/ds3_logo.png";
 import { Switch } from "../UI/switch";
 import { Button } from "../UI/button";
 

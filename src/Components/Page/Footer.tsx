@@ -1,5 +1,5 @@
 import SocialMedia from "./SocialMedia";
-import logo from "/src/Assets/Images/big-logo-light.png"
+import logo from "/src/Assets/ds3_logo.png"
 
 const Footer = () => {
   return (

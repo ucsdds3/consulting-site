@@ -1,4 +1,4 @@
-import Page from "../Page/Page";
+import Page from "./Page/Page";
 import AboutUs from "./AboutUs";
 import WhereWeBeen from "./WhereWeBeen";
 import Landing from "./Landing";
