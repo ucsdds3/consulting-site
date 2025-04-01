@@ -1,5 +1,5 @@
 import Button from "./Button";
-import Card from "./Card";
+import { LandingCard } from "./Card";
 import ModelDesign from "/src/Assets/Model_Design.png";
 import MLOPS from "/src/Assets/MLOPS.png";
 import DataAnalytics from "/src/Assets/Data_Analytics.png";
@@ -17,10 +17,10 @@ const Landing = () => {
         <p className="text-[1.5vw] text-white mb-4">PRO BONO SUPPORT FOR LOCAL BUSINESSES</p>
         <Button contents="CONTACT US" onclick={() => {}} />
         <div className="flex gap-4 mt-20">
-          <Card title="MODEL DESIGN" description="Lorem ipsum dolor sit amet" image={ModelDesign} />
-          <Card title="MLOPS" description="Lorem ipsum dolor sit amet" image={MLOPS} />
-          <Card title="DATA ANALYTICS" description="Lorem ipsum dolor sit amet" image={DataAnalytics} />
-          <Card title="SOLUTIONS ARCHITECTURE" description="Lorem ipsum dolor sit amet" image={SolutionsArchitecture} />
+          <LandingCard title="MODEL DESIGN" description="Lorem ipsum dolor sit amet" image={ModelDesign} />
+          <LandingCard title="MLOPS" description="Lorem ipsum dolor sit amet" image={MLOPS} />
+          <LandingCard title="DATA ANALYTICS" description="Lorem ipsum dolor sit amet" image={DataAnalytics} />
+          <LandingCard title="SOLUTIONS ARCHITECTURE" description="Lorem ipsum dolor sit amet" image={SolutionsArchitecture} />
         </div>
     </div>
   );

@@ -1,10 +1,10 @@
 interface CardProps {
   title: string;
   description: string;
-  image: string;
+  image?: string;
 }
 
-const Card = ({ title, description, image }: CardProps) => {
+const LandingCard = ({ title, description, image }: CardProps) => {
   return (
     <div className="relative flex flex-col items-center justify-center gap-4 border border-white hover:border-[#19B5CA] rounded-[1.5vw] w-[15vw] h-[20vw] group text-white overflow-hidden transition-shadow duration-300 hover:shadow-[0_0_15px_#19B5CA]">
       <img
@@ -22,4 +22,14 @@ const Card = ({ title, description, image }: CardProps) => {
   );
 };
 
-export default Card;
+const WorkCard = ({ title, description, image }: CardProps) => {
+  return (
+    <div className="flex flex-col items-center">
+      {image ? <img src={image} alt={title} className="w-full" /> : <div className="w-full h-[20vw] bg-[#D9D9D9] rounded-lg" />}
+      <h3 className="text-[1.5vw] font-bold text-white">{title}</h3>
+      <p className="text-slate-300">{description}</p>
+    </div>
+  );
+};
+
+export { LandingCard, WorkCard };
