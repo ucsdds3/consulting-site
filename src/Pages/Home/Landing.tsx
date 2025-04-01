@@ -6,9 +6,18 @@ import { useEffect, useState } from "react";
 import { useTheme } from "./useTheme";
 import StarsData from "./StarsData.json";
 
-const Landing = () => {
+const Landing = ({
+  aboutUsRef,
+}: {
+  aboutUsRef: React.RefObject<HTMLDivElement>;
+}) => {
   const [showArrow, setShowArrow] = useState(true);
   const { isDark } = useTheme();
+  const handleScroll = () => {
+    if (aboutUsRef.current) {
+      aboutUsRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   // Show/hide arrow based on scroll position
   useEffect(() => {
@@ -51,6 +60,7 @@ const Landing = () => {
             transition={{ duration: 0.5 }}
           >
             <svg
+              onClick={handleScroll}
               xmlns="http://www.w3.org/2000/svg"
               className={`h-8 w-8 ${
                 isDark ? "text-white" : "text-black"
