@@ -3,7 +3,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "./UI/tabs";
 
 const OurWork = () => {
   return (
-    <div className="dark w-full px-24 flex flex-col gap-4">
+    <div className="w-full px-24 flex flex-col gap-4">
       <h2 className="text-[3vw] text-white font-bold text-center">OUR WORK</h2>
       <Tabs defaultValue="projects" className="relative mr-auto w-full">
         <TabsList className="w-full justify-start rounded-none bg-transparent p-0">

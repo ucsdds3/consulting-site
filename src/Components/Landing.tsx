@@ -7,7 +7,7 @@ import SolutionsArchitecture from "/src/Assets/Solutions_Architecture.png";
 
 const Landing = () => {
   return (
-    <div className="flex flex-col justify-center items-center w-[95vw] min-h-[90vh]">
+    <div className="flex flex-col justify-center items-center w-full min-h-[90vh]">
         <h1 className="text-[5vw] font-bold">
           <span className="text-[#F58134]">D</span>
           <span className="text-[#19B5CA]">S</span>
