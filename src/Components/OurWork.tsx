@@ -1,9 +1,9 @@
 const OurWork = () => {
   return (
     <div>
-      OurWork
+      Our Work
     </div>
-  )
-}
+  );
+};
 
-export default OurWork
+export default OurWork;
