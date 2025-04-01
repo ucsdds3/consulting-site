@@ -1,20 +1,20 @@
-import SocialMedia from "./SocialMedia";
-import logo from "/src/Assets/ds3_logo.png"
+import logo from "/src/Assets/DS3_Logo.png";
+import { FaDiscord, FaInstagram, FaSpotify } from "react-icons/fa6";
+import { FaMedium } from "react-icons/fa";
 
 const Footer = () => {
   return (
     <div className="border-t border-[--border-color] flex py-8 bg-[#181818]">
-      <div className="flex flex-col flex-1 gap-3 items-center">
-        <img
-          src={logo}
-          alt="DS3 Logo"
-          className="w-40"
-        />
-        <div className="flex flex-col gap-2 items-center text-sm font-medium">
-          <span>© 2024 Data Science Student Society | All Rights Reserved</span>
-        </div>
+      <div className="flex flex-1 items-center justify-center gap-10">
+        <img src={logo} alt="Logo" className="w-[3vw]" />
+        <p className="text-[1vw] font-bold text-white">© DS3 @ UCSD 2023 </p>
       </div>
-      <SocialMedia />
+      <div className="flex flex-1 items-center justify-center gap-4">
+        <a><FaInstagram className="text-white text-[2vw] hover:cursor-pointer" /></a>
+        <a><FaDiscord className="text-white text-[2vw] hover:cursor-pointer" /></a>
+        <a><FaMedium className="text-white text-[2vw] hover:cursor-pointer" /></a>
+        <a><FaSpotify className="text-white text-[2vw] hover:cursor-pointer" /></a>
+      </div>
     </div>
   );
 };
