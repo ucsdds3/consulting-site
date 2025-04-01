@@ -1,5 +1,3 @@
-// src/Pages/Events/EventPageTemplate.tsx
-
 import React, { useState } from "react";
 import Page from "../../Components/Page/Page";
 import { useTheme } from "../../Pages/Home/useTheme";
@@ -44,16 +42,14 @@ export const Banner: React.FC<{ eventInfo: string }> = ({ eventInfo }) => {
 
   return (
     <div
-    className={`w-[75%] max-w-[1204px] h-[13%] absolute top-24 left-1/2 transform -translate-x-1/2 z-20 
-      rounded-[10px] shadow-[4px_7px_10px_0px_rgba(0,0,0,0.25)] flex items-center justify-between 
-      px-8 md:px-16 border ${borderColor}`}
-style={{ backgroundColor: "rgba(217, 217, 217, 0.5)" }}
+      className={`w-[90%] max-w-[1204px] mx-auto mt-4 rounded-[10px] shadow-[4px_7px_10px_0px_rgba(0,0,0,0.25)] flex items-center justify-between px-4 sm:px-8 md:px-16 border ${borderColor}`}
+      style={{ backgroundColor: "rgba(217, 217, 217, 0.5)" }}
     >
-      <div className="flex-1 pr-4">
-        <p className="text-[24px] md:text-[28px] font-bold font-['Albert Sans'] text-black leading-7">
+      <div className="flex-1 pr-4 py-4">
+        <p className="text-[18px] sm:text-[24px] md:text-[28px] font-bold font-['Albert Sans'] text-black leading-6 sm:leading-7">
           There is an upcoming event!
         </p>
-        <p className="text-xl md:text-2xl font-normal font-['Albert Sans'] text-black leading-7">
+        <p className="text-[16px] sm:text-xl md:text-2xl font-normal font-['Albert Sans'] text-black leading-6 sm:leading-7">
           {eventInfo ||
             "(INSERT BASIC EVENT INFORMATION HERE + link to event page)"}
         </p>
@@ -63,11 +59,11 @@ style={{ backgroundColor: "rgba(217, 217, 217, 0.5)" }}
         <img
           src={ds3Logo}
           alt="DS3 Logo"
-          className="w-8 md:w-10 h-8 md:h-10 z-10"
+          className="w-6 sm:w-8 md:w-10 h-6 sm:h-8 md:h-10 z-10"
         />
         {/* Close button */}
         <div
-          className="text-xl md:text-2xl font-normal text-black cursor-pointer"
+          className="text-lg sm:text-xl md:text-2xl font-normal text-black cursor-pointer"
           onClick={() => setIsVisible(false)}
         >
           ×
@@ -88,11 +84,11 @@ export const Header: React.FC<{
 
   return (
     <div className="w-[90%] max-w-[1204px] relative mx-auto mb-2">
-      <div className="flex flex-col lg:flex-row items-center justify-center py-6 gap-10">
+      <div className="flex flex-col lg:flex-row items-center justify-center py-6 gap-10 min-h-[600px]">
         {/* Workshop Text */}
-        <div className="flex flex-col items-start lg:ml-20 lg:-mt-16">
+        <div className="flex flex-col items-start lg:items-start">
           <div
-            className={`w-full lg:w-[516px] ${textColor} text-3xl lg:text-3xl font-normal font-['Albert Sans'] leading-[45px] lg:-mt-26 mb-2 px-4 lg:px-0`}
+            className={`w-full lg:w-[516px] ${textColor} text-3xl lg:text-3xl font-normal font-['Albert Sans'] leading-[45px] mb-2 px-4 lg:px-0`}
           >
             {subtitle}
           </div>
@@ -114,7 +110,7 @@ export const Header: React.FC<{
   );
 };
 
-// About Component
+// About Component - Modified to center content
 export const About: React.FC<{
   title: string;
   imagePath?: string;
@@ -170,18 +166,18 @@ export const About: React.FC<{
 
   return (
     <div
-      className={`w-[90%] max-w-[1204px] min-h-[688px] relative mx-auto border ${borderColor} rounded-[15px] flex flex-col px-4 md:px-16 py-6`}
+      className={`w-[90%] max-w-[1204px] min-h-[688px] relative mx-auto border ${borderColor} rounded-[15px] flex flex-col px-4 md:px-16 py-6 flex justify-center items-center`}
       style={{ backgroundColor }}
     >
       <h2
-        className={`w-full ${textColor} text-[35px] md:text-[45px] font-medium font-['Albert Sans'] uppercase leading-[45px] md:leading-[65px]`}
+        className={`w-full text-center ${textColor} text-[35px] md:text-[45px] font-medium font-['Albert Sans'] uppercase leading-[45px] md:leading-[65px]`}
       >
         {title}
       </h2>
 
-      <div className="flex flex-col lg:flex-row items-start lg:items-center mt-6 gap-8 lg:gap-0">
-        {/* Placeholder for Image */}
-        <div className="w-full lg:w-[574px] h-[300px] md:h-[479px] bg-[#D9D9D9] rounded-[10px] pl-4">
+      <div className="flex flex-col lg:flex-row items-center justify-center mt-6 gap-8 mx-auto max-w-[90%]">
+        {/* Image with equal spacing */}
+        <div className="w-full lg:w-[45%] h-[300px] md:h-[479px] bg-[#D9D9D9] rounded-[10px]">
           {imagePath && (
             <img
               src={imagePath}
@@ -191,8 +187,8 @@ export const About: React.FC<{
           )}
         </div>
 
-        {/* Text Section */}
-        <div className="w-full lg:ml-7 flex flex-col justify-center space-y-8 lg:max-w-[500px]">
+        {/* Text Section with even spacing */}
+        <div className="w-full lg:w-[45%] flex flex-col justify-center space-y-8">
           {points.map((point, index) => (
             <div key={index} className="flex items-start gap-6">
               {/* Star bullet point */}
