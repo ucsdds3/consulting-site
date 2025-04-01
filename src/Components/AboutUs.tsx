@@ -6,9 +6,9 @@ const AboutUs = () => {
   return (
     <div className="flex p-24 min-h-[80vh] w-full">
       <div className="relative flex-1 flex justify-center items-center">
-        <img src={Layer3} alt="Layer 3" className="absolute w-60 z-3 top-[0vw]" />
-        <img src={Layer2} alt="Layer 2" className="absolute w-60 z-2 top-[5vw]" />
-        <img src={Layer1} alt="Layer 1" className="absolute w-60 z-1 top-[10vw]" />
+        <img src={Layer3} alt="Layer 3" className="absolute w-1/2 z-3 top-[0vw]" />
+        <img src={Layer2} alt="Layer 2" className="absolute w-1/2 z-2 top-[7vw]" />
+        <img src={Layer1} alt="Layer 1" className="absolute w-1/2 z-1 top-[14vw]" />
       </div>
       <div className="flex-1 flex flex-col justify-center items-center gap-10">
         <h2 className="text-[4vw] text-white font-bold">WHO WE ARE</h2>

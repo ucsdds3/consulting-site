@@ -10,7 +10,7 @@ const Card = ({ title, description, image }: CardProps) => {
       <img
         src={image}
         alt={title}
-        className="absolute w-[80%] object-cover opacity-100 group-hover:opacity-30 transition-opacity duration-300 left-1/2 transform -translate-x-1/2"
+        className="absolute w-[80%] object-cover opacity-100 group-hover:opacity-30 transition-opacity duration-300 left-1/2 top-[30%] transform -translate-x-1/2"
       />
       <div className="relative z-10 text-center px-4 h-[80%] flex flex-col gap-4">
         <h3 className="text-[1.5vw] font-bold">{title}</h3>
