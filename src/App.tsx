@@ -15,6 +15,7 @@ function App() {
     <Routes>
       <Route path="" element={<Home />} />
       <Route path="/partners" element={<Partners />} />
+      <Route path="/projects" element={<Projects />} />
       <Route path="/join" element={<JoinUs />} />
       <Route path="events" />
       <Route path="/" element={<Home />} />
@@ -22,7 +23,6 @@ function App() {
         <Route path="datahacks" element={<Datahacks />} />
         <Route path="workshops" element={<Workshop />} />
         <Route path="professional" element={<ProfessionalEvents />} />
-        <Route path="projects" element={<Projects />} />
         <Route path="social" element={<Social />} />
         <Route path="upcoming" element={<Upcoming />} />
       </Route>
