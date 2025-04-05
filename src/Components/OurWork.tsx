@@ -3,11 +3,11 @@ import { WorkCard } from "./Card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./UI/tabs";
 import projectsByYear from "../../projects.json";
 
-
-
 const OurWork = () => {
   const years = Object.keys(projectsByYear).sort().reverse();
   const [selectedYear, setSelectedYear] = useState(years[0]);
+  const selectedYearKey = selectedYear as keyof typeof projectsByYear;
+  const projects = projectsByYear[selectedYearKey];
 
   return (
     <div className="dark w-full px-24 flex flex-col gap-4">
@@ -37,7 +37,7 @@ const OurWork = () => {
             ))}
           </div>
           <div className="grid grid-cols-4 gap-8 pt-10">
-            {projectsByYear[selectedYear].map((project, index) => (
+            {projects.map((project, index) => (
               <WorkCard
                 key={index}
                 title={project.project_name}
