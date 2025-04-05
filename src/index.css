@@ -2,9 +2,12 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+* {
+  scroll-behavior: smooth;
+}
 
 body {
-  font-family: 'Albert Sans';
+  font-family: "Albert Sans";
 }
 
 .hero-text-shadow {
@@ -81,6 +84,7 @@ body {
 }
 
 @theme inline {
+  --font-quicksand: "Quicksand", sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -124,5 +128,18 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+.navbar {
+  @media (width < 40rem /* 640px */) {
+    &:has(input[type="checkbox"]:checked) {
+      height: 55px;
+      width: fit-content;
+      overflow: hidden;
+      border-radius: 0 0 0 50px;
+      background-color: rgb(255 255 255 / 30%);
+      backdrop-filter: blur(1px);
+    }
   }
 }
