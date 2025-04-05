@@ -6,10 +6,10 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex fixed right-0 sm:w-full z-100 sm:h-fit sm:flex-row items-center bg-[#0E1111] px-[clamp(1px,3vw,10px)] h-full w-fit flex-col navbar duration-100">
+    <div className="flex fixed right-0 sm:w-full z-100 sm:h-fit sm:flex-row items-center bg-[#0E1111] px-[clamp(1px,3vw,10px)] h-full w-fit flex-col navbar duration-500">
       <div className="flex sm:flex-1 items-center">
         <button
-          className="text-[2rem] font-bold  p-4 hover:rotate-[-180deg] hover:cursor-pointer duration-500"
+          className="text-[2rem] font-bold sm:p-4 p-2 hover:rotate-[-180deg] hover:cursor-pointer duration-500"
           onClick={() => navigate("/")}
         >
           <img src={logo} alt="Logo" className="w-8" />

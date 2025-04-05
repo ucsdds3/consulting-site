@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 body {
-  font-family: 'Albert Sans';
+  font-family: "Albert Sans";
 }
 
 .hero-text-shadow {
@@ -81,7 +81,7 @@ body {
 }
 
 @theme inline {
-  --font-quicksand:"Quicksand", sans-serif;
+  --font-quicksand: "Quicksand", sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -128,16 +128,15 @@ body {
   }
 }
 
-
-.navbar{
-  @media (width < 40rem /* 640px */) { 
+.navbar {
+  @media (width < 40rem /* 640px */) {
     &:has(input[type="checkbox"]:checked) {
-    height:70px;
-    width:fit-content;
-    overflow:hidden;
-    background-color:transparent;
-
+      height: 55px;
+      width: fit-content;
+      overflow: hidden;
+      border-radius: 0 0 0 50px;
+      background-color: rgb(255 255 255 / 30%);
+      backdrop-filter: blur(1px);
+    }
   }
-  }
- 
 }
