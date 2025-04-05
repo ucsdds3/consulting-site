@@ -81,6 +81,7 @@ body {
 }
 
 @theme inline {
+  --font-quicksand:"Quicksand", sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -125,4 +126,18 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+
+.navbar{
+  @media (width < 40rem /* 640px */) { 
+    &:has(input[type="checkbox"]:checked) {
+    height:70px;
+    width:fit-content;
+    overflow:hidden;
+    background-color:transparent;
+
+  }
+  }
+ 
 }
