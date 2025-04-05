@@ -28,9 +28,11 @@ const WorkCard = ({ title, description, image }: CardProps) => {
       {image ? (
         <img src={image} alt={title} className="w-full" />
       ) : (
-        <div className="w-full h-[20vw] bg-[#D9D9D9] rounded-lg" />
+        <div className="w-full aspect-[1/1.2] bg-[#D9D9D9] rounded-lg" />
       )}
-      <h3 className="text-[1.5vw] font-bold text-white">{title}</h3>
+      <h3 className="text-[clamp(20px,2.5vw,30px)]font-bold text-white">
+        {title}
+      </h3>
       <p className="text-slate-300">{description}</p>
     </div>
   );
