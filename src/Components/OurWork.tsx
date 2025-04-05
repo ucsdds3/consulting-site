@@ -3,7 +3,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "./UI/tabs";
 
 const OurWork = () => {
   return (
-    <div className="dark w-full md:px-24 flex flex-col gap-4">
+    <div className="dark w-full md:px-24 flex flex-col gap-4" id="work">
       <h2 className="text-[clamp(32px,5vw,50px)] text-white font-bold text-center">
         OUR WORK
       </h2>

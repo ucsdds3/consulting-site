@@ -25,7 +25,7 @@ const Button = ({
       onClick={onclick}
     >
       <motion.button
-        className={` top-0  border-2 border-[#F58134] rounded-full py-1 px-6   whitespace-nowrap  text-[20px] bg-[#1E1E1E] text-white
+        className={` top-0  border-2 border-[#F58134] rounded-full py-1 px-6 cursor-pointer  whitespace-nowrap  text-[20px] bg-[#1E1E1E] text-white
          `}
         variants={buttonVariants}
         initial="initial"

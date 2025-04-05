@@ -1,18 +1,20 @@
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import logo from "/src/Assets/DS3_Logo.png";
 import { Button } from "../UI/button";
 
 const Navbar = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   return (
     <div className="flex fixed right-0 sm:w-full z-100 sm:h-fit sm:flex-row items-center bg-[#0E1111] px-[clamp(1px,3vw,10px)] h-full w-fit flex-col navbar duration-500">
       <div className="flex sm:flex-1 items-center">
         <button
           className="text-[2rem] font-bold sm:p-4 p-2 hover:rotate-[-180deg] hover:cursor-pointer duration-500"
-          onClick={() => navigate("/")}
+          // onClick={() => navigate("/")}
         >
-          <img src={logo} alt="Logo" className="w-8" />
+          <a href="#landing">
+            <img src={logo} alt="Logo" className="w-8" />
+          </a>
         </button>
         <div className="h-7 w-7 sm:hidden">
           <input type="checkbox" id="accordian" className=" hidden" />
@@ -29,9 +31,9 @@ const Navbar = () => {
         {/* <Switch className="hover:cursor-pointer" /> */}
       </div>
       <div className="flex sm:flex-1 justify-end mr-2 gap-4 flex-col sm:flex-row">
-        <NavItem text="About Us" link="" />
-        <NavItem text="Our Work" link="" />
-        <NavItem text="Contact Us" link="" />
+        <NavItem text="About Us" link="#about-us" />
+        <NavItem text="Our Work" link="#work" />
+        <NavItem text="Contact Us" link="#contact" />
         <Button
           variant={"ghost"}
           className="bg-white text-black hover:cursor-pointer rounded-full"

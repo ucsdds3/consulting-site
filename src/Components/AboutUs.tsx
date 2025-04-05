@@ -4,7 +4,10 @@ import Layer3 from "/src/Assets/Layer3.png";
 
 const AboutUs = () => {
   return (
-    <div className="flex p-24 min-h-[80vh] w-fit justify-center gap-3 flex-wrap flex-col-reverse lg:flex-row">
+    <div
+      className="flex p-24 min-h-[80vh] w-fit justify-center gap-3 flex-wrap flex-col-reverse lg:flex-row"
+      id="about-us"
+    >
       <div className="relative w-[clamp(300px,40vw,600px)] h-[500px] m-auto">
         <img src={Layer3} alt="Layer 3" className="absolute w-full z-3 top-0" />
         <img

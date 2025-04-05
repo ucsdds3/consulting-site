@@ -31,7 +31,10 @@ const Contact = () => {
   const onSubmit = (data: z.infer<typeof formSchema>) => console.log(data);
 
   return (
-    <div className="flex sm:p-14 lg:p-24 p-4 pb-0 min-h-[80vh] w-full sm:gap-[10vw] flex-wrap mt-[10vw]">
+    <div
+      className="flex sm:p-14 lg:p-24 p-4 pb-0 min-h-[80vh] w-full sm:gap-[10vw] flex-wrap mt-[10vw]"
+      id="contact"
+    >
       <div className="flex-1 flex flex-col justify-center items-center gap-10 min-w-[300px]">
         <div className="flex flex-col text-white">
           <h3 className="text-[clamp(16px,2.5vw,25px)]">WANT TO LEARN MORE?</h3>
