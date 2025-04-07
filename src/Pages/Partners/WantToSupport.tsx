@@ -1,11 +1,30 @@
 import { useTheme } from "../../Pages/Home/useTheme";
 import { baseURL } from "../../Utils/info";
+import { useEffect, useState } from "react";
 
 const WantToSupport = () => {
   const { isDark } = useTheme();
-  const imgTypeHDSI = isDark ? "src/Assets/Images/HDSI_logo_light.png" : "src/Assets/Images/HDSI_logo.png";
-  const imgTypePalantir = isDark ? "src/Assets/Images/palantir-vector-logo.svg" : "src/Assets/Images/homepage/partners logos/palantir_dark.png";
+  const [partnerLogos, setPartnerLogos] = useState<string[]>([]);
 
+  useEffect(() => {
+    // List of partner logo files
+    const logos = [
+      "intel.png",
+      "asml.png",
+      "hp.png",
+      "blizzard.png",
+      "rockstar.png",
+      "marimo.png",
+      "SDX-logo.png",
+      "hdsi-logo-light.png",
+      "palantir_dark.png",
+      "hdsi-logo.svg",
+      "cse-logo.svg",
+      "ibm.svg"
+    ];
+    
+    setPartnerLogos(logos);
+  }, []);
 
   return (
     <div className="lg:w-[80vw] w-[95vw] pb-16">
@@ -14,23 +33,19 @@ const WantToSupport = () => {
           <h3 className="pt-16 text-xl">WANT TO SUPPORT US?</h3>
           <h2 className="text-5xl">OUR PARTNERS</h2>
         </div>
-        <div className="flex flex-col pb-20 sm:flex-row items-start sm:items-center space-y-6 sm:space-y-0 sm:space-x-24 mt-12">
-          <img 
-            src="src/Assets/Images/CSE_logo.png" 
-            className = "w-1/4"
-            alt="" 
-          />
-          <img
-            src={`${baseURL}/${imgTypePalantir}`}
-            className="w-1/4"
-            alt=""
-          />
-          <img
-            src={`${baseURL}/${imgTypeHDSI}`}
-            className="w-1/4"
-            alt=""
-          />
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-12">
+          {partnerLogos.map((logo, index) => (
+            <div key={index} className="flex items-center justify-center">
+              <img 
+                src={`${baseURL}/src/Assets/Images/homepage/partners logos/${logo}`}
+                alt={`Partner Logo ${index + 1}`}
+                className="max-h-24 w-auto object-contain"
+              />
+            </div>
+          ))}
         </div>
+        
         <div className="bg-gray-300 mt-20 w-full h-[85vh] rounded-lg md:order-2"></div>
       </section>
     </div>
