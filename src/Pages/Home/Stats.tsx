@@ -100,13 +100,13 @@ const Stats = () => {
   }, [animated, itemRefs, startCounting, setAnimated]);
 
   return (
-    <div className="flex flex-col items-center justify-center gap-8 text-white py-24 mb-[4vw] mt-20 lg:w-[80vw] w-[95vw]">
+    <div className="flex flex-col items-center justify-center gap-8 text-white pt-24 pb-12 lg:w-[80vw] w-[95vw] mx-auto">
       <motion.h1
         initial={{ y: -50, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, ease: "easeOut" }}
         viewport={{ once: true }}
-        className={`title font-bold mb-10 text-[4.75vw] mt-10 ${
+        className={`title font-bold mb-10 text-[4.75vw] ${
           isDark ? "text-white" : "text-black"
         }`}
         style={{ fontFamily: "'Albert Sans', sans-serif" }}
@@ -172,32 +172,34 @@ const Stats = () => {
         ))}
       </div>
 
-      {/* Cards Section */}
-      <div className="grid grid-cols-[repeat(auto-fit,clamp(400px,40%,650px))] gap-8 justify-center mt-10 w-full">
-        <Card
-          title="Data Hacks"
-          imageSrc="src/Assets/Images/homepage/images/datahacks_2.png"
-          description="Do projects and make your resume look better. I love projects so much omg!"
-          link="www.ds3ucsd.com/our-team/datahacks"
-        />
-        <Card
-          title="Projects"
-          imageSrc="src/Assets/Images/homepage/images/projects-img.png"
-          description="Do projects and make your resume look better. I love projects so much omg!"
-          link="www.ds3ucsd.com/our-team/projects"
-        />
-        <Card
-          title="Workshops"
-          imageSrc="src/Assets/Images/homepage/images/workshop-img.png"
-          description="Do projects and make your resume look better. I love projects so much omg!"
-          link="www.ds3ucsd.com/our-team/workshops"
-        />
-        <Card
-          title="Professional Events"
-          imageSrc="src/Assets/Images/homepage/images/pf-events-img.png"
-          description="Do projects and make your resume look better. I love projects so much omg!"
-          link="www.ds3ucsd.com/our-team/professional-events"
-        />
+      {/* Cards Section - Updated to match AboutUs layout */}
+      <div className="w-full max-w-[90vw] px-4 mt-10">
+        <div className="grid md:grid-cols-2 gap-8">
+          <Card
+            title="Data Hacks"
+            imageSrc="src/Assets/Images/homepage/images/datahacks_2.png"
+            description="Do projects and make your resume look better. I love projects so much omg!"
+            link="www.ds3ucsd.com/our-team/datahacks"
+          />
+          <Card
+            title="Projects"
+            imageSrc="src/Assets/Images/homepage/images/projects-img.png"
+            description="Do projects and make your resume look better. I love projects so much omg!"
+            link="www.ds3ucsd.com/our-team/projects"
+          />
+          <Card
+            title="Workshops"
+            imageSrc="src/Assets/Images/homepage/images/workshop-img.png"
+            description="Do projects and make your resume look better. I love projects so much omg!"
+            link="www.ds3ucsd.com/our-team/workshops"
+          />
+          <Card
+            title="Professional Events"
+            imageSrc="src/Assets/Images/homepage/images/pf-events-img.png"
+            description="Do projects and make your resume look better. I love projects so much omg!"
+            link="www.ds3ucsd.com/our-team/professional-events"
+          />
+        </div>
       </div>
     </div>
   );

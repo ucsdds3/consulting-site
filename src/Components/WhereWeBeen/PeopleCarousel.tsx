@@ -26,11 +26,9 @@ const PeopleCarousel = () => {
   const card = cards[currentIndex];
 
   return (
-    <div
-      className={`w-full min-h-[400px] flex items-center justify-center py-12 px-4 ${isDark ? "text-white" : "text-black"}`}
-    >
-      {/* Container for arrows + content */}
-      <div className="flex items-center max-w-5xl w-full gap-8">
+    <div className="w-full">
+      {/* Container for arrows + content - Adjusted to match AboutUs width constraints */}
+      <div className="flex items-center w-full gap-8">
         {/* Left Arrow */}
         <button
           onClick={handlePrev}
