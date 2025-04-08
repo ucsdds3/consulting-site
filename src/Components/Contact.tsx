@@ -23,7 +23,7 @@ const Contact = () => {
     <div className="flex p-24 pb-0 min-h-[80vh] w-full gap-[10vw]">
       <div className="flex-1 flex flex-col justify-center items-center gap-10">
         <div className="flex flex-col text-white">
-          <h3 className="text-[1.5vw]">WANT TO LEARN MORE?</h3>
+          <h3 className="text-[1.5vw]">WANT TO WORK WITH US?</h3>
           <h2 className="text-[3vw] font-bold">CONTACT US</h2>
           <p>
             Get in touch with us regarding blah blah we are so cool you will love being in our club,
