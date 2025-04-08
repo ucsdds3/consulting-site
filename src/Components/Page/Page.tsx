@@ -12,7 +12,7 @@ const Page = ({ children }: PageProps) => {
   return (
     <SimpleBar className="absolute left-0 top-0 w-screen h-screen overflow-x-hidden">
       <Navbar />
-      <div className="flex flex-col items-center py-[10vh]">
+      <div className="flex flex-col items-center py-0 md:py-[10vh]">
         {children || (
           <>
             <h2 className="text-center hero-text-shadow mt-10 mb-10 text-[3.75vw]">

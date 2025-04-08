@@ -1,7 +1,11 @@
 import React from "react";
 import { useTheme } from "./useTheme";
 
-const AboutUs = () => {
+const AboutUs = ({
+  aboutUsRef,
+}: {
+  aboutUsRef: React.RefObject<HTMLDivElement>;
+}) => {
   const { isDark } = useTheme();
 
   return (

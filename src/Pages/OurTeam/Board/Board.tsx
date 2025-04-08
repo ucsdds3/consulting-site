@@ -40,6 +40,7 @@ type Committee =
   | "Projects"
   | "Consulting";
 
+
 // Board member interface
 interface BoardMember {
   name: string;

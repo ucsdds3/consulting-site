@@ -42,7 +42,9 @@ export const Banner: React.FC<{ eventInfo: string }> = ({ eventInfo }) => {
 
   return (
     <div
-      className={`w-[90%] max-w-[1204px] mx-auto mt-4 rounded-[10px] shadow-[4px_7px_10px_0px_rgba(0,0,0,0.25)] flex items-center justify-between px-4 sm:px-8 md:px-16 border ${borderColor}`}
+      className={`w-[75%] max-w-[1204px] h-[13%] absolute top-24 left-1/2 transform -translate-x-1/2 z-20 
+      rounded-[10px] shadow-[4px_7px_10px_0px_rgba(0,0,0,0.25)] flex items-center justify-between 
+      px-8 md:px-16 border ${borderColor}`}
       style={{ backgroundColor: "rgba(217, 217, 217, 0.5)" }}
     >
       <div className="flex-1 pr-4 py-4">
@@ -83,8 +85,8 @@ export const Header: React.FC<{
   const textColor = isDark ? "text-white" : "text-black";
 
   return (
-    <div className="w-[90%] max-w-[1204px] relative mx-auto mb-2">
-      <div className="flex flex-col lg:flex-row items-center justify-center py-6 gap-10 min-h-[600px]">
+    <div className="w-[90%] max-w-[1204px] relative mx-auto mb-[2vw]">
+      <div className="flex flex-col lg:flex-row items-center justify-center py-6 gap-[0.5vw] min-h-[600px]">
         {/* Workshop Text */}
         <div className="flex flex-col items-start lg:items-start">
           <div
@@ -126,12 +128,12 @@ export const About: React.FC<{
   const starVariants = {
     initial: {
       rotate: 0,
-      scale: 1
+      scale: 1,
     },
     animate: {
       rotate: 360,
-      scale: [1, 1.1, 0.9, 1]
-    }
+      scale: [1, 1.1, 0.9, 1],
+    },
   };
 
   // Bullet Star component
@@ -149,7 +151,7 @@ export const About: React.FC<{
           transition={{
             duration: 8,
             repeat: Infinity,
-            ease: "linear"
+            ease: "linear",
           }}
           style={{
             width: "31px",
@@ -157,7 +159,7 @@ export const About: React.FC<{
             opacity: 1,
             filter: isDark
               ? "drop-shadow(0px 0px 8px rgba(245, 129, 52, 0.6))"
-              : "drop-shadow(0px 0px 8px rgba(25, 181, 202, 0.6))"
+              : "drop-shadow(0px 0px 8px rgba(25, 181, 202, 0.6))",
           }}
         />
       </div>
@@ -248,7 +250,7 @@ export const Events: React.FC<{
         ? "0 0 15px 2px rgba(245, 129, 52, 0.6)"
         : "0 0 15px 2px rgba(25, 181, 202, 0.6)",
       backgroundColor: isDark ? "#F58134" : "#19B5CA",
-      borderColor: "black"
+      borderColor: "black",
     };
   };
 
@@ -261,7 +263,7 @@ export const Events: React.FC<{
       day: "numeric",
       year: "numeric",
       hour: "2-digit",
-      minute: "2-digit"
+      minute: "2-digit",
     });
   };
 
@@ -397,7 +399,7 @@ const EventPageTemplate: React.FC<EventPageTemplateProps> = ({
   aboutPoints,
   upcomingEvents,
   pastEvents,
-  eventInfo
+  eventInfo,
 }) => {
   return (
     <Page>

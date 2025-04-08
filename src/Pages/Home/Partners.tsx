@@ -1,8 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useTheme } from "./useTheme";
+import { baseURL } from "../../Utils/info";
 
 const Partners: React.FC = () => {
   const { isDark } = useTheme();
+  const [partnerLogos, setPartnerLogos] = useState<string[]>([]);
+
+  useEffect(() => {
+    // List of partner logo files
+    const logos = [
+      "intel.png",
+      "asml.png",
+      "hp.png",
+      "blizzard.png",
+      "rockstar.png",
+      "marimo.png",
+      "SDX-logo.png",
+      "hdsi-logo-light.png",
+      "palantir_dark.png",
+      "hdsi-logo.svg",
+      "cse-logo.svg",
+      "ibm.svg"
+    ];
+    
+    setPartnerLogos(logos);
+  }, []);
 
   return (
     <div className="lg:w-[80vw] w-[95vw]">
@@ -35,38 +57,17 @@ const Partners: React.FC = () => {
           </a>
           .
         </p>
-        <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-6 sm:space-y-0 sm:space-x-8 mt-12">
-          <img src="src/Assets/Images/CSE_logo.png" alt="CSE Logo" />
-
-          {/* Palantir logo - different versions for light/dark mode */}
-          {isDark ? (
-            <img
-              src="src/Assets/Images/palantir-vector-logo.svg"
-              className="w-1/4"
-              alt="Palantir Logo"
-            />
-          ) : (
-            <img
-              src="src/Assets/Images/homepage/partners logos/palantir_dark.png"
-              className="w-1/4"
-              alt="Palantir Logo"
-            />
-          )}
-
-          {/* HDSI logo - different versions for light/dark mode */}
-          {isDark ? (
-            <img
-              src="src/Assets/Images/HDSI_logo_light.png"
-              className="w-1/4"
-              alt="HDSI Logo"
-            />
-          ) : (
-            <img
-              src="src/Assets/Images/HDSI_logo.png"
-              className="w-1/4"
-              alt="HDSI Logo"
-            />
-          )}
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-12">
+          {partnerLogos.map((logo, index) => (
+            <div key={index} className="flex items-center justify-center">
+              <img 
+                src={`${baseURL}/src/Assets/Images/homepage/partners logos/${logo}`}
+                alt={`Partner Logo ${index + 1}`}
+                className="max-h-24 w-auto object-contain"
+              />
+            </div>
+          ))}
         </div>
       </section>
     </div>
