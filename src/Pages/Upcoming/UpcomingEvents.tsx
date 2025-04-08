@@ -7,7 +7,7 @@ export default function UpcomingEvents() {
   const eventTypes = ["Social", "Professional", "Workshop"];
   return (
     <>
-      <div className="w-full flex px-24 py-10 gap-2 flex-col">
+      <div className="w-full flex md:px-24 px-2 py-10 gap-2 flex-col">
         <div className="flex gap-4 w-full mb-2 ">
           {eventTypes.map((event) => {
             return (
@@ -45,7 +45,7 @@ function Card({
   date,
   description,
   imagesrc,
-  type
+  type,
 }: {
   title: string;
   date: string;
@@ -72,7 +72,7 @@ function Card({
           isDark ? "bg-[#303030]" : "bg-gray-200"
         }`}
         style={{
-          borderRadius: "370px"
+          borderRadius: "370px",
         }}
       >
         <p
@@ -92,7 +92,7 @@ function Card({
           style={{
             fontFamily: "'Albert Sans', sans-serif",
             color: isDark ? "white" : "black",
-            lineHeight: "70px"
+            lineHeight: "70px",
           }}
         >
           {title}
@@ -102,7 +102,7 @@ function Card({
           style={{
             fontFamily: "'Albert Sans', sans-serif",
             color: isDark ? "white" : "black",
-            lineHeight: "25px"
+            lineHeight: "25px",
           }}
         >
           {date}
@@ -123,7 +123,7 @@ function Card({
         style={{
           fontFamily: "'Albert Sans', sans-serif",
           color: isDark ? "white" : "black",
-          lineHeight: "25px"
+          lineHeight: "25px",
         }}
       >
         {description}
