@@ -64,8 +64,8 @@ const Navbar = () => {
                   className="w-10 h-auto"
                 />
               </a>
-              {/* Light/Dark Mode Slider Toggle - Only show on desktop */}
-              <div className="hidden md:block">
+              {/* Light/Dark Mode Slider Toggle */}
+              <div className="block">
                 <div
                   className="relative inline-block w-12 select-none cursor-pointer"
                   onClick={toggleTheme}
@@ -161,59 +161,6 @@ const Navbar = () => {
               isMobileMenuOpen ? "flex" : "hidden"
             } md:flex flex-col md:flex-row w-full md:w-auto items-center space-y-2 md:space-y-0 md:space-x-6 mt-2 md:mt-0 ${typographyClasses}`}
           >
-            {/* Light/Dark Mode Toggle for mobile */}
-            <div className="md:hidden w-full flex justify-center">
-              <div
-                className="relative inline-block w-12 select-none cursor-pointer"
-                onClick={toggleTheme}
-              >
-                <div
-                  className={`block w-12 h-6 rounded-full ${
-                    isDark ? "bg-gray-600" : "bg-gray-300"
-                  }`}
-                />
-                <div
-                  className={`absolute top-0.5 h-5 w-5 rounded-full transition-all transform ${
-                    isDark ? "translate-x-6 bg-black" : "bg-white"
-                  }`}
-                >
-                  <div className="flex items-center justify-center w-full h-full">
-                    {isDark ? (
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 text-white"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M20.354 15.354A9 9 0 1110.646 5.646a7 7 0 009.708 9.708z"
-                        />
-                      </svg>
-                    ) : (
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 text-yellow-500"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364-6.364l-1.414 1.414M6.05 17.95l-1.414 1.414M18.364 18.364l-1.414-1.414M6.05 6.05l-1.414-1.414M12 8a4 4 0 100 8 4 4 0 000-8z"
-                        />
-                      </svg>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </div>
-
             {/* Navigation items */}
             <NavItem
               title="Events"
