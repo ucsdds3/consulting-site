@@ -197,8 +197,8 @@ const Navbar = () => {
         className={`w-full transition-all duration-200 ${
           isMobileMenuOpen
             ? activeDropdown
-              ? "h-[440px]" // Height when mobile menu and dropdown are open
-              : "h-[320px]" // Height when only mobile menu is open
+              ? "h-[600px]" // Further increased height when mobile menu and dropdown are open
+              : "h-[480px]" // Further increased height when only mobile menu is open
             : "h-[60px]" // Default navbar height
         }`}
       />

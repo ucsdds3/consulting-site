@@ -2,23 +2,26 @@ import { motion } from "framer-motion";
 import { useTheme } from "../Home/useTheme";
 import { starVariants } from "../../Components/Landing/LandingVariants";
 import star from "../../Assets/Images/Star.svg";
+import React from "react";
+
 const points = [
   {
     title: "Event Overview",
     description:
-      "DataHacks is an annual data science hackathon hosted by DS3 every Spring Quarter"
+      "DataHacks is an annual data science hackathon hosted by DS3 every Spring Quarter",
   },
   {
     title: "Community Engagement",
     description:
-      "Over 150 attendees from diverse backgrounds participated in DataHacks 2024"
+      "Over 150 attendees from diverse backgrounds participated in DataHacks 2024",
   },
   {
     title: "Opportunities for Growth",
     description:
-      "Participate to build your portfolio, win exciting prizes, and gain invaluable experience!"
-  }
+      "Participate to build your portfolio, win exciting prizes, and gain invaluable experience!",
+  },
 ];
+
 const AboutCard = () => {
   const { isDark } = useTheme();
   const borderColor = isDark ? "border-white" : "border-black";
@@ -27,39 +30,40 @@ const AboutCard = () => {
   return (
     <>
       <div
-        className={`w-[90%] max-w-[1204px] min-h-[688px] relative mx-auto border ${borderColor} rounded-[15px] flex flex-col px-4 md:px-16 py-6`}
+        className={`size-fit w-[80vw] max-w-[1204px] relative mx-auto border ${borderColor} rounded-xl p-10 m-20`}
         style={{ backgroundColor }}
       >
         <h2
-          className={`w-full ${textColor} text-[35px] md:text-[45px] font-medium font-['Albert Sans'] uppercase leading-[45px] md:leading-[65px]`}
+          className={`${textColor} text-3xl mb-2 font-['Albert Sans'] uppercase`}
         >
           ABOUT DATAHACKS
         </h2>
 
-        <div className="flex flex-col lg:flex-row items-start lg:items-center mt-6 gap-8 lg:gap-0">
-          {/* Placeholder for Image */}
-          <div className="w-full lg:w-[574px] h-[300px] md:h-[479px] bg-[#D9D9D9] rounded-[10px] pl-4"></div>
+        <div className="grid grid-flow-row grid-cols-10 gap-8">
+          {/* Image section - takes up 6/10 of the width */}
+          <div className="h-[100%] bg-[#D9D9D9] col-span-6 rounded-md"></div>
 
-          {/* Text Section */}
-          <div className="w-full lg:ml-7 flex flex-col justify-center space-y-8 lg:max-w-[500px]">
-            {points.map((point, index) => (
-              <div key={index} className="flex items-start gap-6">
-                {/* Star bullet point */}
-                <BulletStar key={index} />
-                <div className="flex-1">
-                  <p
-                    className={`text-[20px] md:text-[25px] font-semibold font-['Albert Sans'] uppercase leading-[25px] md:leading-[30px] ${textColor}`}
-                  >
-                    {point.title}
-                  </p>
-                  <p
-                    className={`text-[18px] md:text-[25px] font-light font-['Albert Sans'] leading-[22px] md:leading-[25px] mt-2 ${textColor}`}
-                  >
-                    {point.description}
-                  </p>
-                </div>
-              </div>
-            ))}
+          {/* Text section - takes up 4/10 of the width */}
+          <div className="col-span-4">
+            <div className="grid grid-flow-row grid-cols-8 gap-6">
+              {points.map((point, index) => (
+                <React.Fragment key={index}>
+                  <div className="col-span-1">
+                    <BulletStar key={index} />
+                  </div>
+                  <div className="col-span-7">
+                    <p
+                      className={`${textColor} text-2xl font-bold mb-2 font-['Albert Sans']`}
+                    >
+                      {point.title}
+                    </p>
+                    <p className={`${textColor} font-['Albert Sans']`}>
+                      {point.description}
+                    </p>
+                  </div>
+                </React.Fragment>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -81,7 +85,7 @@ const BulletStar = () => {
         transition={{
           duration: 8,
           repeat: Infinity,
-          ease: "linear"
+          ease: "linear",
         }}
         style={{
           width: "31px",
@@ -89,10 +93,11 @@ const BulletStar = () => {
           opacity: 1,
           filter: isDark
             ? "drop-shadow(0px 0px 8px rgba(245, 129, 52, 0.6))"
-            : "drop-shadow(0px 0px 8px rgba(25, 181, 202, 0.6))"
+            : "drop-shadow(0px 0px 8px rgba(25, 181, 202, 0.6))",
         }}
       />
     </div>
   );
 };
+
 export default AboutCard;

@@ -12,7 +12,7 @@ const Stats = () => {
     "Hackathon Attendees",
     "Workshops Hosted",
     "Active Members",
-    "Projects Completed"
+    "Projects Completed",
   ];
 
   const maxNumbers = [700, 100, 500, 50];
@@ -22,7 +22,7 @@ const Stats = () => {
     "#F58134", // Orange
     "#11B3C9", // Blue
     "#6C6C6C", // Gray
-    isDark ? "#FFFFFF" : "#333333" // White/Dark based on theme
+    isDark ? "#FFFFFF" : "#333333", // White/Dark based on theme
   ];
 
   const [statsData, setStatsData] = useState<number[]>([0, 0, 0, 0]);
@@ -30,7 +30,7 @@ const Stats = () => {
     false,
     false,
     false,
-    false
+    false,
   ]);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -62,7 +62,7 @@ const Stats = () => {
         0 5px 20px ${toRGBA(color, 0.4)},
         0 -5px 15px ${toRGBA(color, 0.2)},
         0 0 30px ${toRGBA(color, 0.33)}
-      `
+      `,
     };
   };
 
@@ -100,13 +100,13 @@ const Stats = () => {
   }, [animated, itemRefs, startCounting, setAnimated]);
 
   return (
-    <div className="flex flex-col items-center justify-center gap-8 text-white py-24 mb-[4vw] mt-20 lg:w-[80vw] w-[95vw]">
+    <div className="flex flex-col items-center justify-center gap-8 text-white py-24 mb-[4vw] mt-8 lg:w-[80vw] w-[95vw]">
       <motion.h1
         initial={{ y: -50, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, ease: "easeOut" }}
         viewport={{ once: true }}
-        className={`title font-bold mb-10 text-[4.75vw] mt-10 ${
+        className={`title font-bold mb-10 text-[4.75vw] ${
           isDark ? "text-white" : "text-black"
         }`}
         style={{ fontFamily: "'Albert Sans', sans-serif" }}
@@ -114,12 +114,13 @@ const Stats = () => {
         Get Involved
       </motion.h1>
 
-      {/* Horizontal container for stat items */}
-      <div className="flex items-center">
+      {/* Mobile: Grid layout, Desktop: Horizontal layout */}
+      <div className="grid grid-cols-2 md:flex md:items-center w-full max-w-4xl gap-6 md:gap-0">
         {statsData.map((stat, index) => (
           <Fragment key={index}>
             <div
-              className="flex flex-col items-center px-6"
+              className="flex flex-col items-center md:px-6 p-4 md:p-0 border border-opacity-20 rounded-lg md:border-0 md:rounded-none"
+              style={{ borderColor: isDark ? "white" : "black" }}
               ref={(el: HTMLDivElement | null) =>
                 (itemRefs.current[index] = el)
               }
@@ -130,15 +131,15 @@ const Stats = () => {
                 transition={{
                   duration: 1,
                   delay: index * 0.125,
-                  ease: "easeOut"
+                  ease: "easeOut",
                 }}
                 viewport={{ once: true }}
                 style={{
                   fontFamily: "'Albert Sans', sans-serif",
                   color: statColors[index],
-                  ...getTextShadowStyle(statColors[index])
+                  ...getTextShadowStyle(statColors[index]),
                 }}
-                className="number text-[4.5vw] font-normal"
+                className="number text-[5.5vw] md:text-[4.5vw] font-bold md:font-normal"
               >
                 {Math.round(stat) +
                   (Math.round(stat) === maxNumbers[index] ? "+" : "")}
@@ -150,10 +151,10 @@ const Stats = () => {
                 transition={{
                   duration: 1,
                   delay: index * 0.125,
-                  ease: "easeOut"
+                  ease: "easeOut",
                 }}
                 viewport={{ once: true }}
-                className={`text-[1.3vw] mt-2 ${
+                className={`text-[2vw] md:text-[1.3vw] mt-2 text-center ${
                   isDark ? "text-white" : "text-black"
                 }`}
               >
@@ -161,10 +162,10 @@ const Stats = () => {
               </motion.span>
             </div>
 
-            {/* Vertical divider (except after the last stat) */}
+            {/* Vertical divider (only on desktop and except after the last stat) */}
             {index < statsData.length - 1 && (
               <div
-                className={`${isDark ? "bg-white" : "bg-gray-800"}`}
+                className={`hidden md:block ${isDark ? "bg-white" : "bg-gray-800"}`}
                 style={{ width: "2px", height: "4.5vw" }}
               />
             )}

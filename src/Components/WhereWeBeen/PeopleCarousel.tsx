@@ -58,11 +58,13 @@ const PeopleCarousel = () => {
         <div className="flex flex-col sm:flex-row items-center justify-center rounded-xl p-6 w-full">
           {/* Left: Image */}
           <div className="sm:w-1/2 w-full flex justify-center mb-6 sm:mb-0 sm:mr-8">
-            <img
-              src={card.image}
-              alt={card.title}
-              className="rounded-xl w-[300px] h-[300px] object-cover"
-            />
+            <div className="w-[300px] aspect-square">
+              <img
+                src={card.image}
+                alt={card.title}
+                className="rounded-xl w-full h-full object-cover"
+              />
+            </div>
           </div>
 
           {/* Right: Text (title, description, author) */}

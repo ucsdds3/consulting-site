@@ -42,7 +42,7 @@ export const Banner: React.FC<{ eventInfo: string }> = ({ eventInfo }) => {
 
   return (
     <div
-      className={`w-[75%] max-w-[1204px] h-[13%] absolute top-24 left-1/2 transform -translate-x-1/2 z-20 
+      className={`w-[75%] max-w-[1204px] h-[13%] relative mx-auto mb-8
       rounded-[10px] shadow-[4px_7px_10px_0px_rgba(0,0,0,0.25)] flex items-center justify-between 
       px-8 md:px-16 border ${borderColor}`}
       style={{ backgroundColor: "rgba(217, 217, 217, 0.5)" }}
@@ -168,47 +168,48 @@ export const About: React.FC<{
 
   return (
     <div
-      className={`w-[90%] max-w-[1204px] min-h-[688px] relative mx-auto border ${borderColor} rounded-[15px] flex flex-col px-4 md:px-16 py-6 flex justify-center items-center`}
+      className={`size-fit w-[80vw] max-w-[1204px] relative mx-auto border ${borderColor} rounded-xl p-10 m-20`}
       style={{ backgroundColor }}
     >
       <h2
-        className={`w-full text-center ${textColor} text-[35px] md:text-[45px] font-medium font-['Albert Sans'] uppercase leading-[45px] md:leading-[65px]`}
+        className={`${textColor} text-3xl mb-2 font-['Albert Sans'] uppercase`}
       >
         {title}
       </h2>
 
-      <div className="flex flex-col lg:flex-row items-center justify-center mt-6 gap-8 mx-auto max-w-[90%]">
-        {/* Image with equal spacing */}
-        <div className="w-full lg:w-[45%] h-[300px] md:h-[479px] bg-[#D9D9D9] rounded-[10px]">
+      <div className="grid grid-flow-row grid-cols-10 gap-8">
+        {/* Image section - takes up 6/10 of the width */}
+        <div className="h-[100%] bg-[#D9D9D9] col-span-6 rounded-md">
           {imagePath && (
             <img
               src={imagePath}
               alt={title}
-              className="w-full h-full object-cover rounded-[10px]"
+              className="w-full h-full object-cover rounded-md"
             />
           )}
         </div>
 
-        {/* Text Section with even spacing */}
-        <div className="w-full lg:w-[45%] flex flex-col justify-center space-y-8">
-          {points.map((point, index) => (
-            <div key={index} className="flex items-start gap-6">
-              {/* Star bullet point */}
-              <BulletStar key={index} />
-              <div className="flex-1">
-                <p
-                  className={`text-[20px] md:text-[25px] font-semibold font-['Albert Sans'] uppercase leading-[25px] md:leading-[30px] ${textColor}`}
-                >
-                  {point.title}
-                </p>
-                <p
-                  className={`text-[18px] md:text-[25px] font-light font-['Albert Sans'] leading-[22px] md:leading-[25px] mt-2 ${textColor}`}
-                >
-                  {point.description}
-                </p>
-              </div>
-            </div>
-          ))}
+        {/* Text section - takes up 4/10 of the width */}
+        <div className="col-span-4">
+          <div className="grid grid-flow-row grid-cols-8 gap-6">
+            {points.map((point, index) => (
+              <React.Fragment key={index}>
+                <div className="col-span-1">
+                  <BulletStar />
+                </div>
+                <div className="col-span-7">
+                  <p
+                    className={`${textColor} text-2xl font-bold mb-2 font-['Albert Sans']`}
+                  >
+                    {point.title}
+                  </p>
+                  <p className={`${textColor} font-['Albert Sans']`}>
+                    {point.description}
+                  </p>
+                </div>
+              </React.Fragment>
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -268,7 +269,7 @@ export const Events: React.FC<{
   };
 
   return (
-    <div className="w-[90%] max-w-[1204px] mx-auto flex flex-col mt-20">
+    <div className="w-[90%] max-w-[1204px] mx-auto flex flex-col mt-20 mb-16 md:mb-24">
       {/* Search & Buttons */}
       <div className="w-full flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0 mb-6">
         <div className="flex gap-4 w-full sm:w-auto">
@@ -403,18 +404,22 @@ const EventPageTemplate: React.FC<EventPageTemplateProps> = ({
 }) => {
   return (
     <Page>
-      <Banner eventInfo={eventInfo || ""} />
-      <Header
-        title={pageTitle}
-        subtitle={pageSubtitle}
-        imagePath={headerImagePath}
-      />
-      <About
-        title={aboutTitle}
-        imagePath={aboutImagePath}
-        points={aboutPoints}
-      />
-      <Events upcomingEvents={upcomingEvents} pastEvents={pastEvents} />
+      <div className="relative">
+        <div className="mt-[80px] md:mt-[80px]">
+          <Banner eventInfo={eventInfo || ""} />
+          <Header
+            title={pageTitle}
+            subtitle={pageSubtitle}
+            imagePath={headerImagePath}
+          />
+          <About
+            title={aboutTitle}
+            imagePath={aboutImagePath}
+            points={aboutPoints}
+          />
+          <Events upcomingEvents={upcomingEvents} pastEvents={pastEvents} />
+        </div>
+      </div>
     </Page>
   );
 };

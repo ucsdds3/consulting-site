@@ -6,7 +6,10 @@ export default function Text() {
   const { isDark } = useTheme();
 
   return (
-    <div className="flex flex-col justify-center mt-[20vh]" id="textarea">
+    <div
+      className="flex flex-col justify-center mt-[10vh] md:mt-[20vh]"
+      id="textarea"
+    >
       <div className="">
         <div
           className={`flex ${
@@ -20,23 +23,32 @@ export default function Text() {
             WITH DATA
           </span>
         </div>
-        <div className="flex">
+        <div className="flex flex-col">
+          <div className="flex items-center">
+            <p
+              className={`lg:text-[4vw] text-[8.5vw] ${
+                isDark ? "text-white" : "text-black"
+              } font-medium font-albert-sans leading-tight`}
+            >
+              Data Science
+            </p>
+            <img
+              src={`${baseURL}/src/Assets/Images/ds3_logo.png`}
+              alt="Logo"
+              className="-scale-x-100 w-12 object-contain ml-2 hidden md:block"
+            />
+          </div>
           <p
-            className={`lg:text-[4vw] text-[7vw] ${
+            className={`lg:text-[4vw] text-[8.5vw] ${
               isDark ? "text-white" : "text-black"
-            } font-medium font-albert-sans`}
+            } font-medium font-albert-sans leading-tight`}
           >
-            Data Science Student Society
+            Student Society
           </p>
-          <img
-            src={`${baseURL}/src/Assets/Images/ds3_logo.png`}
-            alt="Logo"
-            className="-scale-x-100 w-12 object-contain"
-          />
         </div>
 
         <div
-          className={`mt-1 md:text-[1.5vw] text-[4vw] sm:text-[3vw] pb-10 font-albert-sans ${
+          className={`mt-1 md:text-[1.5vw] text-[5vw] sm:text-[3vw] pb-10 font-albert-sans ${
             isDark ? "text-white" : "text-black"
           }`}
         >
