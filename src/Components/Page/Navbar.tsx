@@ -36,7 +36,7 @@ const Navbar = () => {
         <NavItem text="Contact Us" link="#contact" />
         <Button
           variant={"ghost"}
-          className="bg-white text-black hover:cursor-pointer rounded-full"
+          className="bg-[#F58134] text-black hover:cursor-pointer rounded-full"
         >
           DS3 Main Site
         </Button>
