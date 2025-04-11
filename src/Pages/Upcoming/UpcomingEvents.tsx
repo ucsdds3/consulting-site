@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useTheme } from "../Home/useTheme";
-import data from "./UpcomingEvents.json";
+import { useCalendarEvents } from "../../Hooks/useCalendarEvents";
 
 export default function UpcomingEvents() {
-  const [filter, setFilter] = useState("");
   const eventTypes = ["Social", "Professional", "Workshop"];
+  const [filter, setFilter] = useState("");
+  const { events, loading, error } = useCalendarEvents();
+
   return (
     <>
       <div className="w-full flex md:px-24 px-2 py-10 gap-2 flex-col">
@@ -29,7 +31,7 @@ export default function UpcomingEvents() {
           })}
         </div>
         <div className="grid grid-cols-[repeat(auto-fit,minmax(clamp(330px,30vw,500px),1fr))] w-full gap-2 md:gap-5 ">
-          {data
+          {events
             .filter((daton) => daton.type === filter || filter === "")
             .map((daton, index) => {
               return <Card {...daton} key={index} />;
@@ -77,9 +79,7 @@ function Card({
       >
         <p
           className={`absolute text-sm w-[70%] text-nowrap ml-2 font-albert-sans hover:cursor-pointer overflow-hidden [text-overflow:ellipsis]  ${
-            isDark
-              ? "text-white hover:text-gray-400"
-              : "text-black hover:text-gray-600"
+            isDark ? "text-white hover:text-gray-400" : "text-black hover:text-gray-600"
           }`}
         >
           {type}
