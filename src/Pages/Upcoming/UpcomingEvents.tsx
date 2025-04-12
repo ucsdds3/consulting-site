@@ -1,38 +1,31 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { useTheme } from "../Home/useTheme";
 import { useCalendarEvents } from "../../Hooks/useCalendarEvents";
 
 export default function UpcomingEvents() {
-  const eventTypes = ["Social", "Professional", "Workshop"];
-  const [filter, setFilter] = useState("");
+  // const eventTypes = ["Social", "Professional", "Workshop"];
+  // const [filter, setFilter] = useState("");
   const { events, loading, error } = useCalendarEvents();
 
   return (
     <>
       <div className="w-full flex md:px-24 px-2 py-10 gap-2 flex-col">
-        <div className="flex gap-4 w-full mb-2 ">
-          {eventTypes.map((event) => {
-            return (
-              <button
-                className={`rounded-full w-fit h-fit px-4 py-2 border-2 border-white ${
-                  filter === event ? "bg-white" : ""
-                }`}
-                onClick={() => {
-                  if (event != filter) {
-                    setFilter(event);
-                  } else {
-                    setFilter("");
-                  }
-                }}
-              >
-                {event}
-              </button>
-            );
-          })}
-        </div>
+        {/* <div className="flex gap-4 w-full mb-2 ">
+          {eventTypes.map((event, index) => (
+            <button
+              className={`rounded-full w-fit h-fit px-4 py-2 border-2 border-white ${
+                filter === event ? "bg-white" : ""
+              }`}
+              onClick={() => setFilter(event == filter ? "" : event)}
+              key={index}
+            >
+              {event}
+            </button>
+          ))}
+        </div> */}
         <div className="grid grid-cols-[repeat(auto-fit,minmax(clamp(330px,30vw,500px),1fr))] w-full gap-2 md:gap-5 ">
           {events
-            .filter((daton) => daton.type === filter || filter === "")
+            // .filter((daton) => daton.type === filter || filter === "")
             .map((daton, index) => {
               return <Card {...daton} key={index} />;
             })}

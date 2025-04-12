@@ -22,16 +22,31 @@ export function useCalendarEvents() {
         );
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
+        console.log(data);
 
         const mappedEvents = (data.items || []).map((item: any) => {
           const dateObj = new Date(item.start?.dateTime || item.start?.date);
-          const formattedDate = dateObj.toLocaleDateString("en-GB"); // DD/MM/YYYY
-          const [day, month, year] = formattedDate.split("/");
+        
+          const formattedDate = dateObj.toLocaleDateString("en-US", {
+            month: "short",
+            day: "numeric",
+            year: "numeric",
+          }); // Jan 1, 2025
+        
+          const formattedTime = dateObj.toLocaleTimeString("en-US", {
+            hour: "numeric",
+            minute: "2-digit",
+            hour12: true,
+          }); // 5:30 PM
+        
+          const image = item.attachments?.[0]?.fileUrl || null;
+        
           return {
             title: item.summary || "No Title",
-            date: `${day}/${month}/${year}`,
-            type: "Workshop", // Placeholder — customize if needed
+            date: `${formattedDate} ${formattedTime}`,
+            location: item.location || "No location",
             description: item.description || "No description",
+            image,
           };
         });
         console.log(mappedEvents);
