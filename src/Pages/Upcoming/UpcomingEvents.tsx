@@ -1,40 +1,29 @@
-import { useState } from "react";
 import { useTheme } from "../Home/useTheme";
 import { useCalendarEvents } from "../../Hooks/useCalendarEvents";
-const skeletonContent = {
-  title: "",
-  date: "",
-  description: "",
-  type: "",
-};
+import { EventType } from "../../Utils/types";
+// import { useState } from "react";
+
 export default function UpcomingEvents() {
-  const eventTypes = ["Social", "Professional", "Workshop"];
-  const [filter, setFilter] = useState("");
+  // const eventTypes = ["Social", "Professional", "Workshop"];
+  // const [filter, setFilter] = useState("");
   const { events, loading, error } = useCalendarEvents();
 
   return (
     <>
       <div className="w-full flex md:px-24 px-2 py-10 gap-2 flex-col">
-        <div className="flex gap-4 w-full mb-2 ">
+        {/* <div className="flex gap-4 w-full mb-2 ">
           {!loading &&
-            eventTypes.map((event) => {
-              return (
-                <button
-                  className={`rounded-full w-fit h-fit px-4 py-2 border-2 border-white ${
-                    filter === event ? "bg-white" : ""
-                  }`}
-                  onClick={() => {
-                    if (event != filter) {
-                      setFilter(event);
-                    } else {
-                      setFilter("");
-                    }
-                  }}
-                >
-                  {event}
-                </button>
-              );
-            })}
+            eventTypes.map((event, index) => (
+              <button
+                className={`rounded-full w-fit h-fit px-4 py-2 border-2 border-white ${
+                  filter === event ? "bg-white" : ""
+                }`}
+                onClick={() => setFilter(event === filter ? "" : event)}
+                key={index}
+              >
+                {event}
+              </button>
+            ))}
           {loading &&
             Array.from({ length: 3 }).map(() => {
               return (
@@ -43,39 +32,21 @@ export default function UpcomingEvents() {
                 </button>
               );
             })}
-        </div>
+        </div> */}
         <div className="grid grid-cols-[repeat(auto-fit,clamp(300px,40vw,400px))] w-full gap-2 md:gap-5 ">
-          {!loading &&
-            events
-              .filter((daton) => daton.type === filter || filter === "")
-              .map((daton, index) => {
-                return <Card {...daton} key={index} />;
-              })}
-          {loading &&
-            Array.from({ length: 10 }).map((_, index) => {
-              return (
-                <>
-                  <Card {...skeletonContent} key={index} />
-                </>
-              );
-            })}
+          {loading
+            ? Array.from({ length: 3 }).map((_, index) => (
+                <Card {...({} as EventType)} key={index} />
+              ))
+            : events.map((daton, index) => <Card {...daton} key={index} />)}
+          {/* .filter((daton) => daton.type === filter || filter === "") */}
         </div>
       </div>
     </>
   );
 }
 
-function Card({
-  title,
-  date,
-  description,
-  image,
-}: {
-  title?: string;
-  date?: string;
-  description?: string;
-  image?: string;
-}) {
+function Card({ title, date, description, image }: EventType) {
   const { isDark } = useTheme();
   console.log(image);
   return (
@@ -123,10 +94,7 @@ function Card({
         </p>
       </div>
       <div className="w-full aspect-video relative mb-2">
-        <img
-          src={image}
-          className="object-cover rounded-md z-2 w-full h-full"
-        />
+        <img src={image} className="object-cover rounded-md z-2 w-full h-full" />
         {/* <div className="absolute top-0 skeleton z-1 w-full h-full rounded-lg"></div> */}
       </div>
 

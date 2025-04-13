@@ -1,14 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from "react";
+import { EventType } from "../Utils/types";
 
-type EventItem = {
-  title: string;
-  date: string;
-  type: string;
-  description: string;
-};
 export function useCalendarEvents() {
-  const [events, setEvents] = useState<EventItem[]>([]);
+  const [events, setEvents] = useState<EventType[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const calendarId = import.meta.env.VITE_CALENDAR_ID;
