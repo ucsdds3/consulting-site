@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from "react";
 
 type EventItem = {
@@ -6,7 +7,6 @@ type EventItem = {
   type: string;
   description: string;
 };
-
 export function useCalendarEvents() {
   const [events, setEvents] = useState<EventItem[]>([]);
   const [loading, setLoading] = useState(true);
@@ -23,7 +23,7 @@ export function useCalendarEvents() {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
 
-        const mappedEvents = (data.items || []).map((item: any) => {
+        const mappedEvents = (data.items || []).map((item:any) => {
           const dateObj = new Date(item.start?.dateTime || item.start?.date);
           const formattedDate = dateObj.toLocaleDateString("en-GB"); // DD/MM/YYYY
           const [day, month, year] = formattedDate.split("/");
@@ -40,7 +40,8 @@ export function useCalendarEvents() {
       } catch (err: any) {
         setError(err.message);
       } finally {
-        setLoading(false);
+        setTimeout(()=>{setLoading(false)},10000)
+        
       }
     };
 
