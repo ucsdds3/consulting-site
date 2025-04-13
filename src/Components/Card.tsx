@@ -1,26 +1,54 @@
+import "../index.css";
+import { useState } from "react";
 interface CardProps {
   title: string;
   description: string;
   image?: string;
 }
 
+
 const LandingCard = ({ title, description, image }: CardProps) => {
+  const [isLockedFlipped, setIsLockedFlipped] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const isFlipped = isLockedFlipped || isHovered;
+
   return (
-    <div className="relative  flex flex-col items-center justify-center gap-4 border border-white hover:border-[#19B5CA] rounded-[1.5vw] w-[clamp(300px,20vw,300px)] h-96 group text-white overflow-hidden transition-shadow duration-300 hover:shadow-[0_0_15px_#19B5CA]">
-      <img
-        src={image}
-        alt={title}
-        className="absolute w-[80%] object-cover opacity-100 group-hover:opacity-30 transition-opacity duration-300 left-1/2 top-[30%] transform -translate-x-1/2"
-      />
-      <div className="relative z-10 text-center px-4 h-[80%] flex flex-col gap-4">
-        <h3 className="text-[clamp(15px,2.5vw,20px)] font-bold">{title}</h3>
-        <p className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          {description}
-        </p>
+    <div
+      className="w-[clamp(300px,20vw,300px)] h-96 [perspective:1000px] cursor-pointer"
+      onClick={() => setIsLockedFlipped(!isLockedFlipped)}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div
+        className={`relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] ${
+          isFlipped ? "[transform:rotateY(180deg)]" : ""
+        }`}
+      >
+        {/* Front Side */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 border border-white hover:border-[#19B5CA] rounded-[1.5vw] text-white overflow-hidden bg-black [backface-visibility:hidden] [transform:rotateY(0deg)]">
+          <img
+            src={image}
+            alt={title}
+            className="absolute w-[80%] object-cover opacity-100 transition-opacity duration-300 left-1/2 top-[30%] transform -translate-x-1/2"
+          />
+          <div className="relative z-10 text-center px-4 h-[80%] flex flex-col gap-4">
+            <h3 className="text-[clamp(15px,2.5vw,20px)] font-bold">{title}</h3>
+          </div>
+        </div>
+
+        {/* Back Side */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 rounded-[1.5vw] text-white bg-black px-4 [backface-visibility:hidden] [transform:rotateY(180deg)]">
+          <h3 className="text-[clamp(15px,2.5vw,20px)] font-bold">{title}</h3>
+          <p className="px-2 text-left leading-relaxed">{description}</p>
+        </div>
       </div>
     </div>
   );
-};
+}
+
+
+
 
 const WorkCard = ({ title, description, image }: CardProps) => {
   return (
