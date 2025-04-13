@@ -24,7 +24,7 @@ export function useCalendarEvents() {
         const data = await res.json();
         const now = new Date();
         // console.log(data);
-
+        
         const mappedEvents = (data.items || [])
           .filter((item: any) => {
             const startDate = new Date(item.start?.dateTime || item.start?.date);
@@ -42,15 +42,22 @@ export function useCalendarEvents() {
               month: "short",
               day: "numeric",
               year: "numeric",
-            }); // Jan 1, 2025
+            });
 
             const formattedTime = dateObj.toLocaleTimeString("en-US", {
               hour: "numeric",
               minute: "2-digit",
               hour12: true,
-            }); // 5:30 PM
+            });
 
-            const image = item.attachments?.[0]?.fileUrl || null;
+            const rawUrl = item.attachments?.[0]?.fileUrl || null;
+
+            const image =
+              rawUrl?.includes("drive.google.com") && rawUrl.includes("id=")
+                ? `https://drive.google.com/uc?export=view&id=${new URL(rawUrl).searchParams.get(
+                    "id"
+                  )}`
+                : rawUrl;
 
             return {
               title: item.summary || "No Title",
