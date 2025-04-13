@@ -35,7 +35,7 @@ const Landing = () => {
             key={key}
             title={key}
             description={value.description}
-            image={imageMap[key]}
+            image={imageMap[key as keyof typeof imageMap]}
           />
         ))}
       </div>

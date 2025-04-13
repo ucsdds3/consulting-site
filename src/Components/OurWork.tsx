@@ -43,6 +43,7 @@ const OurWork = () => {
                 key={index}
                 title={project.project_name}
                 description={project.project_description}
+                image="https://fakeimg.pl/600x400?text=Coming+soon"
               />
             ))}
           </div>
@@ -55,6 +56,7 @@ const OurWork = () => {
                 key={index}
                 title={`Member ${index + 1}`}
                 description={`Description for Member ${index + 1}`}
+                image="https://fakeimg.pl/600x400?text=Coming+soon"
               />
             ))}
           </div>
@@ -67,6 +69,7 @@ const OurWork = () => {
                 key={index}
                 title={`Client ${index + 1}`}
                 description={`Description for Client ${index + 1}`}
+                image="https://fakeimg.pl/600x400?text=Coming+soon"
               />
             ))}
           </div>

@@ -56,7 +56,7 @@ const LandingCard = ({ title, description, image }: CardProps) => {
 const WorkCard = ({ title, description, image }: CardProps) => {
   return (
     <div className="flex flex-col justify-between bg-gray-100 dark:bg-gray-900 rounded-xl p-4 h-full min-h-[320px]">
-      <div className="w-full aspect-square bg-gray-300 dark:bg-gray-700 rounded-lg mb-4" />
+      <img src={image} className="w-full aspect-square bg-gray-300 dark:bg-gray-700 rounded-lg mb-4" />
       <h3 className="text-lg font-semibold text-white mb-2">{title}</h3>
       <p className="text-sm text-slate-300">{description}</p>
     </div>
