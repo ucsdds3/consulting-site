@@ -54,9 +54,9 @@ export function useCalendarEvents() {
 
             const image =
               rawUrl?.includes("drive.google.com") && rawUrl.includes("id=")
-                ? `https://drive.google.com/uc?export=view&id=${new URL(rawUrl).searchParams.get(
+                ? `https://drive.google.com/thumbnail?id=${new URL(rawUrl).searchParams.get(
                     "id"
-                  )}`
+                  )}&sz=s1000`
                 : rawUrl;
 
             return {
