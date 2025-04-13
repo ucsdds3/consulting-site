@@ -184,7 +184,7 @@ const Navbar = () => {
 
             {/* JOIN US button */}
             <button
-              className={`bg-white text-black px-4 py-2 hover:bg-gray-200 rounded-xl ${typographyClasses} font-semibold w-full md:w-auto`}
+              className={`${isDark ? "bg-[#FF8B3E]" : "bg-[#00B4D8]"} text-black px-4 py-2 hover:bg-gray-200 rounded-xl ${typographyClasses} font-semibold w-full md:w-auto`}
               onClick={() => navigate("/join")}
             >
               JOIN US
