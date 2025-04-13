@@ -1,6 +1,7 @@
 import { useTheme } from "../Home/useTheme";
 import { useCalendarEvents } from "../../Hooks/useCalendarEvents";
 import { EventType } from "../../Utils/types";
+import Error from "../../Components/ErrorAlert";
 // import { useState } from "react";
 
 export default function UpcomingEvents() {
@@ -9,9 +10,8 @@ export default function UpcomingEvents() {
   const { events, loading, error } = useCalendarEvents();
 
   return (
-    <>
-      <div className="w-full flex md:px-24 px-2 py-10 gap-2 flex-col">
-        {/* <div className="flex gap-4 w-full mb-2 ">
+    <div className="w-full flex md:px-24 px-2 py-10 gap-2 flex-col">
+      {/* <div className="flex gap-4 w-full mb-2 ">
           {!loading &&
             eventTypes.map((event, index) => (
               <button
@@ -33,16 +33,20 @@ export default function UpcomingEvents() {
               );
             })}
         </div> */}
+
+      {loading ? (
+        Array.from({ length: 3 }).map((_, index) => <Card {...({} as EventType)} key={index} />)
+      ) : error ? (
+        <Error message={error!} />
+      ) : (
         <div className="grid grid-cols-[repeat(auto-fit,clamp(300px,40vw,400px))] w-full gap-2 md:gap-5 ">
-          {loading
-            ? Array.from({ length: 3 }).map((_, index) => (
-                <Card {...({} as EventType)} key={index} />
-              ))
-            : events.map((daton, index) => <Card {...daton} key={index} />)}
-          {/* .filter((daton) => daton.type === filter || filter === "") */}
+          {events.map((daton, index) => (
+            <Card {...daton} key={index} />
+          ))}
         </div>
-      </div>
-    </>
+      )}
+      {/* .filter((daton) => daton.type === filter || filter === "") */}
+    </div>
   );
 }
 

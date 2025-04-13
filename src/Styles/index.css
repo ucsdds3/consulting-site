@@ -62,3 +62,12 @@ a {
 button.bg-white {
   @apply text-black;
 }
+
+.alert.alert-dash {
+  color: oklch(68.22% .206 24.43);
+  box-shadow: none;
+  background-color: rgba(0, 0, 0, 0);
+  background-image: none;
+  border: var(--border) solid var(--color-base-200);
+  border-style: dashed;
+}
