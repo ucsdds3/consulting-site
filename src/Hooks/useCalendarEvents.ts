@@ -73,7 +73,7 @@ export function useCalendarEvents() {
       } catch (err: any) {
         setError(err.message);
       } finally {
-        setTimeout(()=>{setLoading(false)},10000)
+        setTimeout(()=>{setLoading(false)},5000)
         
       }
     };
