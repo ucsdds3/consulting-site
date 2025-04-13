@@ -123,12 +123,12 @@ function Card({
         </p>
       </div>
       <div className="w-full aspect-video relative mb-2">
-        <img
-          src={image}
-          alt={title}
+        <iframe
+          src="https://drive.google.com/file/d/1gpk-KfMcd-5c2UlaiD1Inf4A4scWLvn-/preview"
           className=" object-cover rounded-md z-2 w-full h-full"
-          style={{ borderRadius: "8px" }}
-        />
+          scrolling="no"
+          frameBorder={0}
+        ></iframe>
         {/* <div className="absolute top-0 skeleton z-1 w-full h-full rounded-lg"></div> */}
       </div>
 
