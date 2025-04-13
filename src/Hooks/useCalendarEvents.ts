@@ -22,18 +22,44 @@ export function useCalendarEvents() {
         );
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
+        const now = new Date();
+        // console.log(data);
 
-        const mappedEvents = (data.items || []).map((item:any) => {
-          const dateObj = new Date(item.start?.dateTime || item.start?.date);
-          const formattedDate = dateObj.toLocaleDateString("en-GB"); // DD/MM/YYYY
-          const [day, month, year] = formattedDate.split("/");
-          return {
-            title: item.summary || "No Title",
-            date: `${day}/${month}/${year}`,
-            type: "Workshop", // Placeholder — customize if needed
-            description: item.description || "No description",
-          };
-        });
+        const mappedEvents = (data.items || [])
+          .filter((item: any) => {
+            const startDate = new Date(item.start?.dateTime || item.start?.date);
+            return startDate > now;
+          })
+          .sort((a: any, b: any) => {
+            const dateA = new Date(a.start?.dateTime || a.start?.date).getTime();
+            const dateB = new Date(b.start?.dateTime || b.start?.date).getTime();
+            return dateA - dateB;
+          })
+          .map((item: any) => {
+            const dateObj = new Date(item.start?.dateTime || item.start?.date);
+
+            const formattedDate = dateObj.toLocaleDateString("en-US", {
+              month: "short",
+              day: "numeric",
+              year: "numeric",
+            }); // Jan 1, 2025
+
+            const formattedTime = dateObj.toLocaleTimeString("en-US", {
+              hour: "numeric",
+              minute: "2-digit",
+              hour12: true,
+            }); // 5:30 PM
+
+            const image = item.attachments?.[0]?.fileUrl || null;
+
+            return {
+              title: item.summary || "No Title",
+              date: `${formattedDate} ${formattedTime}`,
+              location: item.location || "No location",
+              description: item.description || "No description",
+              image,
+            };
+          });
         console.log(mappedEvents);
 
         setEvents(mappedEvents);

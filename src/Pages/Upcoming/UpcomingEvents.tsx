@@ -44,7 +44,7 @@ export default function UpcomingEvents() {
               );
             })}
         </div>
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(clamp(330px,30vw,500px),1fr))] w-full gap-2 md:gap-5 ">
+        <div className="grid grid-cols-[repeat(auto-fit,clamp(330px,30vw,500px))] w-full gap-2 md:gap-5 ">
           {!loading &&
             events
               .filter((daton) => daton.type === filter || filter === "")
