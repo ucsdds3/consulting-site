@@ -3,6 +3,7 @@ import { useTheme } from "../Home/useTheme";
 import { starVariants } from "../../Components/Landing/LandingVariants";
 import star from "../../Assets/Images/Star.svg";
 import React from "react";
+import photo from '../../Assets/Images/datahacks/datahacks_about.jpeg';
 
 const points = [
   {
@@ -41,7 +42,13 @@ const AboutCard = () => {
 
         <div className="grid grid-flow-row grid-cols-10 gap-8">
           {/* Image section - takes up 6/10 of the width */}
-          <div className="h-[100%] bg-[#D9D9D9] col-span-6 rounded-md"></div>
+          <div className="col-span-6 rounded-md overflow-hidden">
+            <img 
+              src={photo} 
+              alt="DataHacks event" 
+              className="w-full h-full object-cover"
+            />
+          </div>
 
           {/* Text section - takes up 4/10 of the width */}
           <div className="col-span-4">

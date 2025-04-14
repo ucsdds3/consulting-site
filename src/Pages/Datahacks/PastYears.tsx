@@ -14,20 +14,20 @@ const PastYears = () => {
   const projects: ProjectInfo[] = [
     {
       rank: 1,
-      name: "PROJECT NAME",
-      link: "githublink",
+      name: "OnlyDance",
+      link: "https://devpost.com/software/onlydance?_gl=1*1iw82sg*_gcl_au*MjA5NDIzNzEwNy4xNzQ0NjY2MDY3*_ga*MjU1Mzg1OTU4LjE3NDQ2NjYwNjc.*_ga_0YHJK3Y10M*MTc0NDY3MTY1OS4yLjAuMTc0NDY3MTY1OS4wLjAuMA..",
       height: "h-96" // Tallest podium
     },
     {
       rank: 2,
-      name: "PROJECT NAME",
-      link: "githublink",
+      name: "Central or Centel?",
+      link: "https://devpost.com/software/central-or-centel?_gl=1*1kshqrc*_gcl_au*MjA5NDIzNzEwNy4xNzQ0NjY2MDY3*_ga*MjU1Mzg1OTU4LjE3NDQ2NjYwNjc.*_ga_0YHJK3Y10M*MTc0NDY3MTY1OS4yLjEuMTc0NDY3MTc3Ny4wLjAuMA..",
       height: "h-80" // Medium height podium
     },
     {
       rank: 3,
-      name: "PROJECT NAME",
-      link: "githublink",
+      name: "Script to Screen",
+      link: "https://devpost.com/software/script2screen?_gl=1*11b6310*_gcl_au*MjA5NDIzNzEwNy4xNzQ0NjY2MDY3*_ga*MjU1Mzg1OTU4LjE3NDQ2NjYwNjc.*_ga_0YHJK3Y10M*MTc0NDY3MTY1OS4yLjEuMTc0NDY3MTk0OC4wLjAuMA..",
       height: "h-64" // Shortest podium
     }
   ];
@@ -53,11 +53,11 @@ const PastYears = () => {
         <h3 className={`font-light ${
           isDark ? "text-white" : "text-black"
         }`}>{projects[0].name}</h3>
-        <a href={`https://${projects[0].link}`} 
+        <a href={projects[0].link} 
            className="text-gray-500 hover:text-gray-400" 
            target="_blank" 
            rel="noopener noreferrer">
-          {projects[0].link}
+          View Project
         </a>
       </div>
       
@@ -71,11 +71,11 @@ const PastYears = () => {
                 <h3 className={`font-light ${
                   isDark ? "text-white" : "text-black"
                 }`}>{project.name}</h3>
-                <a href={`https://${project.link}`} 
+                <a href={project.link} 
                    className="text-gray-500 hover:text-gray-400" 
                    target="_blank" 
                    rel="noopener noreferrer">
-                  {project.link}
+                  View Project
                 </a>
               </div>
             )}
@@ -94,7 +94,7 @@ const PastYears = () => {
       
       {/* View Gallery button */}
       <div className="mt-8">
-        <Button contents="View 2024 Gallery" onclick={() => {}} />
+        <Button contents="View 2025 Gallery" onclick={() => {}} />
       </div>
     </div>
   );
