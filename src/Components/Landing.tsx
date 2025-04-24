@@ -1,9 +1,17 @@
 import Button from "./Button";
 import { LandingCard } from "./Card";
-import ModelDesign from "/src/Assets/Model_Design.png";
-import MLOPS from "/src/Assets/MLOPS.png";
-import DataAnalytics from "/src/Assets/Data_Analytics.png";
-import SolutionsArchitecture from "/src/Assets/Solutions_Architecture.png";
+import services from "../../services.json"
+import ModelDesign from "../Assets/Model_Design.png"
+import MLOPS from "../Assets/MLOPS.png"
+import DataAnalytics from "../Assets/Data_Analytics.png"
+import SolutionsArchitecture from "../Assets/Solutions_Architecture.png"
+
+const imageMap = {
+  "Model Design": ModelDesign,
+  "MLOPS": MLOPS,
+  "Data Analytics": DataAnalytics,
+  "Solutions Architecture": SolutionsArchitecture,
+};
 
 const Landing = () => {
   return (
@@ -19,22 +27,14 @@ const Landing = () => {
       </p>
       <Button onClick={() => {}}>CONTACT US</Button>
       <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-4 w-fit mt-20">
-        <LandingCard
-          title="MODEL DESIGN"
-          description="Lorem ipsum dolor sit amet"
-          image={ModelDesign}
-        />
-        <LandingCard title="MLOPS" description="Lorem ipsum dolor sit amet" image={MLOPS} />
-        <LandingCard
-          title="DATA ANALYTICS"
-          description="Lorem ipsum dolor sit amet"
-          image={DataAnalytics}
-        />
-        <LandingCard
-          title="SOLUTIONS ARCHITECTURE"
-          description="Lorem ipsum dolor sit amet"
-          image={SolutionsArchitecture}
-        />
+        {Object.entries(services).map(([key, value]) => (
+          <LandingCard
+            key={key}
+            title={key}
+            description={value.description}
+            image={imageMap[key as keyof typeof imageMap]}
+          />
+        ))}
       </div>
     </div>
   );
