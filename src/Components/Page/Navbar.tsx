@@ -34,10 +34,7 @@ const Navbar = () => {
         <NavItem text="About Us" link="#about-us" />
         <NavItem text="Our Work" link="#work" />
         <NavItem text="Contact Us" link="#contact" />
-        <Button
-          variant={"ghost"}
-          className="bg-[#F58134] text-black hover:cursor-pointer rounded-full"
-        >
+        <Button className="bg-[#F58134] hover:brightness-110 text-white hover:cursor-pointer rounded-md font-bold">
           DS3 Main Site
         </Button>
       </div>
@@ -47,11 +44,7 @@ const Navbar = () => {
 
 function NavItem({ text, link }: { text: string; link: string }) {
   return (
-    <Button
-      variant={"ghost"}
-      size={"lg"}
-      className="text-white hover:cursor-pointer font-light font-quicksand"
-    >
+    <Button className="text-white hover:cursor-pointer font-bold font-quicksand rounded-md">
       <a href={link} className="">
         {text}
       </a>

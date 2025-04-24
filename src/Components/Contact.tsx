@@ -108,7 +108,7 @@ const Contact = () => {
                 </FormItem>
               )}
             />
-            <Button contents="Submit" onclick={form.handleSubmit(onSubmit)} />
+            <Button onClick={form.handleSubmit(onSubmit)}>SUBMIT</Button>
           </form>
         </Form>
       </div>

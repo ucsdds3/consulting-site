@@ -1,46 +1,31 @@
 import { motion } from "framer-motion";
-// import { useTheme } from "../Pages/Home/useTheme";
+import { twMerge } from "tailwind-merge";
 
 const buttonVariants = {
-  initial: {
-    y: 0
-  },
-  hover: {
-    y: "5px"
-  }
+  initial: { y: 0 },
+  hover: { y: "clamp(0.3rem,1.2vw,0.6rem)" },
 };
 
-const Button = ({
-  onclick,
-  contents,
-  className = ""
-}: {
-  onclick: () => void;
-  contents: string;
+interface ButtonProps {
+  onClick: () => void;
   className?: string;
-}) => {
+  children: React.ReactNode;
+}
+
+const Button = ({ onClick, children, className }: ButtonProps) => {
   return (
-    <div
-      className={`relative inline-block w-fit h-fit mt-4 ${className}`}
-      onClick={onclick}
-    >
+    <div className={twMerge("relative size-fit my-3", className)} onClick={onClick}>
       <motion.button
-        className={` top-0  border-2 border-[#F58134] rounded-full py-1 px-6 cursor-pointer  whitespace-nowrap  text-[20px] bg-[#1E1E1E] text-white
-         `}
+        className="border-2 rounded-full py-3 px-10 whitespace-nowrap cursor-pointer text-[clamp(1rem,1.2vw,2rem)] min-w-[clamp(8rem,10vw,15rem)] bg-black border-[#F58134] text-white uppercase font-semibold"
         variants={buttonVariants}
         initial="initial"
         animate="initial"
         whileHover="hover"
       >
-        {contents}
+        {children}
       </motion.button>
-      {/* Invisible element to maintain height */}
-      <div
-        className={`absolute top-0  translate-y-[5px] border-2  border-[#F58134] w-full h-full rounded-full z-[-1] bg-[#F58134]
-         `}
-      ></div>
 
-      <div className="absolute top-0 invisible py-2 px-6   ">{contents}</div>
+      <div className="absolute top-0 translate-y-[clamp(0.3rem,1.2vw,0.6rem)] border-2 size-full rounded-full -z-1 bg-[#F58134] border-[#F58134]" />
     </div>
   );
 };
